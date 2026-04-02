@@ -46,13 +46,13 @@ function DatingScannerContent() {
   const searchParams = useSearchParams()
 
   // Retention: Redirect to results page if already scanned
-  // useEffect(() => {
-  //   const hasScanned = localStorage.getItem("has_scanned");
-  //   if (hasScanned === "true") {
-  //     const queryString = searchParams.toString();
-  //     window.location.href = queryString ? `/results?${queryString}` : "/results";
-  //   }
-  // }, [searchParams]);
+  useEffect(() => {
+    const hasScanned = localStorage.getItem("has_scanned");
+    if (hasScanned === "true") {
+      const queryString = searchParams.toString();
+      window.location.href = queryString ? `/results?${queryString}` : "/results";
+    }
+  }, [searchParams]);
   const searchQuery = searchParams.get('q')
 
   const queryString = searchParams.toString();
