@@ -7,10 +7,10 @@ import {
 } from 'lucide-react';
 
 const SUSPICIOUS_KEYWORDS = [
-    { word: "Gorgeous", count: 26 }, { word: "Love", count: 22 }, { word: "Secret", count: 19 },
-    { word: "Hidden", count: 17 }, { word: "Don't tell", count: 15 }, { word: "Miss you", count: 12 },
-    { word: "Thinking of you", count: 12 }, { word: "Can't stop thinking", count: 10 },
-    { word: "Baby", count: 10 }
+    { word: "Preciosa", count: 26 }, { word: "Amor", count: 22 }, { word: "Secreto", count: 19 },
+    { word: "Oculto", count: 17 }, { word: "No digas nada", count: 15 }, { word: "Te extraño", count: 12 },
+    { word: "Pensando en ti", count: 12 }, { word: "No puedo dejar de pensar", count: 10 },
+    { word: "Bebé", count: 10 }
 ];
 
 export default function Downsell1Page() {
@@ -42,7 +42,7 @@ export default function Downsell1Page() {
             <div className="w-full bg-rose-600/20 text-center py-2 px-4 sticky top-0 z-50 backdrop-blur-md border-b border-rose-500/30">
                 <p className="text-[10px] font-bold text-rose-500 uppercase tracking-widest animate-pulse flex items-center justify-center gap-2">
                     <AlertTriangle className="w-4 h-4" />
-                    SYSTEM ALERT: DATA PURGE IMMINENT
+                    ALERTA DEL SISTEMA: PURGA DE DATOS INMINENTE
                 </p>
             </div>
 
@@ -55,15 +55,15 @@ export default function Downsell1Page() {
                     </div>
 
                     <h1 className="text-2xl font-black text-white leading-tight uppercase tracking-tight">
-                        WAIT! DO NOT ABORT.
+                        ¡ESPERA! NO ABORTES.
                     </h1>
 
                     <p className="text-slate-400 text-sm leading-relaxed max-w-xs mx-auto">
-                        The encrypted report is already generated. Deleting it now is irreversible.
+                        El informe cifrado ya se ha generado. Eliminarlo ahora es irreversible.
                     </p>
 
                     <div className="inline-block bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-6 py-2 rounded font-bold text-sm tracking-widest shadow-[0_0_15px_rgba(16,185,129,0.2)]">
-                        ADMIN OVERRIDE: 50% OFF
+                        ANULACIÓN DEL ADMINISTRADOR: 50% DCTO
                     </div>
                 </div>
 
@@ -75,7 +75,7 @@ export default function Downsell1Page() {
                     <div className="p-5 border-b border-slate-700/50">
                         <h2 className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest flex items-center gap-2">
                             <ShieldAlert className="w-4 h-4 text-rose-500" />
-                            Flagged Keywords Found
+                            Palabras Clave Marcadas Encontradas
                         </h2>
 
                         <div className="flex flex-wrap gap-2">
@@ -92,12 +92,12 @@ export default function Downsell1Page() {
                     <div className="p-5 border-b border-slate-700/50 bg-[#0B1120]/50">
                         <h2 className="text-xs font-bold text-slate-500 mb-4 uppercase tracking-widest flex items-center gap-2">
                             <MapPin className="w-4 h-4 text-cyan-400" />
-                            Device Location Tracked
+                            Ubicación del Dispositivo Rastreada
                         </h2>
 
                         <div className="relative h-40 w-full rounded-lg overflow-hidden border border-slate-700 bg-slate-800 flex items-center justify-center">
                             {!mapLoaded ? (
-                                <div className="text-cyan-500 animate-pulse font-mono text-xs">Triangulating signal...</div>
+                                <div className="text-cyan-500 animate-pulse font-mono text-xs">Triangulando señal...</div>
                             ) : (
                                 <>
                                     <div className="absolute inset-0 bg-[#0f172a] opacity-80 z-10"></div>
@@ -129,16 +129,16 @@ export default function Downsell1Page() {
                             <LockOpen className="text-emerald-400 w-6 h-6" />
                         </div>
 
-                        <h2 className="text-lg font-black text-white uppercase tracking-wide">SAVE REPORT NOW</h2>
+                        <h2 className="text-lg font-black text-white uppercase tracking-wide">GUARDAR INFORME AHORA</h2>
                         <p className="text-slate-400 text-xs mt-1 mb-6">
-                            Instant access. 50% Discount Applied.
+                            Acceso instantáneo. 50% de descuento aplicado.
                         </p>
 
                         {/* Timer */}
                         <div className="bg-rose-500/10 border border-rose-500/30 p-3 rounded-lg mb-6 flex items-center justify-between px-6">
                             <div className="flex items-center gap-2">
                                 <Clock className="w-4 h-4 text-rose-500 animate-pulse" />
-                                <span className="text-[10px] font-bold tracking-widest text-rose-400 uppercase">Auto-Delete In:</span>
+                                <span className="text-[10px] font-bold tracking-widest text-rose-400 uppercase">Auto-eliminación en:</span>
                             </div>
                             <div className="text-xl font-mono font-bold text-rose-500 tracking-tight">
                                 {formatTime(timeLeft)}
@@ -160,7 +160,7 @@ export default function Downsell1Page() {
                 </div>
 
                 <p className="text-center text-[10px] text-slate-600 font-mono uppercase">
-                    Secure Server Connection • ID: #8821-X
+                    Conexión Segura al Servidor • ID: #8821-X
                 </p>
 
             </main>

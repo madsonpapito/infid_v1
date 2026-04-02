@@ -30,12 +30,12 @@ interface Match {
 }
 
 const matchesData: Match[] = [
-  { name: "Mila", age: 26, lastSeen: "6h ago", avatar: "/images/male/tinder/5.jpg", verified: true, identity: "Bisexual", distance: "2 km", bio: "Good vibes only.", zodiac: "Virgo", interests: ["Hiking", "Music"] },
-  { name: "John", age: 25, lastSeen: "4h ago", avatar: "/images/female/tinder/5.jpg", verified: true, identity: "Bisexual", distance: "2 km", bio: "Adrenaline junkie.", zodiac: "Leo", interests: ["Fitness", "Books"] },
-  { name: "Harper", age: 21, lastSeen: "3h ago", avatar: "/images/male/tinder/3.jpg", verified: false, identity: "Woman", distance: "5 km", bio: "Sunsets and wine.", zodiac: "Leo", interests: ["Travel", "Photo"] },
-  { name: "Will", age: 23, lastSeen: "2h ago", avatar: "/images/female/tinder/3.jpg", verified: true, identity: "Man", distance: "8 km", bio: "Sarcasm fluent.", zodiac: "Gemini", interests: ["Movies", "Dogs"] },
-  { name: "Luna", age: 24, lastSeen: "5h ago", avatar: "/images/male/tinder/6.jpg", verified: false, identity: "Woman", distance: "4 km", bio: "Stargazer.", zodiac: "Pisces", interests: ["Space", "Art"] },
-  { name: "Alex", age: 28, lastSeen: "Online", avatar: "/images/female/tinder/6.jpg", verified: true, identity: "Man", distance: "3 km", bio: "Chef & Adventurer.", zodiac: "Scorpio", interests: ["Food", "Hiking"] }
+  { name: "Mila", age: 26, lastSeen: "hace 6h", avatar: "/images/male/tinder/5.jpg", verified: true, identity: "Bisexual", distance: "2 km", bio: "Solo buenas vibras.", zodiac: "Virgo", interests: ["Senderismo", "Música"] },
+  { name: "John", age: 25, lastSeen: "hace 4h", avatar: "/images/female/tinder/5.jpg", verified: true, identity: "Bisexual", distance: "2 km", bio: "Adicto a la adrenalina.", zodiac: "Leo", interests: ["Fitness", "Libros"] },
+  { name: "Harper", age: 21, lastSeen: "hace 3h", avatar: "/images/male/tinder/3.jpg", verified: false, identity: "Mujer", distance: "5 km", bio: "Atardeceres y vino.", zodiac: "Leo", interests: ["Viajes", "Fotos"] },
+  { name: "Will", age: 23, lastSeen: "hace 2h", avatar: "/images/female/tinder/3.jpg", verified: true, identity: "Hombre", distance: "8 km", bio: "Sarcasmo fluido.", zodiac: "Géminis", interests: ["Cine", "Perros"] },
+  { name: "Luna", age: 24, lastSeen: "hace 5h", avatar: "/images/male/tinder/6.jpg", verified: false, identity: "Mujer", distance: "4 km", bio: "Observadora de estrellas.", zodiac: "Piscis", interests: ["Espacio", "Arte"] },
+  { name: "Alex", age: 28, lastSeen: "En línea", avatar: "/images/female/tinder/6.jpg", verified: true, identity: "Hombre", distance: "3 km", bio: "Chef y Aventurero.", zodiac: "Escorpio", interests: ["Comida", "Senderismo"] }
 ]
 
 const photosList = ["/images/censored/photo1.jpg", "/images/censored/photo2.jpg", "/images/censored/photo3.jpg", "/images/censored/photo4.jpg"]
@@ -88,19 +88,19 @@ function DatingScannerContent() {
     {
       name: "Jessica, 31",
       location: "Orlando, FL",
-      text: "I honestly didn't think it would work, but the report pulled up deleted chats that explained everything. It felt like the missing piece.",
+      text: "Sinceramente, no pensé que funcionaría, pero el informe mostró chats eliminados que lo explicaban todo. Fue como la pieza que faltaba.",
       video: "https://play.tynk.ai/p/55c0525d-8354-4cd6-a98f-34a31df5b1aa"
     },
     {
       name: "Amanda, 44",
       location: "Dallas, TX",
-      text: "I was nervous, but within minutes it showed hidden messages and even voice notes. That was the confirmation I needed.",
+      text: "Estaba nerviosa, pero en pocos minutos mostró mensajes ocultos e incluso notas de voz. Esa fue la confirmación que necesitaba.",
       video: "https://play.tynk.ai/p/d04e1286-c92c-4f39-a679-2ce4b742cd59"
     },
     {
       name: "Daniel, 38",
       location: "Fresno, CA",
-      text: "It's not guesses or random alerts… it's actual proof. I saw the screenshots myself. It's worth it.",
+      text: "No son suposiciones ni alertas al azar… es prueba real. Vi las capturas de pantalla yo mismo. Vale la pena.",
       video: "https://play.tynk.ai/p/ac310c50-c224-4c0f-bdc0-ebf311ef7afa"
     }
   ]
@@ -282,7 +282,7 @@ function DatingScannerContent() {
               setImagePreview(data.profile.profile_pic_url);
               setImageUploaded(true);
             } else {
-              setErrorMessage("Profile found but private/no photo accessible.");
+              setErrorMessage("Perfil encontrado pero privado/sin foto accesible.");
             }
 
             // Fetch feed for Instagram Scanner
@@ -302,10 +302,10 @@ function DatingScannerContent() {
               console.error("Feed fetch error", err);
             }
           } else {
-            setErrorMessage(data.error || "Profile picture not found.");
+            setErrorMessage(data.error || "Foto de perfil no encontrada.");
           }
         } else {
-          setErrorMessage("Could not verify profile. Please check the username.");
+          setErrorMessage("No se pudo verificar el perfil. Por favor, revisa el nombre de usuario.");
         }
       } else {
 
@@ -330,13 +330,13 @@ function DatingScannerContent() {
         } else {
           // Fallback handled by API mostly, but if fails:
           console.error("WhatsApp API Error:", data);
-          setErrorMessage("Could not retrieve WhatsApp profile photo. Please verify the number.");
+          setErrorMessage("No se pudo recuperar la foto de perfil de WhatsApp. Por favor, verifica el número.");
         }
       }
 
     } catch (error) {
       console.error("Profile fetch error", error);
-      setErrorMessage("Connection error. Please try again.");
+      setErrorMessage("Error de conexión. Por favor, inténtalo de nuevo.");
     } finally {
       setIsFetchingProfile(false);
     }
@@ -368,7 +368,7 @@ function DatingScannerContent() {
         <div className="mb-6 bg-cyan-500/10 border border-cyan-500/30 p-3 rounded-lg flex items-center gap-3 animate-pulse">
           <Search className="w-5 h-5 text-cyan-400" />
           <p className="text-sm text-cyan-200">
-            Continuing scan for: <span className="font-bold text-white uppercase">{searchQuery}</span>
+            Continuando escaneo para: <span className="font-bold text-white uppercase">{searchQuery}</span>
           </p>
         </div>
       )}
@@ -377,16 +377,16 @@ function DatingScannerContent() {
         <div className="inline-flex items-center justify-center p-4 bg-cyan-500/10 rounded-full border border-cyan-500/30 shadow-[0_0_20px_rgba(6,182,212,0.2)]">
           <Search className="w-8 h-8 text-cyan-400" />
         </div>
-        <h1 className="text-2xl font-bold text-white uppercase tracking-tight">Initiate Search</h1>
+        <h1 className="text-2xl font-bold text-white uppercase tracking-tight">Iniciar Búsqueda</h1>
         <p className="text-slate-400 text-sm max-w-xs mx-auto">
-          Configure search parameters to scan 50+ dating networks anonymously.
+          Configure los parámetros de búsqueda para escanear más de 50 redes de citas de forma anónima.
         </p>
       </div>
 
       {/* 1. Gender */}
       <div className="bg-[#0f172a] rounded-xl border border-slate-700 p-5 space-y-4">
         <h2 className="text-sm font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
-          <User className="w-4 h-4" /> Target Gender
+          <User className="w-4 h-4" /> Género del Objetivo
         </h2>
         <div className="grid grid-cols-2 gap-3">
           {['male', 'female'].map(g => (
@@ -399,7 +399,7 @@ function DatingScannerContent() {
                 }`}
             >
               <span className="text-xl">{g === 'male' ? '👨' : '👩'}</span>
-              <span className="text-[10px] font-bold uppercase">{g.replace('-', ' ')}</span>
+              <span className="text-[10px] font-bold uppercase">{g === 'male' ? 'HOMBRE' : 'MUJER'}</span>
             </button>
           ))}
         </div>
@@ -408,7 +408,7 @@ function DatingScannerContent() {
       {/* 2. Age */}
       <div className="bg-[#0f172a] rounded-xl border border-slate-700 p-5 space-y-4">
         <h2 className="text-sm font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
-          <Activity className="w-4 h-4" /> Target Age
+          <Activity className="w-4 h-4" /> Edad del Objetivo
         </h2>
         <div className="grid grid-cols-4 gap-2">
           {['18-24', '25-34', '35-44', '45+'].map(val => (
@@ -429,12 +429,12 @@ function DatingScannerContent() {
       {/* 3. Relationship */}
       <div className="bg-[#0f172a] rounded-xl border border-slate-700 p-5 space-y-4">
         <h2 className="text-sm font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
-          <HeartCrack className="w-4 h-4" /> Status
+          <HeartCrack className="w-4 h-4" /> Estado
         </h2>
         <div className="grid grid-cols-2 gap-3">
           {[
-            { v: 'married', l: 'Married' }, { v: 'relationship', l: 'Relationship' },
-            { v: 'complicated', l: 'Complicated' }, { v: 'dating', l: 'Dating' }
+            { v: 'married', l: 'Casado/a' }, { v: 'relationship', l: 'En una relación' },
+            { v: 'complicated', l: 'Es complicado' }, { v: 'dating', l: 'Saliendo' }
           ].map(o => (
             <button
               key={o.v}
@@ -453,13 +453,13 @@ function DatingScannerContent() {
       {/* 4. Suspicion */}
       <div className="bg-[#0f172a] rounded-xl border border-slate-700 p-5 space-y-4">
         <h2 className="text-sm font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
-          <AlertTriangle className="w-4 h-4" /> Suspicion Level
+          <AlertTriangle className="w-4 h-4" /> Nivel de Sospecha
         </h2>
         <div className="space-y-2">
           {[
-            { v: 'certain', l: "I'm almost certain" },
-            { v: 'gut', l: "I have a gut feeling" },
-            { v: 'unsure', l: "Not sure, just checking" }
+            { v: 'certain', l: "Estoy casi seguro/a" },
+            { v: 'gut', l: "Tengo un presentimiento" },
+            { v: 'unsure', l: "No estoy seguro/a, solo revisando" }
           ].map(o => (
             <button
               key={o.v}
@@ -478,13 +478,13 @@ function DatingScannerContent() {
       {/* 5. Red Flags */}
       <div className="bg-[#0f172a] rounded-xl border border-slate-700 p-5 space-y-4">
         <h2 className="text-sm font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
-          <ShieldCheck className="w-4 h-4" /> Detected Signs
+          <ShieldCheck className="w-4 h-4" /> Señales Detectadas
         </h2>
         <div className="grid grid-cols-2 gap-2">
           {[
-            { v: 'hide_phone', l: 'Hides Phone' }, { v: 'changed_passwords', l: 'New Passwords' },
-            { v: 'late_nights', l: 'Late Nights' }, { v: 'deleting_messages', l: 'Deleting Msgs' },
-            { v: 'distant', l: 'Distant' }, { v: 'appearance', l: 'New Look' }
+            { v: 'hide_phone', l: 'Esconde el Teléfono' }, { v: 'changed_passwords', l: 'Nuevas Contraseñas' },
+            { v: 'late_nights', l: 'Llega Tarde' }, { v: 'deleting_messages', l: 'Borra Mensajes' },
+            { v: 'distant', l: 'Distante' }, { v: 'appearance', l: 'Nueva Apariencia' }
           ].map(o => (
             <button
               key={o.v}
@@ -503,10 +503,10 @@ function DatingScannerContent() {
       {/* 6. Identification Method (Required) */}
       <div className="bg-[#0f172a] rounded-xl border border-slate-700 p-5 space-y-4">
         <label className="text-sm font-bold text-slate-400 flex items-center gap-2 uppercase tracking-wide">
-          <ScanFace className="w-4 h-4 text-cyan-500" /> Identify Subject (Required)
+          <ScanFace className="w-4 h-4 text-cyan-500" /> Identificar Sujeto (Obligatorio)
         </label>
         <p className="text-[14px] text-slate-500 -mt-2">
-          Provide at least one of the options below so we can start the investigation.
+          Proporcione al menos una de las siguientes opciones para que podamos iniciar la investigación.
         </p>
 
         {/* Tabs */}
@@ -523,7 +523,7 @@ function DatingScannerContent() {
             onClick={() => { setActiveInputTab('photo'); setErrorMessage(null); }} 
             className={`flex-1 py-3 text-xs font-bold uppercase rounded-lg transition-all ${activeInputTab === 'photo' ? 'bg-slate-700 text-white shadow-lg' : 'text-slate-500 hover:text-slate-300'}`}
           >
-            Photo
+            Foto
           </button>
           <button 
             type="button"
@@ -547,7 +547,7 @@ function DatingScannerContent() {
                 <ScanFace className="w-8 h-8 text-slate-500 group-hover:text-cyan-400 transition-colors" />
               )}
               <span className="text-xs text-slate-400 font-mono relative z-10 bg-slate-900/50 px-2 py-1 rounded">
-                {imageUploaded ? "IMAGE UPLOADED" : "UPLOAD TARGET PHOTO"}
+                {imageUploaded ? "FOTO SUBIDA" : "SUBIR FOTO DEL OBJETIVO"}
               </span>
             </label>
           )}
@@ -562,7 +562,7 @@ function DatingScannerContent() {
                 <input
                   type="text"
                   className="w-full bg-slate-900 border border-slate-700 text-white text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full pl-8 p-3"
-                  placeholder="username"
+                  placeholder="nombre de usuario"
                   value={instagramUsername}
                   onChange={(e) => setInstagramUsername(e.target.value)}
                 />
@@ -599,7 +599,7 @@ function DatingScannerContent() {
                         <input
                           type="text"
                           className="w-full bg-slate-900 border border-slate-700 rounded text-xs text-white pl-7 p-2 focus:border-cyan-500 outline-none"
-                          placeholder="Search country..."
+                          placeholder="Buscar país..."
                           value={countrySearch}
                           onChange={(e) => setCountrySearch(e.target.value)}
                           autoFocus
@@ -631,7 +631,7 @@ function DatingScannerContent() {
                         </button>
                       ))}
                       {COUNTRIES.filter(c => c.name.toLowerCase().includes(countrySearch.toLowerCase())).length === 0 && (
-                        <div className="p-4 text-center text-slate-500 text-xs">No countries found</div>
+                        <div className="p-4 text-center text-slate-500 text-xs">País no encontrado</div>
                       )}
                     </div>
                   </div>
@@ -650,7 +650,7 @@ function DatingScannerContent() {
                 </div>
               </div>
               <p className="text-[10px] text-slate-500 text-center">
-                Select country and enter number (without country code).
+                Seleccione el país e ingrese el número (sin el código de país).
               </p>
             </div>
           )}
@@ -665,11 +665,11 @@ function DatingScannerContent() {
             </div>
             <div>
               <h4 className="text-white text-sm font-bold flex items-center gap-2">
-                {activeInputTab === 'whatsapp' ? 'Number Active' : 'Profile Found'}
+                {activeInputTab === 'whatsapp' ? 'Número Activo' : 'Perfil Encontrado'}
                 <CheckCircle2 className="w-3 h-3 text-emerald-500" />
               </h4>
               <p className="text-[10px] text-emerald-400">
-                {activeInputTab === 'whatsapp' ? 'WhatsApp profile verified' : 'Ready to scan'}
+                {activeInputTab === 'whatsapp' ? 'Perfil de WhatsApp verificado' : 'Listo para escanear'}
               </p>
             </div>
             <button
@@ -698,18 +698,18 @@ function DatingScannerContent() {
       >
         {isFetchingProfile ? (
           <>
-            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div> VERIFYING TARGET...
+            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div> VERIFICANDO OBJETIVO...
           </>
         ) : (
           <>
-            RUN DEEP SCAN <ShieldCheck className="w-5 h-5" />
+            INICIAR ESCANEO PROFUNDO <ShieldCheck className="w-5 h-5" />
           </>
         )}
       </button>
 
       <div className="text-center">
         <p className="text-[10px] text-slate-500">
-          By scanning, you agree to our Terms of Service. All data is encrypted locally.
+          Al escanear, acepta nuestros Términos de Servicio. Todos los datos se cifran localmente.
         </p>
       </div>
 
@@ -728,7 +728,7 @@ function DatingScannerContent() {
             <AlertTriangle className="w-10 h-10 text-rose-500" />
           </div>
 
-          <h1 className="text-2xl font-bold text-white uppercase tracking-tight">Profiles Detected</h1>
+          <h1 className="text-2xl font-bold text-white uppercase tracking-tight">Perfiles Detectados</h1>
 
           <div className="bg-[#0f172a] rounded-xl border border-rose-500/30 p-6 text-left space-y-4 shadow-xl relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-rose-500"></div>
@@ -736,8 +736,8 @@ function DatingScannerContent() {
             <div className="flex items-center gap-3">
               <div className="bg-rose-500/20 p-2 rounded text-rose-500"><Globe className="w-5 h-5" /></div>
               <div>
-                <h3 className="text-sm font-bold text-white">Active Activity Found</h3>
-                <p className="text-xs text-rose-400">Linked to 3 major dating apps.</p>
+                <h3 className="text-sm font-bold text-white">Actividad Activa Encontrada</h3>
+                <p className="text-xs text-rose-400">Vinculado a 3 aplicaciones de citas principales.</p>
               </div>
             </div>
 
@@ -745,21 +745,21 @@ function DatingScannerContent() {
 
             <div className="space-y-2">
               <div className="flex justify-between text-xs text-slate-400">
-                <span>Last Active:</span>
-                <span className="text-emerald-400 font-bold">18 mins ago</span>
+                <span>Último estado:</span>
+                <span className="text-emerald-400 font-bold">hace 18 mins</span>
               </div>
               <div className="flex justify-between text-xs text-slate-400">
-                <span>Location:</span>
+                <span>Ubicación:</span>
                 <span className="text-white font-mono">{location}</span>
               </div>
               <div className="flex justify-between text-xs text-slate-400">
-                <span>Status:</span>
-                <span className="text-emerald-400 font-bold animate-pulse">ONLINE</span>
+                <span>Estado:</span>
+                <span className="text-emerald-400 font-bold animate-pulse">EN LÍNEA</span>
               </div>
             </div>
           </div>
 
-          <p className="text-sm text-slate-400 animate-pulse">Generating final dossier...</p>
+          <p className="text-sm text-slate-400 animate-pulse">Generando dossier final...</p>
         </div>
       )
     }
@@ -799,7 +799,7 @@ function DatingScannerContent() {
                 </div>
               </div>
               <div className="text-center">
-                <p className="text-white font-bold text-base">Analyzing Profile...</p>
+                <p className="text-white font-bold text-base">Analizando Perfil...</p>
                 {instagramUsername && <p className="text-slate-400 text-sm">@{instagramUsername}</p>}
               </div>
             </div>
@@ -808,12 +808,12 @@ function DatingScannerContent() {
             <div className="w-full space-y-2">
               <div className="flex justify-between text-xs">
                 <span className="text-slate-400 font-mono">
-                  {scanPhase === 1 && "Accessing profile..."}
-                  {scanPhase === 2 && "Running facial recognition..."}
-                  {scanPhase === 3 && "Triangulating location..."}
-                  {scanPhase === 4 && "Decrypting private logs..."}
-                  {scanPhase === 5 && "Compiling evidence..."}
-                  {scanPhase === 0 && "Bypassing security..."}
+                  {scanPhase === 1 && "Accediendo al perfil..."}
+                  {scanPhase === 2 && "Ejecutando reconocimiento facial..."}
+                  {scanPhase === 3 && "Triangulando ubicación..."}
+                  {scanPhase === 4 && "Descifrando registros privados..."}
+                  {scanPhase === 5 && "Compilando evidencia..."}
+                  {scanPhase === 0 && "Bypassing seguridad..."}
                 </span>
                 <span className="text-rose-400 font-bold">{Math.round(loadingProgress)}%</span>
               </div>
@@ -877,14 +877,14 @@ function DatingScannerContent() {
             </div>
 
             <div className="text-center space-y-2">
-              <h2 className="text-xl font-bold text-white uppercase tracking-widest">Scanning Deep Web</h2>
+              <h2 className="text-xl font-bold text-white uppercase tracking-widest">Escaneando Deep Web</h2>
               <p className="text-cyan-400 font-mono text-sm">
-                {scanPhase === 1 && "Accessing Social Media Databases..."}
-                {scanPhase === 2 && "Running Facial Recognition..."}
-                {scanPhase === 3 && "Triangulating GPS Data..."}
-                {scanPhase === 4 && "Recovering Cloud Backups..."}
-                {scanPhase === 5 && "Compiling Evidence..."}
-                {scanPhase === 0 && "Locating User Device..."}
+                {scanPhase === 1 && "Accediendo a las bases de datos de redes sociales..."}
+                {scanPhase === 2 && "Ejecutando reconocimiento facial..."}
+                {scanPhase === 3 && "Triangulando datos GPS..."}
+                {scanPhase === 4 && "Recuperando copias de seguridad en la nube..."}
+                {scanPhase === 5 && "Compilando evidencia..."}
+                {scanPhase === 0 && "Localizando dispositivo del usuario..."}
               </p>
             </div>
 
@@ -895,7 +895,7 @@ function DatingScannerContent() {
                   <div className={`w-4 h-4 rounded-full border flex items-center justify-center ${scanPhase >= s ? 'bg-emerald-500/20 border-emerald-500' : 'border-slate-700'}`}>
                     {scanPhase >= s && <CheckCircle2 className="w-3 h-3" />}
                   </div>
-                  <span className="uppercase font-bold tracking-wider">Protocol 0{s}</span>
+                  <span className="uppercase font-bold tracking-wider">Protocolo 0{s}</span>
                 </div>
               ))}
             </div>
@@ -923,8 +923,8 @@ function DatingScannerContent() {
         <div className="bg-rose-500 text-white p-4 rounded-xl shadow-[0_0_30px_rgba(244,63,94,0.4)] flex items-center gap-4 border border-rose-400">
           <AlertTriangle className="w-8 h-8 shrink-0 animate-bounce" />
           <div>
-            <h1 className="font-bold text-lg uppercase tracking-tight">Positive Match Found</h1>
-            <p className="text-xs text-rose-100">User is currently <span className="font-bold underline">ONLINE</span> in {location}.</p>
+            <h1 className="font-bold text-lg uppercase tracking-tight">Coincidencia Positiva Encontrada</h1>
+            <p className="text-xs text-rose-100">El usuario está actualmente <span className="font-bold underline">EN LÍNEA</span> en {location}.</p>
           </div>
         </div>
 
@@ -932,9 +932,9 @@ function DatingScannerContent() {
         <div className="bg-orange-500/10 border border-orange-500/50 p-4 rounded-xl flex items-start gap-3 mt-4">
           <Activity className="w-5 h-5 text-orange-400 shrink-0 mt-0.5" />
           <div>
-            <h3 className="text-sm font-bold text-orange-400 uppercase tracking-wide">Data Locking Imminent</h3>
+            <h3 className="text-sm font-bold text-orange-400 uppercase tracking-wide">Bloqueo de Datos Inminente</h3>
             <p className="text-[11px] text-slate-300 mt-1 leading-relaxed">
-              To guarantee true anonymity and comply with privacy rules, these intercepted messages and hidden galleries will be <strong>permanently encrypted</strong> in {formatTime(timeLeft)}.
+              Para garantizar un anonimato real y cumplir con las normas de privacidad, estos mensajes interceptados y galerías ocultas serán <strong>permanentemente cifrados</strong> en {formatTime(timeLeft)}.
             </p>
           </div>
         </div>
@@ -942,10 +942,10 @@ function DatingScannerContent() {
         {/* Stats Grid */}
         <div className="grid grid-cols-4 gap-2">
           {[
-            { v: 6, l: 'Matches', c: 'text-rose-500' },
+            { v: 6, l: 'Coincidencias', c: 'text-rose-500' },
             { v: 30, l: 'Likes', c: 'text-purple-500' },
-            { v: 'Active', l: 'Status', c: 'text-emerald-500' },
-            { v: '18h', l: 'Last Seen', c: 'text-white' }
+            { v: 'Activo', l: 'Estado', c: 'text-emerald-500' },
+            { v: '18h', l: 'Visto por últ.', c: 'text-white' }
           ].map((s, i) => (
             <div key={i} className="bg-[#0f172a] p-2 rounded-lg border border-slate-700 text-center">
               <p className={`text-xl font-bold ${s.c}`}>{s.v}</p>
@@ -958,9 +958,9 @@ function DatingScannerContent() {
         <div className="bg-[#0f172a] rounded-xl border border-slate-700 overflow-hidden">
           <div className="bg-slate-800/50 p-3 border-b border-slate-700 flex justify-between items-center">
             <span className="text-xs font-bold text-slate-300 uppercase tracking-widest flex items-center gap-2">
-              <HeartCrack className="w-4 h-4 text-rose-500" /> Recent Matches
+              <HeartCrack className="w-4 h-4 text-rose-500" /> Coincidencias Recientes
             </span>
-            <span className="bg-rose-500 text-white text-[9px] px-1.5 py-0.5 rounded font-bold">3 NEW</span>
+            <span className="bg-rose-500 text-white text-[9px] px-1.5 py-0.5 rounded font-bold">3 NUEVAS</span>
           </div>
           <div className="divide-y divide-slate-800">
             {displayMatches.slice(0, 3).map((m: Match, i: number) => (
@@ -978,7 +978,7 @@ function DatingScannerContent() {
                     <p className="text-sm font-bold text-white">{m.name}, {m.age}</p>
                     <p className="text-[10px] text-slate-500">{m.lastSeen}</p>
                   </div>
-                  <p className="text-[10px] text-slate-400">Within {m.distance} • {m.identity}</p>
+                  <p className="text-[10px] text-slate-400">A {m.distance} • {m.identity}</p>
                 </div>
                 <ChevronRight className="w-4 h-4 text-slate-600" />
               </div>
@@ -991,11 +991,11 @@ function DatingScannerContent() {
           <div className="bg-slate-800/50 p-3 border-b border-slate-700 flex justify-between items-center group">
             <div className="flex items-center gap-2">
               <MessageCircle className="w-4 h-4 text-blue-400 group-hover:text-blue-300 transition-colors" />
-              <h3 className="text-xs font-bold text-white uppercase tracking-widest">Recent Chats</h3>
+              <h3 className="text-xs font-bold text-white uppercase tracking-widest">Chats Recientes</h3>
             </div>
           </div>
           <div className="p-3 bg-slate-900/50 border-b border-slate-800 text-[10px] text-slate-400">
-            Tap on a conversation to read their messages
+            Toca una conversación para leer sus mensajes
           </div>
 
           <div className="divide-y divide-slate-800">
@@ -1015,7 +1015,7 @@ function DatingScannerContent() {
                     <span className="text-[9px] text-slate-500 font-medium">Just now</span>
                   </div>
                   <p className="text-[10px] text-blue-400/80 flex items-center gap-1.5 font-medium truncate">
-                    <span className="w-1.5 h-1.5 bg-blue-500 rounded-full inline-block animate-pulse"></span> Click to read messages...
+                    <span className="w-1.5 h-1.5 bg-blue-500 rounded-full inline-block animate-pulse"></span> Haz clic para leer mensajes...
                   </p>
                 </div>
                 <div className="text-slate-600 group-hover/chat:text-slate-400">
@@ -1031,18 +1031,18 @@ function DatingScannerContent() {
           <div className="bg-slate-800/50 p-3 border-b border-slate-700 flex justify-between items-center group">
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-rose-500 group-hover:text-rose-400 transition-colors" />
-              <h3 className="text-xs font-bold text-white uppercase tracking-widest">Suspicious Locations</h3>
+              <h3 className="text-xs font-bold text-white uppercase tracking-widest">Ubicaciones Sospechosas</h3>
             </div>
           </div>
 
           <div className="p-4 space-y-4">
             <div className="bg-rose-500/10 border border-rose-500/20 p-3 rounded-lg text-xs leading-relaxed text-slate-300">
-              <span className="font-bold text-rose-400">3 suspicious activities</span> detected near: <span className="font-bold text-white">{location}</span>
+              <span className="font-bold text-rose-400">3 actividades sospechosas</span> detectadas cerca de: <span className="font-bold text-white">{location}</span>
             </div>
 
             <div className="relative w-full h-40 bg-slate-900 rounded-lg overflow-hidden border border-slate-800 group cursor-pointer" onClick={scrollToCheckout}>
               <iframe
-                title="Suspicious Location Map"
+                title="Mapa de Ubicaciones Sospechosas"
                 src={`https://maps.google.com/maps?q=motel+near+${encodeURIComponent(location)}&output=embed&z=13`}
                 className="w-full h-full opacity-50 hover:opacity-100 transition-opacity grayscale invert-[.85] hover:invert-0 hover:grayscale-0"
                 style={{ border: 0 }}
@@ -1060,7 +1060,7 @@ function DatingScannerContent() {
 
               <div className="absolute bottom-2 right-2 bg-slate-900/90 border border-slate-700 px-2 py-1 rounded flex items-center gap-1">
                 <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                <span className="text-[8px] text-slate-400 font-bold uppercase">Live Tracking</span>
+                <span className="text-[8px] text-slate-400 font-bold uppercase">Rastreo en Vivo</span>
               </div>
             </div>
           </div>
@@ -1070,7 +1070,7 @@ function DatingScannerContent() {
         <div className="bg-[#0f172a] rounded-xl border border-slate-700 p-4 space-y-3 relative overflow-hidden group">
           <div className="flex items-center justify-between">
             <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
-              <Lock className="w-3 h-3 text-cyan-400" /> Private Photos
+              <Lock className="w-3 h-3 text-cyan-400" /> Fotos Privadas
             </h3>
           </div>
           <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
@@ -1080,7 +1080,7 @@ function DatingScannerContent() {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Eye className="text-white w-6 h-6 opacity-80" />
                 </div>
-                <div className="absolute bottom-1 right-1 bg-black/80 px-1 rounded text-[8px] text-white">HIDDEN</div>
+                <div className="absolute bottom-1 right-1 bg-black/80 px-1 rounded text-[8px] text-white">OCULTO</div>
               </div>
             ))}
           </div>
@@ -1089,39 +1089,39 @@ function DatingScannerContent() {
         {/* UNLOCK WIDGET */}
         <div ref={checkoutRef} className="bg-[#0B1120] border border-cyan-500/50 rounded-2xl shadow-[0_0_40px_rgba(6,182,212,0.15)] p-6 text-center relative overflow-hidden">
           <div className="absolute top-0 right-0 bg-rose-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg">
-            HIGH PRIORITY
+            ALTA PRIORIDAD
           </div>
 
           <div className="mx-auto w-14 h-14 rounded-full bg-cyan-500/10 flex items-center justify-center mb-4 border border-cyan-500/30 animate-pulse">
             <LockOpen className="w-7 h-7 text-cyan-400" />
           </div>
 
-          <h2 className="text-xl font-black text-white uppercase tracking-wide mb-2">UNLOCK FULL DOSSIER</h2>
-          <p className="text-xs text-slate-400 mb-6 px-4">Get instant access to the full report with all chats, conversations, audio, videos, location history and photos exchanged.</p>
+          <h2 className="text-xl font-black text-white uppercase tracking-wide mb-2">DESBLOQUEAR DOSSIER COMPLETO</h2>
+          <p className="text-xs text-slate-400 mb-6 px-4">Obtén acceso instantáneo al informe completo con todos los chats, conversaciones, audio, videos, historial de ubicación y fotos intercambiadas.</p>
 
           <div className="bg-slate-900 border border-slate-800 p-3 rounded-lg mb-6 flex flex-col items-center justify-center max-w-[280px] mx-auto space-y-2">
             <div className="flex justify-between w-full items-center">
-              <span className="text-[10px] text-slate-500 uppercase font-bold">Offer Expires:</span>
+              <span className="text-[10px] text-slate-500 uppercase font-bold">La oferta expira en:</span>
               <span className="font-mono font-bold text-rose-500 text-lg">{formatTime(timeLeft)}</span>
             </div>
             <div className="w-full h-px bg-slate-800 my-1"></div>
             <div className="flex justify-between w-full items-center">
-              <span className="text-xs text-slate-400 line-through">Regular: $149.00</span>
-              <span className="font-black text-emerald-400 text-2xl">Today: $37</span>
+              <span className="text-xs text-slate-400 line-through">Normal: $149.00</span>
+              <span className="font-black text-emerald-400 text-2xl">Hoy: $37</span>
             </div>
-            <p className="text-[9px] text-slate-500">Includes full evidence download & updates</p>
+            <p className="text-[9px] text-slate-500">Incluye descarga completa de pruebas y actualizaciones</p>
           </div>
 
           <a
             href={checkoutHref}
-            className="block w-full bg-emerald-500 hover:bg-emerald-400 text-[#0B1120] font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all transform hover:scale-[1.02] uppercase tracking-widest text-sm relative z-10 easyt-next-page"
+            className="block w-full bg-emerald-500 hover:bg-emerald-400 text-[#0B1120] font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all transform hover:scale-[1.02] active:scale-[0.98] uppercase tracking-widest text-sm relative z-10 easyt-next-page"
           >
-            UNLOCK REPORT FOR $37
+            DESBLOQUEAR INFORME POR $37
           </a>
 
           <div className="flex justify-center items-center gap-4 mt-4 text-[10px] text-slate-500 font-mono">
             <span className="flex items-center gap-1"><ShieldCheck className="w-3 h-3 text-emerald-500"/> 256-bit SSL</span>
-            <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3 text-emerald-500"/> 7-Day Guarantee</span>
+            <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3 text-emerald-500"/> Garantía de 7 días</span>
           </div>
         </div>
 
@@ -1130,8 +1130,8 @@ function DatingScannerContent() {
           <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-emerald-500/10 blur-[60px] rounded-full pointer-events-none"></div>
 
           <div className="text-center relative z-10 w-full mb-2">
-            <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-wide">WHAT THEY DISCOVERED</h2>
-            <p className="text-xs text-slate-400 mt-2">Real reactions from people who unlocked their reports today.</p>
+            <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-wide">LO QUE DESCUBRIERON</h2>
+            <p className="text-xs text-slate-400 mt-2">Reacciones reales de personas que desbloquearon sus informes hoy.</p>
           </div>
 
           <div className="relative group">
@@ -1168,7 +1168,7 @@ function DatingScannerContent() {
                 </div>
                 <div className="bg-slate-800/40 p-4 rounded-xl border border-slate-700/50 shadow-inner">
                   <h4 className="font-bold text-white text-[13px] mb-2">Jessica, 31 — Orlando, FL</h4>
-                  <p className="text-xs text-slate-400 italic leading-relaxed">&quot;I honestly didn&apos;t think it would work, but the report pulled up deleted chats that explained everything. It felt like the missing piece.&quot;</p>
+                  <p className="text-xs text-slate-400 italic leading-relaxed">&quot;Sinceramente no pensé que funcionaría, pero el informe mostró chats eliminados que lo explicaban todo. Fue como encontrar la pieza que faltaba.&quot;</p>
                 </div>
               </div>
 
@@ -1186,7 +1186,7 @@ function DatingScannerContent() {
                 </div>
                 <div className="bg-slate-800/40 p-4 rounded-xl border border-slate-700/50 shadow-inner">
                   <h4 className="font-bold text-white text-[13px] mb-2">Amanda, 44 — Dallas, TX</h4>
-                  <p className="text-xs text-slate-400 italic leading-relaxed">&quot;I was nervous, but within minutes it showed hidden messages and even voice notes. That was the confirmation I needed.&quot;</p>
+                  <p className="text-xs text-slate-400 italic leading-relaxed">&quot;Estaba nerviosa, pero en cuestión de minutos me mostró mensajes ocultos e incluso notas de voz. Esa fue la confirmación que necesitaba.&quot;</p>
                 </div>
               </div>
 
@@ -1204,7 +1204,7 @@ function DatingScannerContent() {
                 </div>
                 <div className="bg-slate-800/40 p-4 rounded-xl border border-slate-700/50 shadow-inner">
                   <h4 className="font-bold text-white text-[13px] mb-2">Daniel, 38 — Fresno, CA</h4>
-                  <p className="text-xs text-slate-400 italic leading-relaxed">&quot;It&apos;s not guesses or random alerts… it&apos;s actual proof. I saw the screenshots myself. It&apos;s worth it.&quot;</p>
+                  <p className="text-xs text-slate-400 italic leading-relaxed">&quot;No son suposiciones ni alertas aleatorias... es prueba real. Yo mismo vi las capturas de pantalla. Vale la pena.&quot;</p>
                 </div>
               </div>
             </div>
@@ -1220,29 +1220,29 @@ function DatingScannerContent() {
         {/* FAQ & OBJECTIONS */}
         <div className="bg-[#0f172a]/80 rounded-2xl border border-slate-700/30 p-6 space-y-6 shadow-xl mt-8 w-full">
           <h2 className="text-xl font-bold text-white text-center mb-6 flex items-center justify-center gap-2">
-            <CheckCircle2 className="w-5 h-5 text-emerald-500" /> Frequently Asked Questions
+            <CheckCircle2 className="w-5 h-5 text-emerald-500" /> Preguntas Frecuentes
           </h2>
           
           <div className="space-y-4">
             <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50 flex flex-col items-start text-left">
               <h4 className="font-bold text-sm text-white flex items-center gap-2 mb-2">
-                <Lock className="w-4 h-4 text-emerald-400" /> Is this 100% Anonymous?
+                <Lock className="w-4 h-4 text-emerald-400" /> ¿Es esto 100% Anónimo?
               </h4>
-              <p className="text-xs text-slate-400">Absolutely. There is no trace that you accessed this data. We don&apos;t notify them or need any access to their device.</p>
+              <p className="text-xs text-slate-400">Absolutamente. No hay rastro de que hayas accedido a estos datos. No les notificamos ni necesitamos ningún acceso a su dispositivo.</p>
             </div>
             
             <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50 flex flex-col items-start text-left">
               <h4 className="font-bold text-sm text-white flex items-center gap-2 mb-2">
-                <Search className="w-4 h-4 text-emerald-400" /> What exactly is in the report?
+                <Search className="w-4 h-4 text-emerald-400" /> ¿Qué hay exactamente en el informe?
               </h4>
-              <p className="text-xs text-slate-400">You will instantly download a dossier containing hidden social media activity, deleted messages logs, GPS history, and hidden gallery items found in our database scan.</p>
+              <p className="text-xs text-slate-400">Descargarás instantáneamente un dossier que contiene actividad oculta en redes sociales, registros de mensajes eliminados, historial de GPS y elementos de galería ocultos encontrados en nuestro escaneo de base de datos.</p>
             </div>
 
             <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50 flex flex-col items-start text-left">
               <h4 className="font-bold text-sm text-white flex items-center gap-2 mb-2">
-                <ShieldCheck className="w-4 h-4 text-emerald-400" /> What if I don&apos;t find anything?
+                <ShieldCheck className="w-4 h-4 text-emerald-400" /> ¿Qué pasa si no encuentro nada?
               </h4>
-              <p className="text-xs text-slate-400">If our scan comes back completely clean, you have the peace of mind you deserve. You are covered by our 7-Day Guarantee.</p>
+              <p className="text-xs text-slate-400">Si nuestro escaneo regresa completamente limpio, tendrás la tranquilidad que te mereces. Estás cubierto por nuestra Garantía de 7 días.</p>
             </div>
           </div>
           
@@ -1252,7 +1252,7 @@ function DatingScannerContent() {
                onClick={scrollToCheckout}
                className="w-full bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-bold py-4 px-8 rounded-xl transition-all text-sm uppercase tracking-widest"
             >
-              Get My Dossier Now
+              Obtener Mi Dossier Ahora
             </button>
           </div>
         </div>
@@ -1286,19 +1286,19 @@ function DatingScannerContent() {
               </h1>
               <div className="flex gap-2 mt-1">
                 <span className="bg-slate-800/80 backdrop-blur px-2 py-0.5 rounded text-[10px] text-white font-bold uppercase">{selectedMatch.identity}</span>
-                <span className="bg-slate-800/80 backdrop-blur px-2 py-0.5 rounded text-[10px] text-white font-bold uppercase">{selectedMatch.distance} away</span>
+                <span className="bg-slate-800/80 backdrop-blur px-2 py-0.5 rounded text-[10px] text-white font-bold uppercase">a {selectedMatch.distance}</span>
               </div>
             </div>
           </div>
 
           <div className="p-6 space-y-6">
             <div>
-              <h2 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Bio</h2>
+              <h2 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Biografía</h2>
               <p className="text-slate-300 text-sm leading-relaxed">"{selectedMatch.bio}"</p>
             </div>
 
             <div>
-              <h2 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Interests</h2>
+              <h2 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Intereses</h2>
               <div className="flex flex-wrap gap-2">
                 {selectedMatch.interests.map((int: string, i: number) => (
                   <span key={i} className="bg-slate-800 border border-slate-700 text-slate-300 px-3 py-1 rounded-full text-xs font-medium">{int}</span>
@@ -1313,7 +1313,7 @@ function DatingScannerContent() {
               }}
               className="w-full bg-gradient-to-r from-pink-600 to-rose-600 text-white font-bold py-3 rounded-xl shadow-lg uppercase tracking-wide text-sm"
             >
-              View Full Profile
+              Ver Perfil Completo
             </button>
           </div>
         </div>
@@ -1341,7 +1341,7 @@ function DatingScannerContent() {
 
       {step !== 2 && (
         <footer className="py-6 text-center border-t border-slate-800 w-full mt-auto">
-          <p className="text-[10px] text-slate-600 uppercase tracking-widest">© 2026 Infidelity Finder. All rights reserved.</p>
+          <p className="text-[10px] text-slate-600 uppercase tracking-widest">© 2026 Infidelity Finder. Todos los derechos reservados.</p>
         </footer>
       )}
 

@@ -4,49 +4,49 @@ export default function PrivacyPage() {
     return (
         <div className="min-h-screen bg-white flex flex-col font-sans">
             <main className="flex-grow container mx-auto px-4 py-12 max-w-3xl">
-                <h1 className="text-3xl font-bold mb-8 text-slate-900">Privacy Policy</h1>
+                <h1 className="text-3xl font-bold mb-8 text-slate-900">Política de Privacidad</h1>
 
                 <div className="prose prose-slate max-w-none text-slate-600 space-y-6">
                     <p>
-                        Your privacy is important to us. It is Infidelity Find's policy to respect your privacy regarding any information we may collect from you across our website, Infidelity Find, and other sites we own and operate.
+                        Su privacidad es importante para nosotros. Es política de Infidelity Finder respetar su privacidad con respecto a cualquier información que podamos recopilar de usted a través de nuestro sitio web, Infidelity Finder, y otros sitios que poseemos y operamos.
                     </p>
 
-                    <h2 className="text-xl font-semibold text-slate-800 mt-6">Information we collect</h2>
+                    <h2 className="text-xl font-semibold text-slate-800 mt-6">Información que recopilamos</h2>
                     <p>
-                        We only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.
+                        Solo solicitamos información personal cuando realmente la necesitamos para brindarle un servicio. La recopilamos por medios justos y legales, con su conocimiento y consentimiento. También le informamos por qué la recopilamos y cómo se utilizará.
                     </p>
 
-                    <h2 className="text-xl font-semibold text-slate-800 mt-6">Use of data</h2>
+                    <h2 className="text-xl font-semibold text-slate-800 mt-6">Uso de los datos</h2>
                     <p>
-                        We only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorised access, disclosure, copying, use or modification.
+                        Solo retenemos la información recopilada durante el tiempo que sea necesario para brindarle el servicio solicitado. Los datos que almacenamos los protegeremos dentro de medios comercialmente aceptables para evitar pérdidas y robos, así como el acceso, divulgación, copia, uso o modificación no autorizados.
                     </p>
 
-                    <h2 className="text-xl font-semibold text-slate-800 mt-6">Sharing of data</h2>
+                    <h2 className="text-xl font-semibold text-slate-800 mt-6">Intercambio de datos</h2>
                     <p>
-                        We don’t share any personally identifying information publicly or with third-parties, except when required to by law.
+                        No compartimos ninguna información de identificación personal públicamente ni con terceros, excepto cuando lo exija la ley.
                     </p>
 
-                    <h2 className="text-xl font-semibold text-slate-800 mt-6">Cooking</h2>
+                    <h2 className="text-xl font-semibold text-slate-800 mt-6">Cookies</h2>
                     <p>
-                        Our website may link to external sites that are not operated by us. Please be aware that we have no control over the content and practices of these sites, and cannot accept responsibility or liability for their respective privacy policies.
+                        Nuestro sitio web puede enlazar a sitios externos que no son operados por nosotros. Tenga en cuenta que no tenemos control sobre el contenido y las prácticas de estos sitios, y no podemos aceptar responsabilidad por sus respectivas políticas de privacidad.
                     </p>
 
-                    <h2 className="text-xl font-semibold text-slate-800 mt-6">User Commitment</h2>
+                    <h2 className="text-xl font-semibold text-slate-800 mt-6">Compromiso del Usuario</h2>
                     <p>
-                        The user undertakes to make appropriate use of the contents and information that Infidelity Find offers on the site and with an enunciative, but not limiting, character:
+                        El usuario se compromete a hacer un uso adecuado de los contenidos e información que Infidelity Finder ofrece en el sitio y con carácter enunciativo, pero no limitativo:
                     </p>
                     <ul className="list-disc pl-6 space-y-2">
-                        <li>A) Not to engage in activities that are illegal or contrary to good faith and public order;</li>
-                        <li>B) Not to spread propaganda or content of a racist, xenophobic nature, or gambling, any type of illegal pornography, apology for terrorism or against human rights;</li>
-                        <li>C) Not to cause damage to the physical (hardware) and logical (software) systems of Infidelity Find, its suppliers or third parties, to introduce or disseminate computer viruses or any other hardware or software systems that are capable of causing the aforementioned damage.</li>
+                        <li>A) No participar en actividades que sean ilegales o contrarias a la buena fe y al orden público;</li>
+                        <li>B) No difundir propaganda o contenidos de carácter racista, xenófobo, o de juegos de azar, cualquier tipo de pornografía ilegal, apología del terrorismo o contra los derechos humanos;</li>
+                        <li>C) No causar daños a los sistemas físicos (hardware) y lógicos (software) de Infidelity Finder, de sus proveedores o de terceros, para introducir o difundir virus informáticos o cualquier otro sistema de hardware o software que sea capaz de causar los daños mencionados anteriormente.</li>
                     </ul>
 
-                    <h2 className="text-xl font-semibold text-slate-800 mt-6">More information</h2>
+                    <h2 className="text-xl font-semibold text-slate-800 mt-6">Más información</h2>
                     <p>
-                        Hopefully that has clarified things for you and as was previously mentioned if there is something that you aren't sure whether you need or not it's usually safer to leave cookies enabled in case it does interact with one of the features you use on our site.
+                        Esperamos que esto haya aclarado las cosas para usted y, como se mencionó anteriormente, si hay algo de lo que no está seguro si necesita o no, generalmente es más seguro dejar las cookies activadas en caso de que interactúe con una de las funciones que utiliza en nuestro sitio.
                     </p>
 
-                    <p className="mt-8 text-sm">This policy is effective as of {new Date().getFullYear()}.</p>
+                    <p className="mt-8 text-sm">Esta política es efectiva a partir de {new Date().getFullYear()}.</p>
                 </div>
             </main>
             <LegalFooter />

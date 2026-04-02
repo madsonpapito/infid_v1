@@ -21,10 +21,10 @@ export const CreativeAssets = () => {
                         <div className="flex-1">
                             <div className="flex justify-between items-center mb-1">
                                 <span className="font-bold text-sm">WhatsApp</span>
-                                <span className="text-xs text-gray-300">now</span>
+                                <span className="text-xs text-gray-300">ahora</span>
                             </div>
-                            <h4 className="font-bold text-sm">Unknown Number</h4>
-                            <p className="text-sm">📷 Photo </p>
+                            <h4 className="font-bold text-sm">Número Desconocido</h4>
+                            <p className="text-sm">📷 Foto </p>
                         </div>
                     </div>
 
@@ -35,11 +35,11 @@ export const CreativeAssets = () => {
                         </div>
                         <div className="flex-1">
                             <div className="flex justify-between items-center mb-1">
-                                <span className="font-bold text-sm text-yellow-300">SYSTEM ALERT</span>
-                                <span className="text-xs text-gray-300">now</span>
+                                <span className="font-bold text-sm text-yellow-300">ALERTA DEL SISTEMA</span>
+                                <span className="text-xs text-gray-300">ahora</span>
                             </div>
-                            <h4 className="font-bold text-sm">Deleted Message Recovered</h4>
-                            <p className="text-sm opacity-90">"Don't tell her about last night..."</p>
+                            <h4 className="font-bold text-sm">Mensaje Eliminado Recuperado</h4>
+                            <p className="text-sm opacity-90">&quot;No le cuentes sobre lo de anoche...&quot;</p>
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@ export const CreativeAssets = () => {
                 <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-2">
                         <div className="w-3 h-3 bg-red-500 rounded-full animate-ping"></div>
-                        <span className="text-red-500 font-bold tracking-widest uppercase text-sm">Live Match Found</span>
+                        <span className="text-red-500 font-bold tracking-widest uppercase text-sm">Coincidencia en Vivo Encontrada</span>
                     </div>
                     <span className="text-slate-500 text-xs font-mono">ID: #9921</span>
                 </div>
@@ -61,7 +61,7 @@ export const CreativeAssets = () => {
                     <img src="/placeholder.svg" className="w-full h-full object-cover opacity-50 blur-sm" />
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
                         <User className="w-16 h-16 text-slate-400 mb-2" />
-                        <div className="bg-rose-600 text-white px-3 py-1 rounded font-bold text-sm">IDENTITY HIDDEN</div>
+                        <div className="bg-rose-600 text-white px-3 py-1 rounded font-bold text-sm">IDENTIDAD OCULTA</div>
                     </div>
 
                     {/* Scan Overlay */}
@@ -91,20 +91,20 @@ export const CreativeAssets = () => {
                         <MapPin className="w-8 h-8 text-rose-500 relative z-10" fill="currentColor" />
                     </div>
                     <div className="bg-black/80 text-rose-500 text-[10px] font-bold px-2 py-1 rounded mt-1 border border-rose-500/50">
-                        Home: 22:00 PM <br /> <span className="text-white">NOT DETECTED</span>
+                        Casa: 22:00 PM <br /> <span className="text-white">NO DETECTADO</span>
                     </div>
                 </div>
 
                 <div className="absolute bottom-1/3 right-1/4 flex flex-col items-center">
                     <MapPin className="w-6 h-6 text-cyan-500" />
                     <div className="bg-black/80 text-cyan-400 text-[10px] font-bold px-2 py-1 rounded mt-1 border border-cyan-500/50">
-                        Motel 6 <br /> <span className="text-white">Active Now</span>
+                        Motel 6 <br /> <span className="text-white">Activo Ahora</span>
                     </div>
                 </div>
 
                 <div className="absolute bottom-4 left-4 bg-slate-900/90 p-2 rounded border border-slate-700 text-xs font-mono text-green-400">
-             > GPS Signal: STRONG <br />
-             > Triangulation: COMPLETE
+             &gt; Señal GPS: FUERTE <br />
+             &gt; Triangulación: COMPLETA
                 </div>
             </div>
 

@@ -18,18 +18,18 @@ export function LegalFooter() {
 
                 <div className="flex justify-center gap-6 mb-6">
                     <Link href="/privacy" className="hover:text-slate-900 transition-colors">
-                        Privacy Policy
+                        Política de Privacidad
                     </Link>
                     <Link href="/terms" className="hover:text-slate-900 transition-colors">
-                        Terms of Use
+                        Términos de Uso
                     </Link>
                 </div>
 
                 <p>
-                    &copy; {currentYear} Infidelity Find. All rights reserved.
+                    &copy; {currentYear} Infidelity Finder. Todos los derechos reservados.
                 </p>
                 <p className="mt-2 text-xs text-slate-400">
-                    This site is not affiliated with Facebook or any Facebook entity. Once you leave Facebook, it is not their responsibility but our website's.
+                    Este sitio no está afiliado a Facebook ni a ninguna entidad de Facebook. Una vez que sales de Facebook, no es responsabilidad de ellos, sino de nuestro sitio web.
                 </p>
             </div>
         </footer>

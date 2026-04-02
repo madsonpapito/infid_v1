@@ -4,12 +4,12 @@ import { useEffect } from "react"
 import { Search, Loader2 } from "lucide-react"
 
 export default function Step1() {
-  // O EasyTracker intercepta cliques em elementos com a classe 'easyt-next-page'
-  // No caso de acesso direto ou redundância, redirecionamos para a oferta
+  // El EasyTracker intercepta clics en elementos con la clase 'easyt-next-page'
+  // En caso de acceso directo o redundancia, redireccionamos a la oferta
   const trackerUrl = "https://etr.tindercheck.xyz/trk/offer/1"
 
   useEffect(() => {
-    // Pequeno delay para garantir que o tracker carregue se necessário
+    // Pequeño delay para garantizar que el tracker cargue si es necesario
     const timer = setTimeout(() => {
       window.location.href = trackerUrl + window.location.search
     }, 1500)
@@ -25,24 +25,24 @@ export default function Step1() {
         
         <div className="space-y-4">
           <h1 className="text-2xl font-bold tracking-tight uppercase">
-            Iniciando Varredura...
+            Iniciando Escaneo...
           </h1>
           <p className="text-slate-400 text-sm">
-            Conectando aos bancos de dados de redes sociais de forma anônima.
+            Conectando a las bases de datos de redes sociales de forma anónima.
           </p>
         </div>
 
         <div className="flex flex-col items-center gap-4">
           <Loader2 className="w-8 h-8 text-cyan-500 animate-spin" />
           <p className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">
-            Protocolo de segurança ativo
+            Protocolo de seguridad activo
           </p>
         </div>
 
-        {/* Link estático para o crawler do EasyTracker validar a oferta */}
+        {/* Enlace estático para que el crawler de EasyTracker valide la oferta */}
         <div className="opacity-0 pointer-events-none absolute bottom-0">
           <a href={trackerUrl} className="easyt-next-page">
-            EasyTracker Activation Link
+            Enlace de Activación de EasyTracker
           </a>
         </div>
       </div>

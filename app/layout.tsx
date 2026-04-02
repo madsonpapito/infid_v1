@@ -9,9 +9,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark bg-[#0B1120]">
+    <html lang="es" className="dark bg-[#0B1120]">
       <head>
-        <title>Infidelity Finder | Deep Scan</title>
+        <title>Infidelity Finder | Escaneo Profundo</title>
         <GoogleTagManager gtmId="GTM-WQ3KMTB3" />
 
         {/* EasyTracker */}
@@ -28,7 +28,7 @@ export default function RootLayout({
 }
 
 export const metadata = {
-  title: "Infidelity Finder - Exposed Hidden Profiles",
-  description: "Check if your partner is hiding something on social media and dating apps.",
+  title: "Infidelity Finder - Perfiles Ocultos Expuestos",
+  description: "Verifica si tu pareja oculta algo en redes sociales y aplicaciones de citas.",
   generator: "v0.app",
 }

@@ -1,75 +1,65 @@
 
 export const MALE_NAMES = [
-    "James", "John", "Robert", "Michael", "William", "David", "Richard", "Joseph", "Thomas", "Charles",
-    "Daniel", "Matthew", "Anthony", "Donald", "Mark", "Paul", "Steven", "Andrew", "Kenneth", "Joshua",
-    "Kevin", "Brian", "George", "Edward", "Ronald", "Timothy", "Jason", "Jeffrey", "Ryan", "Jacob"
+    "Alejandro", "Mateo", "Santiago", "Sebastián", "Leonardo", "Felipe", "Daniel", "Diego", "Joaquín", "Nicolás",
+    "Gabriel", "Samuel", "Emiliano", "Matías", "Lucas", "Benjamín", "Rodrigo", "Javier", "Andrés", "Ricardo",
+    "Carlos", "José", "Francisco", "Fernando", "Miguel", "Antonio", "Juan", "Pedro", "Hugo", "Ángel"
 ];
 
 export const FEMALE_NAMES = [
-    "Mary", "Patricia", "Jennifer", "Linda", "Elizabeth", "Barbara", "Susan", "Jessica", "Sarah", "Karen",
-    "Nancy", "Lisa", "Betty", "Margaret", "Sandra", "Ashley", "Kimberly", "Emily", "Donna", "Michelle",
-    "Dorothy", "Carol", "Amanda", "Melissa", "Deborah", "Stephanie", "Rebecca", "Sharon", "Laura", "Cynthia"
+    "Sofía", "Isabella", "Valentina", "Camila", "Lucía", "Mariana", "Victoria", "Daniela", "Gabriela", "Martina",
+    "Elena", "Natalia", "Andrea", "Paula", "Sara", "Claudia", "Beatriz", "Adriana", "Lorena", "Luisa",
+    "Verónica", "Patricia", "Raquel", "Mónica", "Silvia", "Rosa", "Blanca", "Carmen", "Julia", "Marta"
 ];
 
 export const MALE_BIOS = [
-    "Here for a good time, not a long time.",
-    "Just got out of a relationship.",
-    "Looking for discreet fun.",
-    "Gym, Work, Sleep, Repeat.",
-    "Not looking for anything serious.",
-    "Let's grab a drink and see what happens.",
-    "Adventure seeker.",
-    "Entrepreneur. Always busy.",
-    "Message me if you want to know more.",
-    "Swipe right if you're fun."
+    "Aquí para pasar un buen rato, no mucho tiempo.",
+    "Recién salido de una relación.",
+    "Buscando diversión discreta.",
+    "Gimnasio, Trabajo, Dormir, Repetir.",
+    "No busco nada serio.",
+    "Tomemos algo y veamos qué pasa.",
+    "Buscador de aventuras.",
+    "Emprendedor. Siempre ocupado.",
+    "Escríbeme si quieres saber más.",
+    "Desliza a la derecha si eres divertida."
 ];
 
 export const FEMALE_BIOS = [
-    "Just having fun.",
-    "Looking for a generous man.",
-    "No strings attached.",
-    "Secretly here.",
-    "Don't tell anyone.",
-    "Wine lover 🍷",
-    "Travel addict ✈️",
-    "Here for the vibes.",
-    "Not looking for a pen pal.",
-    "Make me laugh and I'm yours."
+    "Solo divirtiéndome.",
+    "Buscando a un hombre generoso.",
+    "Sin ataduras.",
+    "Aquí en secreto.",
+    "No se lo digas a nadie.",
+    "Amante del vino 🍷",
+    "Adicta a los viajes ✈️",
+    "Aquí por las buenas vibras.",
+    "No busco un amigo por correspondencia.",
+    "Hazme reír y soy tuya."
 ];
 
 export const ZODIACS = [
-    "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"
+    "Aries", "Tauro", "Géminis", "Cáncer", "Leo", "Virgo", "Libra", "Escorpio", "Sagitario", "Capricornio", "Acuario", "Piscis"
 ];
 
 export const INTERESTS = [
-    "Travel", "Music", "Sushi", "Gym", "Hiking", "Movies", "Photography", "Art", "Coffee", "Wine", "Dancing", "Reading", "Cooking", "Yoga", "Surfing"
+    "Viajes", "Música", "Sushi", "Gimnasio", "Senderismo", "Cine", "Fotografía", "Arte", "Café", "Vino", "Baile", "Lectura", "Cocina", "Yoga", "Surf"
 ];
 
 export function getRandomProfile(gender: 'male' | 'female', index: number, overriddenName?: string) {
     const names = gender === 'male' ? MALE_NAMES : FEMALE_NAMES;
     const bios = gender === 'male' ? MALE_BIOS : FEMALE_BIOS;
 
-    // Use explicit index mod length to ensure we cycle through but randomize locally if needed
-    // Or just pure random? Pure random is better for "random system".
-    // Use overridden name if provided, otherwise use explicit index
     const name = overriddenName || names[index % names.length];
     const bio = bios[Math.floor(Math.random() * bios.length)];
     const age = Math.floor(Math.random() * (35 - 19 + 1)) + 19;
     const zodiac = ZODIACS[Math.floor(Math.random() * ZODIACS.length)];
     const distance = Math.floor(Math.random() * 15) + 1;
 
-    // Get 2 random interests
     const i1 = INTERESTS[Math.floor(Math.random() * INTERESTS.length)];
     let i2 = INTERESTS[Math.floor(Math.random() * INTERESTS.length)];
     while (i2 === i1) i2 = INTERESTS[Math.floor(Math.random() * INTERESTS.length)];
 
-    // Avatar path construction
-    // We know we have 1.jpg to 6.jpg (approx) in the folders based on earlier check.
-    // Actually we have 1-6. Let's assume 1-6 safe range.
     const avatarId = (index % 6) + 1;
-    // Folders are physically swapped on disk:
-    // /images/female contains MALE photos
-    // /images/male contains FEMALE photos
     const genderFolder = gender === 'male' ? 'female' : 'male';
 
     return {
@@ -80,8 +70,8 @@ export function getRandomProfile(gender: 'male' | 'female', index: number, overr
         distance: `${distance} km`,
         interests: [i1, i2],
         avatar: `/images/${genderFolder}/tinder/${avatarId}.jpg`,
-        verified: Math.random() > 0.3, // 70% chance verified
-        identity: gender === 'male' ? "Man" : "Woman",
-        lastSeen: Math.random() > 0.5 ? `${Math.floor(Math.random() * 10) + 1}h ago` : "Online"
+        verified: Math.random() > 0.3,
+        identity: gender === 'male' ? "Hombre" : "Mujer",
+        lastSeen: Math.random() > 0.5 ? `hace ${Math.floor(Math.random() * 10) + 1}h` : "En línea"
     };
 }

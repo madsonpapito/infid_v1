@@ -1,3 +1,5 @@
+"use client"
+
 import { LegalFooter } from "@/components/legal-footer"
 import { Check, ShieldCheck, Lock, Battery, MapPin, Calculator, Trash2, Cloud, Smartphone, Search } from "lucide-react"
 import Link from "next/link"
@@ -10,11 +12,11 @@ export default function InitPage1FP() {
             <section className="bg-white pt-12 pb-16 px-4 md:px-8 shadow-sm">
                 <div className="max-w-4xl mx-auto text-center space-y-6">
                     <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
-                        Body Language Tells You If They Are Lying. <br className="hidden md:block" />
-                        <span className="text-blue-600">This Kit Tells You What They Are Hiding.</span>
+                        El lenguaje corporal te dice si están mintiendo. <br className="hidden md:block" />
+                        <span className="text-blue-600">Este kit te dice qué es lo que ocultan.</span>
                     </h1>
                     <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                        You now have the skills to read their face. But if you want <strong>concrete proof</strong>, you need to look where 99% of secrets are hidden: <strong className="text-blue-600">The Digital Footprint.</strong>
+                        Ahora tienes las habilidades para leer su rostro. Pero si quieres una <strong>prueba concreta</strong>, necesitas mirar donde el 99% de los secretos están escondidos: <strong className="text-blue-600">La huella digital.</strong>
                     </p>
                 </div>
             </section>
@@ -29,7 +31,7 @@ export default function InitPage1FP() {
                                 <div className="w-0 h-0 border-l-[20px] border-l-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent ml-1"></div>
                             </div>
                             <p className="text-white/80 text-sm md:text-base max-w-md">
-                                &ldquo;Most people think deleting a message deletes the evidence. It doesn&apos;t. Your phone tracks everything...&rdquo;
+                                &ldquo;La mayoría de la gente piensa que borrar un mensaje borra la evidencia. No es así. Su teléfono registra todo...&rdquo;
                             </p>
                         </div>
                     </div>
@@ -40,34 +42,34 @@ export default function InitPage1FP() {
             <section className="py-16 px-4 md:px-8 bg-white">
                 <div className="max-w-3xl mx-auto prose prose-lg prose-slate">
                     <p className="text-slate-700 leading-relaxed">
-                        <strong>Dear Friend,</strong>
+                        <strong>Querido amigo/a,</strong>
                     </p>
                     <p className="text-slate-700 leading-relaxed">
-                        Congratulations on securing the <em>Reading Signs</em> method. You are now miles ahead of everyone else when it comes to spotting a lie.
+                        Felicitaciones por asegurar el método de <em>Lectura de Señales</em>. Ahora estás kilómetros por delante de todos los demás cuando se trata de detectar una mentira.
                     </p>
                     <p className="text-slate-700 leading-relaxed">
-                        But let&apos;s be honest for a second.
+                        Pero seamos honestos por un segundo.
                     </p>
                     <p className="text-slate-900 font-semibold text-xl leading-relaxed">
-                        Knowing they are lying is painful. <span className="text-blue-600">Proving it is power.</span>
+                        Saber que están mintiendo es doloroso. <span className="text-blue-600">Probarlo es poder.</span>
                     </p>
                     <p className="text-slate-700 leading-relaxed">
-                        When you confront your partner based on a &ldquo;feeling&rdquo; or a &ldquo;micro-expression,&rdquo; they can gaslight you. They can say, <em>&ldquo;You&apos;re crazy,&rdquo;</em> or <em>&ldquo;You&apos;re imagining things.&rdquo;</em>
+                        Cuando confrontas a tu pareja basándote en un &ldquo;sentimiento&rdquo; o una &ldquo;microexpresión,&rdquo; pueden manipularte. Pueden decirte, <em>&ldquo;Estás loco/a,&rdquo;</em> o <em>&ldquo;Te estás imaginando cosas.&rdquo;</em>
                     </p>
                     <p className="text-slate-900 font-semibold leading-relaxed">
-                        But they cannot argue with a screenshot. They cannot argue with digital logs.
+                        Pero no pueden discutir con una captura de pantalla. No pueden discutir con registros digitales.
                     </p>
                     <p className="text-slate-700 leading-relaxed">
-                        Most cheating partners think they are smart. They delete WhatsApp chats. They clear their browser history. They use &ldquo;Vanish Mode.&rdquo;
+                        La mayoría de las parejas infieles se creen inteligentes. Borran los chats de WhatsApp. Limpian su historial de navegación. Usan el &ldquo;Modo Efímero.&rdquo;
                     </p>
                     <p className="text-slate-900 font-bold text-xl">
-                        But they make mistakes.
+                        Pero cometen errores.
                     </p>
                     <p className="text-slate-700 leading-relaxed">
-                        They forget that smartphones are designed to track everything. Every action leaves a digital residue. Even if they delete the message, the phone remembers the app usage. Even if they turn off GPS, the photo metadata remembers the location.
+                        Olvidan que los smartphones están diseñados para rastrear todo. Cada acción deja un residuo digital. Incluso si borran el mensaje, el teléfono recuerda el uso de la aplicación. Incluso si apagan el GPS, los metadatos de las fotos recuerdan la ubicación.
                     </p>
                     <p className="text-blue-600 font-bold text-xl">
-                        You just need to know where to look.
+                        Solo necesitas saber dónde mirar.
                     </p>
                 </div>
             </section>
@@ -75,7 +77,7 @@ export default function InitPage1FP() {
             {/* Product Introduction */}
             <section className="py-16 px-4 md:px-8 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
                 <div className="max-w-4xl mx-auto text-center">
-                    <p className="text-blue-400 text-lg font-semibold mb-4">Introducing:</p>
+                    <p className="text-blue-400 text-lg font-semibold mb-4">Presentando:</p>
                     <div className="flex items-center justify-center gap-4 mb-6">
                         <div className="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center">
                             <Smartphone className="w-8 h-8 text-blue-400" />
@@ -85,13 +87,13 @@ export default function InitPage1FP() {
                         </div>
                     </div>
                     <h2 className="text-3xl md:text-5xl font-extrabold mb-4">
-                        📱 The Digital Audit Kit
+                        📱 El Kit de Auditoría Digital
                     </h2>
                     <p className="text-xl md:text-2xl text-slate-300 font-medium">
-                        How to Find Concrete Proof Without Being a Hacker
+                        Cómo encontrar pruebas concretas sin ser un hacker
                     </p>
                     <p className="text-slate-400 mt-6 max-w-2xl mx-auto leading-relaxed">
-                        This is not a spy app. This is not illegal software. This is a <strong className="text-white">step-by-step guide</strong> on how to audit digital devices effectively to find what is hidden in plain sight.
+                        Esto no es una aplicación de espionaje. No es un software ilegal. Es una <strong className="text-white">guía paso a paso</strong> sobre cómo auditar dispositivos digitales de manera efectiva para encontrar lo que está oculto a plena vista.
                     </p>
                 </div>
             </section>
@@ -100,7 +102,7 @@ export default function InitPage1FP() {
             <section className="py-16 px-4 md:px-8 bg-slate-50">
                 <div className="max-w-5xl mx-auto">
                     <h3 className="text-2xl md:text-3xl font-bold text-center mb-12 text-slate-900">
-                        Here is what you will discover inside:
+                        Esto es lo que descubrirás dentro:
                     </h3>
 
                     <div className="grid md:grid-cols-2 gap-6">
@@ -111,9 +113,9 @@ export default function InitPage1FP() {
                                     <Battery className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-lg text-slate-900 mb-2">🔋 The &ldquo;Battery Betrayal&rdquo; Technique</h4>
+                                    <h4 className="font-bold text-lg text-slate-900 mb-2">🔋 La técnica de la &ldquo;Traición de la Batería&rdquo;</h4>
                                     <p className="text-slate-600 leading-relaxed">
-                                        How to instantly see which apps are being used the most (and at what times), even if the icon is hidden from the home screen.
+                                        Cómo ver instantáneamente qué aplicaciones se están usando más (y a qué horas), incluso si el ícono está oculto de la pantalla de inicio.
                                     </p>
                                 </div>
                             </div>
@@ -126,9 +128,9 @@ export default function InitPage1FP() {
                                     <MapPin className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-lg text-slate-900 mb-2">📍 The Location Timeline</h4>
+                                    <h4 className="font-bold text-lg text-slate-900 mb-2">📍 La cronología de ubicación</h4>
                                     <p className="text-slate-600 leading-relaxed">
-                                        How to access the hidden map inside Google and Apple accounts that shows exactly where the phone has been, minute by minute.
+                                        Cómo acceder al mapa oculto dentro de las cuentas de Google y Apple que muestra exactamente dónde ha estado el teléfono, minuto a minuto.
                                     </p>
                                 </div>
                             </div>
@@ -141,9 +143,9 @@ export default function InitPage1FP() {
                                     <Calculator className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-lg text-slate-900 mb-2">🛡️ The &ldquo;Calculator&rdquo; Vaults</h4>
+                                    <h4 className="font-bold text-lg text-slate-900 mb-2">🛡️ Las bóvedas de &ldquo;Calculadora&rdquo;</h4>
                                     <p className="text-slate-600 leading-relaxed">
-                                        Is that really a calculator app? Learn how to spot fake apps that are actually secret vaults for photos and messages.
+                                        ¿Es eso realmente una aplicación de calculadora? Aprende a detectar aplicaciones falsas que son en realidad bóvedas secretas para fotos y mensajes.
                                     </p>
                                 </div>
                             </div>
@@ -156,9 +158,9 @@ export default function InitPage1FP() {
                                     <Trash2 className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-lg text-slate-900 mb-2">🗑️ The Ghost Folder</h4>
+                                    <h4 className="font-bold text-lg text-slate-900 mb-2">🗑️ La carpeta fantasma</h4>
                                     <p className="text-slate-600 leading-relaxed">
-                                        The one place inside the photo gallery that 90% of people forget to empty after deleting incriminating photos.
+                                        El único lugar dentro de la galería de fotos que el 90% de las personas olvida vaciar después de borrar fotos incriminatorias.
                                     </p>
                                 </div>
                             </div>
@@ -171,9 +173,9 @@ export default function InitPage1FP() {
                                     <Cloud className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-lg text-slate-900 mb-2">☁️ The Cloud Backdoor</h4>
+                                    <h4 className="font-bold text-lg text-slate-900 mb-2">☁️ La puerta trasera de la nube</h4>
                                     <p className="text-slate-600 leading-relaxed">
-                                        How to find messages that were deleted from the phone but are still living in the cloud backup.
+                                        Cómo encontrar mensajes que fueron borrados del teléfono pero que aún viven en la copia de seguridad de la nube.
                                     </p>
                                 </div>
                             </div>
@@ -186,19 +188,19 @@ export default function InitPage1FP() {
             <section className="py-16 px-4 md:px-8 bg-amber-50 border-y-4 border-amber-400">
                 <div className="max-w-3xl mx-auto text-center space-y-6">
                     <h3 className="text-2xl md:text-3xl font-bold text-amber-900">
-                        Why You Need This Right Now:
+                        Por qué necesitas esto ahora mismo:
                     </h3>
                     <p className="text-lg text-amber-800 leading-relaxed">
-                        If you leave this page, you might never find this offer again. But more importantly, <strong>digital evidence disappears with time.</strong>
+                        Si sales de esta página, es posible que nunca vuelvas a encontrar esta oferta. Pero lo más importante, <strong>la evidencia digital desaparece con el tiempo.</strong>
                     </p>
                     <p className="text-lg text-amber-900 font-semibold">
-                        Every day you wait is a day they might clear the cache or update the software.
+                        Cada día que esperas es un día en el que podrían limpiar la caché o actualizar el software.
                     </p>
                     <p className="text-amber-800 leading-relaxed">
-                        You don&apos;t need to be a tech genius. You don&apos;t need to guess passwords. You just need to follow the checklist.
+                        No necesitas ser un genio de la tecnología. No necesitas adivinar contraseñas. Solo necesitas seguir la lista de verificación.
                     </p>
                     <p className="text-xl font-bold text-amber-900 pt-4">
-                        Get the Peace of Mind You Deserve.
+                        Obtén la paz mental que te mereces.
                     </p>
                 </div>
             </section>
@@ -207,13 +209,13 @@ export default function InitPage1FP() {
             <section className="py-20 px-4 md:px-8 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white">
                 <div className="max-w-3xl mx-auto text-center space-y-8">
                     <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
-                        <p className="text-blue-200 text-lg font-medium mb-2">One Time Only</p>
+                        <p className="text-blue-200 text-lg font-medium mb-2">Una sola vez</p>
                         <div className="flex items-center justify-center gap-3">
                             <span className="text-3xl text-white/50 line-through">$97</span>
                             <span className="text-6xl md:text-7xl font-extrabold text-white">$47</span>
                         </div>
                         <p className="text-yellow-400 font-bold mt-3 text-lg">
-                            🔥 That&apos;s a 50% Discount - One Time Only!
+                            🔥 ¡Eso es un 50% de descuento - Una Sola Vez!
                         </p>
                     </div>
 
@@ -222,10 +224,10 @@ export default function InitPage1FP() {
                             href="https://go.plataformafortpay.com.br/erdmddyptp"
                             className="block w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white text-lg md:text-xl font-bold py-5 px-10 rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-1 border-2 border-orange-400"
                         >
-                            ✅ YES! Add The &ldquo;Digital Audit Kit&rdquo; To My Order
+                            ✅ ¡SÍ! Agregar el &ldquo;Kit de Auditoría Digital&rdquo; a mi pedido
                         </Link>
                         <p className="text-blue-100 text-sm">
-                            Click here to add for just $47. Instant Access.
+                            Haz clic aquí para agregar por solo $47. Acceso Instantáneo.
                         </p>
                     </div>
 
@@ -240,10 +242,10 @@ export default function InitPage1FP() {
                             <ShieldCheck className="w-8 h-8 text-green-600" />
                         </div>
                         <h3 className="text-2xl font-bold text-green-900 mb-4">
-                            🔒 100% Risk-Free Guarantee
+                            🔒 Garantía de 100% libre de riesgo
                         </h3>
                         <p className="text-green-800 leading-relaxed">
-                            Just like the main course, if you use these techniques and find they are too difficult or not useful, just email us, and we will refund this upgrade immediately. <strong>No questions asked.</strong>
+                            Al igual que el curso principal, si usas estas técnicas y encuentras que son demasiado difíciles o no útiles, simplemente envíanos un correo electrónico y te reembolsaremos este upgrade de inmediato. <strong>Sin preguntas.</strong>
                         </p>
                     </div>
                 </div>

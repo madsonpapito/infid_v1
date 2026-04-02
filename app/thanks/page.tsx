@@ -17,9 +17,9 @@ export default function ThanksPage() {
         </div>
 
         <div className="space-y-2">
-          <h1 className="text-2xl font-bold uppercase tracking-tight">Access Granted</h1>
+          <h1 className="text-2xl font-bold uppercase tracking-tight">Acceso Concedido</h1>
           <p className="text-slate-400 text-sm">
-            Your investigation report is being finalized and will be linked to your payment email shortly.
+            Tu informe de investigación está siendo finalizado y será enviado a tu correo electrónico de pago en breve.
           </p>
         </div>
 
@@ -43,16 +43,16 @@ export default function ThanksPage() {
             href="https://go.plataformafortpay.com.br/oavin"
             className="flex items-center justify-center gap-2 w-full py-4 bg-emerald-500 hover:bg-emerald-400 text-[#0B1120] font-bold rounded-xl transition-all shadow-lg shadow-emerald-500/20"
           >
-            REFRESH DASHBOARD <ChevronRight className="w-4 h-4" />
+            ACTUALIZAR DASHBOARD <ChevronRight className="w-4 h-4" />
           </Link>
           <p className="text-[10px] text-slate-500 font-mono italic">
-            Check your email (including spam) for login credentials.
+            Revisa tu correo electrónico (incluyendo spam) para las credenciales de inicio de sesión.
           </p>
         </div>
       </div>
       
       <p className="mt-8 text-slate-600 text-[10px] font-bold uppercase tracking-widest">
-        © 2026 Infidelity Find • Secure Connection
+        © 2026 Infidelity Finder • Conexión Segura
       </p>
     </div>
   )

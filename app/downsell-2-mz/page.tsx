@@ -52,7 +52,7 @@ export default function Downsell2MZPage() {
             <div className="w-full bg-rose-600/20 text-center py-2 px-4 sticky top-0 z-50 backdrop-blur-md border-b border-rose-500/30">
                 <p className="text-[10px] font-bold text-rose-500 uppercase tracking-widest animate-pulse flex items-center justify-center gap-2">
                     <FileWarning className="w-4 h-4" />
-                    CRITICAL ALERT: EVIDENCE DELETION SCHEDULED VIA MONETIZZE
+                    ALERTA CRÍTICA: ELIMINACIÓN DE EVIDENCIAS PROGRAMADA VÍA MONETIZZE
                 </p>
             </div>
 
@@ -65,12 +65,12 @@ export default function Downsell2MZPage() {
                     </div>
 
                     <h1 className="text-xl font-black text-rose-500 leading-tight uppercase tracking-tight">
-                        {"DON'T LOSE THE EVIDENCE!"}
+                        {"¡NO PIERDAS LAS EVIDENCIAS!"}
                     </h1>
 
                     <p className="text-slate-400 text-xs leading-relaxed max-w-xs mx-auto font-mono text-center">
-                        The scan results are stored in temporary cache. <br />
-                        <span className="text-white font-bold text-sm">Unlock everything (Monetizze) for 50% less.</span>
+                        Los resultados del escaneo se almacenan en la caché temporal. <br />
+                        <span className="text-white font-bold text-sm">Desbloquea todo (Monetizze) por un 50% menos.</span>
                     </p>
                 </div>
 
@@ -80,7 +80,7 @@ export default function Downsell2MZPage() {
                     <div className="bg-slate-800/50 p-3 flex items-center justify-between border-b border-slate-700">
                         <div className="flex items-center gap-2">
                             <div className="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></div>
-                            <span className="text-[10px] font-bold text-white uppercase tracking-widest">Live Investigation</span>
+                            <span className="text-[10px] font-bold text-white uppercase tracking-widest">Investigación en Vivo</span>
                         </div>
                         <div className="text-[10px] font-mono text-slate-500">CACHE_ID: #XA-992</div>
                     </div>
@@ -88,24 +88,24 @@ export default function Downsell2MZPage() {
                     <div className="p-4 bg-rose-500/5 border-b border-slate-700/50 flex items-start gap-3">
                         <ShieldAlert className="text-rose-500 shrink-0 w-5 h-5 mt-0.5" />
                         <p className="text-xs text-rose-400 font-medium leading-relaxed">
-                            Suspicious DMs and hidden stories found via Monetizze. <br />
-                            <span className="text-white font-bold">Last chance to view before permanent purge.</span>
+                            DMs sospechosos e historias ocultas encontradas vía Monetizze. <br />
+                            <span className="text-white font-bold">Última oportunidad para ver antes de la purga permanente.</span>
                         </p>
                     </div>
 
                     {/* Stats Grid */}
                     <div className="grid grid-cols-4 divide-x divide-slate-700 bg-[#0f172a] p-4 text-center border-b border-slate-700">
-                        <div><p className="text-lg font-bold text-white">8</p><p className="text-[8px] text-slate-500 font-bold uppercase tracking-wider">DMs</p></div>
-                        <div><p className="text-lg font-bold text-rose-500">42</p><p className="text-[8px] text-slate-500 font-bold uppercase tracking-wider">Likes</p></div>
-                        <div><p className="text-lg font-bold text-purple-500">12</p><p className="text-[8px] text-slate-500 font-bold uppercase tracking-wider">Stories</p></div>
-                        <div><p className="text-lg font-bold text-emerald-500 uppercase">Active</p><p className="text-[8px] text-slate-500 font-bold uppercase tracking-wider">Status</p></div>
+                        <div><p className="text-lg font-bold text-white">8</p><p className="text-[8px] text-slate-500 font-bold uppercase tracking-wider">Mensajes</p></div>
+                        <div><p className="text-lg font-bold text-rose-500">42</p><p className="text-[8px] text-slate-500 font-bold uppercase tracking-wider">Me gusta</p></div>
+                        <div><p className="text-lg font-bold text-purple-500">12</p><p className="text-[8px] text-slate-500 font-bold uppercase tracking-wider">Historias</p></div>
+                        <div><p className="text-lg font-bold text-emerald-500 uppercase">Activo</p><p className="text-[8px] text-slate-500 font-bold uppercase tracking-wider">Estado</p></div>
                     </div>
 
                     {/* Private Gallery (Censored) */}
                     <div className="p-5">
                         <div className="flex items-center justify-between mb-4">
                             <h3 className="font-bold text-slate-400 text-xs uppercase tracking-widest flex items-center gap-2">
-                                <Lock className="w-3 h-3 text-cyan-400" /> Encrypted Gallery
+                                <Lock className="w-3 h-3 text-cyan-400" /> Galería Cifrada
                             </h3>
                         </div>
 
@@ -119,7 +119,7 @@ export default function Downsell2MZPage() {
 
                                     <div className="z-10 flex flex-col items-center">
                                         <EyeOff className="mb-2 w-5 h-5 text-rose-500" />
-                                        <span className="text-[8px] font-bold tracking-widest border border-rose-500/30 text-rose-400 px-2 py-0.5 rounded font-mono">REDACTED</span>
+                                        <span className="text-[8px] font-bold tracking-widest border border-rose-500/30 text-rose-400 px-2 py-0.5 rounded font-mono">CENSURADO</span>
                                     </div>
                                 </div>
                             ))}
@@ -136,15 +136,15 @@ export default function Downsell2MZPage() {
                         <Lock className="text-rose-500 w-6 h-6" />
                     </div>
 
-                    <h2 className="text-lg font-black text-rose-500 uppercase tracking-widest">UNLOCK FULL REPORT</h2>
+                    <h2 className="text-lg font-black text-rose-500 uppercase tracking-widest">DESBLOQUEAR INFORME COMPLETO</h2>
                     <div className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded text-[10px] font-bold inline-block mb-4 tracking-wider shadow-[0_0_15px_rgba(16,185,129,0.2)] uppercase">
-                        ADMIN DISCOUNT: 50% APPLIED VIA MONETIZZE
+                        DESCUENTO ADMINISTRATIVO: 50% APLICADO VÍA MONETIZZE
                     </div>
 
                     <div className="bg-rose-500/5 border border-rose-500/20 rounded-lg p-3 mb-4 flex justify-between items-center px-6">
                         <div className="flex items-center gap-2 text-rose-500">
                             <Clock className="w-4 h-4" />
-                            <span className="text-[10px] font-bold uppercase tracking-widest">Purge In:</span>
+                            <span className="text-[10px] font-bold uppercase tracking-widest">Purga en:</span>
                         </div>
                         <p className="text-xl font-mono font-bold text-rose-500 tracking-tight">{formatTime(timeLeft)}</p>
                     </div>
@@ -163,13 +163,13 @@ export default function Downsell2MZPage() {
                                 href="/tk.html"
                                 className="text-blue-500 text-sm hover:underline"
                             >
-                                I don&apos;t want access
+                                No quiero acceso
                             </a>
                         </div>
                 </div>
 
                 <p className="text-center text-[10px] text-slate-600 font-mono uppercase">
-                    Secure Server Connection • ID: #INSTA-99X
+                    Conexión Segura al Servidor • ID: #INSTA-99X
                 </p>
 
             </div>

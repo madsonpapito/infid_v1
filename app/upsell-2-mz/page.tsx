@@ -23,7 +23,7 @@ export default function Upsell2MZPage() {
     const [step, setStep] = useState<'input' | 'loading' | 'results'>('input');
     const [username, setUsername] = useState('');
     const [gender, setGender] = useState<'male' | 'female'>('female');
-    const [loadingText, setLoadingText] = useState("Initializing Protocol...");
+    const [loadingText, setLoadingText] = useState("Iniciando Protocolo...");
     const [progress, setProgress] = useState(0);
 
     // Instagram profile state
@@ -169,11 +169,11 @@ export default function Upsell2MZPage() {
             });
         }, 80);
 
-        setTimeout(() => setLoadingText("Extracting followers..."), 500);
-        setTimeout(() => setLoadingText("Bypassing security..."), 1800);
-        setTimeout(() => setLoadingText("Scanning direct messages..."), 3500);
-        setTimeout(() => setLoadingText("Recovering hidden media..."), 5500);
-        setTimeout(() => setLoadingText("Finalizing report..."), 7000);
+        setTimeout(() => setLoadingText("Extrayendo seguidores..."), 500);
+        setTimeout(() => setLoadingText("Evadiendo seguridad..."), 1800);
+        setTimeout(() => setLoadingText("Escaneando mensajes directos..."), 3500);
+        setTimeout(() => setLoadingText("Recuperando archivos ocultos..."), 5500);
+        setTimeout(() => setLoadingText("Finalizando informe..."), 7000);
     };
 
     const cleanUsername = username.replace('@', '').trim();
@@ -183,7 +183,7 @@ export default function Upsell2MZPage() {
             <div className="w-full bg-rose-600 backdrop-blur-md text-center py-2 px-4 sticky top-0 z-50 border-b border-rose-500/50">
                 <p className="text-xs font-bold text-white uppercase tracking-widest animate-pulse flex items-center justify-center gap-2">
                     <AlertTriangle className="w-4 h-4" />
-                    CRITICAL ALERT: INVESTIGATION TERMINATING VIA MONETIZZE
+                    ALERTA CRÍTICO: INVESTIGACIÓN FINALIZANDO VÍA MONETIZZE
                 </p>
             </div>
 
@@ -201,9 +201,9 @@ export default function Upsell2MZPage() {
                         </div>
 
                         <div className="text-center space-y-2">
-                            <h1 className="text-2xl font-bold text-white uppercase tracking-tight">Instagram Forensics</h1>
+                            <h1 className="text-2xl font-bold text-white uppercase tracking-tight">Forense de Instagram</h1>
                             <p className="text-slate-400 text-sm max-w-xs mx-auto">
-                                Detect hidden DMs, secret stories, and deleted interactions via Monetizze.
+                                Detecta DMs ocultos, historias secretas e interacciones eliminadas via Monetizze.
                             </p>
                         </div>
 
@@ -211,28 +211,28 @@ export default function Upsell2MZPage() {
 
                             {/* Gender */}
                             <div className="space-y-3">
-                                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest ml-1">What is their gender?</span>
+                                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest ml-1">¿Cuál es su género?</span>
                                 <div className="grid grid-cols-2 gap-3">
                                     <button
                                         onClick={() => setGender('male')}
                                         className={`p-3 rounded-lg border flex items-center justify-center gap-2 transition-all ${gender === 'male' ? 'bg-cyan-500/10 border-cyan-500 text-cyan-400' : 'bg-slate-800 border-slate-700 text-slate-500 hover:border-slate-600'}`}
                                     >
-                                        <span className="text-lg">👨</span>
-                                        <span className="font-bold text-sm uppercase">Male</span>
+                                        <span className="text-lg">{"\uD83D\uDC68"}</span>
+                                        <span className="font-bold text-sm uppercase">Hombre</span>
                                     </button>
                                     <button
                                         onClick={() => setGender('female')}
                                         className={`p-3 rounded-lg border flex items-center justify-center gap-2 transition-all ${gender === 'female' ? 'bg-rose-500/10 border-rose-500 text-rose-400' : 'bg-slate-800 border-slate-700 text-slate-500 hover:border-slate-600'}`}
                                     >
-                                        <span className="text-lg">👩</span>
-                                        <span className="font-bold text-sm uppercase">Female</span>
+                                        <span className="text-lg">{"\uD83D\uDC69"}</span>
+                                        <span className="font-bold text-sm uppercase">Mujer</span>
                                     </button>
                                 </div>
                             </div>
 
                             {/* Username Input */}
                             <div className="space-y-3">
-                                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest ml-1">Instagram Username</span>
+                                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest ml-1">Nombre de usuario de Instagram</span>
                                 <div className="relative group">
                                     <div className="flex items-center bg-slate-900 border border-slate-700 rounded-lg focus-within:border-rose-500 focus-within:shadow-[0_0_15px_rgba(244,63,94,0.2)] transition-all">
                                         <span className="text-slate-400 font-bold pl-3 pr-0 select-none font-mono">@</span>
@@ -241,7 +241,7 @@ export default function Upsell2MZPage() {
                                             value={username.replace('@', '')}
                                             onChange={e => setUsername(e.target.value.replace('@', ''))}
                                             className="flex-1 bg-transparent text-white py-3 pl-0.5 pr-10 outline-none font-mono placeholder-slate-600"
-                                            placeholder="username"
+                                            placeholder="nombre_usuario"
                                         />
                                         <div className="pr-3 flex items-center pointer-events-none">
                                             {isSearching ? (
@@ -259,7 +259,7 @@ export default function Upsell2MZPage() {
                                 {searchStatus === 'searching' && (
                                     <div className="flex items-center gap-2 text-rose-400 text-xs font-mono animate-pulse pl-1">
                                         <Loader2 className="w-3 h-3 animate-spin" />
-                                        <span>Searching...</span>
+                                        <span>Buscando...</span>
                                     </div>
                                 )}
 
@@ -290,7 +290,7 @@ export default function Upsell2MZPage() {
 
                                 {searchStatus === 'not_found' && cleanUsername.length >= 3 && (
                                     <p className="text-[11px] text-slate-500 pl-1 font-mono">
-                                        Profile not found — scan will proceed anyway
+                                        Perfil no encontrado — el escaneo continuará de todos modos
                                     </p>
                                 )}
                             </div>
@@ -300,7 +300,7 @@ export default function Upsell2MZPage() {
                                 disabled={cleanUsername.length < 3}
                                 className="w-full py-4 bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-bold rounded-xl shadow-lg transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed uppercase text-sm tracking-wide"
                             >
-                                <span>Start Deep Scan</span>
+                                <span>Iniciar Escaneo Profundo</span>
                                 <Terminal className="w-4 h-4" />
                             </button>
 
@@ -339,7 +339,7 @@ export default function Upsell2MZPage() {
                         </div>
 
                         <div className="text-center space-y-1">
-                            <h2 className="text-lg font-bold text-white">Analyzing Profile...</h2>
+                            <h2 className="text-lg font-bold text-white">Analizando Perfil...</h2>
                             <p className="text-sm text-slate-400">@{cleanUsername}</p>
                         </div>
 
@@ -404,8 +404,8 @@ export default function Upsell2MZPage() {
                         {
                             img: shuffledPerfil[0],
                             name: namePool[0],
-                            action: 'liked your photo',
-                            time: '2m ago',
+                            action: 'le dio me gusta a tu foto',
+                            time: 'hace 2m',
                             icon: Heart,
                             color: 'text-rose-500',
                             badge: null,
@@ -414,8 +414,8 @@ export default function Upsell2MZPage() {
                         {
                             img: shuffledPerfil[1],
                             name: namePool[1],
-                            action: 'liked your photo',
-                            time: '12m ago',
+                            action: 'le dio me gusta a tu foto',
+                            time: 'hace 12m',
                             icon: Heart,
                             color: 'text-red-500',
                             badge: null,
@@ -424,8 +424,8 @@ export default function Upsell2MZPage() {
                         {
                             img: shuffledPerfil[2],
                             name: namePool[2],
-                            action: 'sent you a message',
-                            time: '18m ago',
+                            action: 'te envió um mensaje',
+                            time: 'hace 18m',
                             icon: MessageCircle,
                             color: 'text-cyan-400',
                             badge: null,
@@ -434,8 +434,8 @@ export default function Upsell2MZPage() {
                         {
                             img: shuffledPerfil[3],
                             name: namePool[3],
-                            action: 'sent you a message',
-                            time: '1h ago',
+                            action: 'te envió um mensaje',
+                            time: 'hace 1h',
                             icon: MessageCircle,
                             color: 'text-rose-500',
                             badge: null,
@@ -452,12 +452,12 @@ export default function Upsell2MZPage() {
 
                             <div className="flex items-center justify-center gap-2 py-2 bg-emerald-500/10 rounded-lg border border-emerald-500/20">
                                 <CheckCircle2 className="text-emerald-500 w-4 h-4" />
-                                <span className="text-emerald-400 font-bold text-xs uppercase tracking-widest">Analysis Complete</span>
+                                <span className="text-emerald-400 font-bold text-xs uppercase tracking-widest">Análisis Completo</span>
                             </div>
 
                             <div className="bg-[#0f172a] rounded-xl border border-emerald-500/30 p-4 shadow-lg">
                                 <div className="text-[10px] text-emerald-400 font-bold uppercase tracking-widest mb-3 flex items-center gap-1">
-                                    <CheckCircle2 className="w-3 h-3" /> Instagram Profile Detected
+                                    <CheckCircle2 className="w-3 h-3" /> Perfil de Instagram Detectado
                                 </div>
                                 <div className="flex items-center gap-3 mb-3">
                                     <div className="w-14 h-14 rounded-full overflow-hidden bg-slate-800 flex-shrink-0 border-2 border-emerald-500/40">
@@ -476,19 +476,19 @@ export default function Upsell2MZPage() {
                                 <div className="grid grid-cols-3 gap-2 text-center mb-3">
                                     <div className="bg-slate-800/60 rounded-lg py-2">
                                         <p className="text-white font-bold text-sm">{profile?.media_count ?? '—'}</p>
-                                        <p className="text-slate-500 text-[10px]">Posts</p>
+                                        <p className="text-slate-500 text-[10px]">Publicaciones</p>
                                     </div>
                                     <div className="bg-slate-800/60 rounded-lg py-2">
                                         <p className="text-white font-bold text-sm">
                                             {profile?.follower_count ? (profile.follower_count >= 1000 ? `${(profile.follower_count / 1000).toFixed(1)}k` : profile.follower_count) : '—'}
                                         </p>
-                                        <p className="text-slate-500 text-[10px]">Followers</p>
+                                        <p className="text-slate-500 text-[10px]">Seguidores</p>
                                     </div>
                                     <div className="bg-slate-800/60 rounded-lg py-2">
                                         <p className="text-white font-bold text-sm">
                                             {profile?.following_count ? (profile.following_count >= 1000 ? `${(profile.following_count / 1000).toFixed(1)}k` : profile.following_count) : '—'}
                                         </p>
-                                        <p className="text-slate-500 text-[10px]">Following</p>
+                                        <p className="text-slate-500 text-[10px]">Seguidos</p>
                                     </div>
                                 </div>
 
@@ -496,23 +496,23 @@ export default function Upsell2MZPage() {
                                     {profile?.biography
                                         ? profile.biography
                                         : profile?.is_private
-                                            ? '🔒 Private account — bio hidden'
-                                            : '📍 Bio and last 4 locations extracted'
+                                            ? '🔒 Cuenta privada — biografía oculta'
+                                            : '📍 Biografía e últimas 4 ubicaciones extraídas'
                                     }
                                 </div>
                             </div>
 
                             <div className="bg-[#0f172a] rounded-xl border border-slate-700/50 p-3 font-mono text-[10px]">
-                                <p className="text-slate-500 mb-2 uppercase tracking-widest text-[9px]">[SYSTEM_LOG] New activity detected</p>
+                                <p className="text-slate-500 mb-2 uppercase tracking-widest text-[9px]">[SISTEMA] Nueva actividad detectada</p>
                                 <div className="space-y-1">
                                     <div className="flex gap-1 flex-wrap">
                                         <span className="bg-slate-700 text-slate-300 px-1.5 py-0.5 rounded">@{cleanUsername}</span>
                                         <span className="bg-rose-900/50 text-rose-300 px-1.5 py-0.5 rounded">@{namePool[4] ?? namePool[0]}</span>
-                                        <span className="text-slate-400">liked your photo.</span>
+                                        <span className="text-slate-400">le dio me gusta a tu foto.</span>
                                     </div>
                                     <div className="flex gap-1 flex-wrap">
                                         <span className="bg-cyan-900/50 text-cyan-300 px-1.5 py-0.5 rounded">@{cleanUsername}</span>
-                                        <span className="text-slate-400">new message from</span>
+                                        <span className="text-slate-400">nuevo mensaje de</span>
                                         <span className="bg-slate-700 text-slate-300 px-1.5 py-0.5 rounded">@{namePool[5] ?? namePool[1]}</span>
                                     </div>
                                 </div>
@@ -520,8 +520,8 @@ export default function Upsell2MZPage() {
 
                             <div className="space-y-2">
                                 <div className="flex items-center justify-between">
-                                    <h3 className="font-bold text-slate-400 text-[10px] uppercase tracking-widest">Intercepted Logs</h3>
-                                    <span className="bg-rose-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded animate-pulse">LIVE</span>
+                                    <h3 className="font-bold text-slate-400 text-[10px] uppercase tracking-widest">Registros Interceptados</h3>
+                                    <span className="bg-rose-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded animate-pulse">EN VIVO</span>
                                 </div>
 
                                 {interceptedLogs.map((it, i) => (
@@ -540,11 +540,11 @@ export default function Upsell2MZPage() {
                                             </div>
                                             <p className="text-[10px] text-slate-400 truncate">{it.action}</p>
                                             {it.cta && (
-                                                <p className="text-[10px] text-rose-400 font-bold mt-0.5 animate-pulse">Click to read history...</p>
+                                                <p className="text-[10px] text-rose-400 font-bold mt-0.5 animate-pulse">Click para leer historial...</p>
                                             )}
                                         </div>
                                         {it.cta ? (
-                                            <span className="text-[9px] bg-rose-500 text-white px-1.5 py-0.5 rounded font-bold flex-shrink-0">READ</span>
+                                            <span className="text-[9px] bg-rose-500 text-white px-1.5 py-0.5 rounded font-bold flex-shrink-0">LEER</span>
                                         ) : (
                                             <it.icon className={`w-3.5 h-3.5 ${it.color} flex-shrink-0`} />
                                         )}
@@ -554,7 +554,7 @@ export default function Upsell2MZPage() {
 
                             <div className="space-y-3 pt-2">
                                 <h3 className="font-bold text-rose-500 text-sm uppercase tracking-wide">
-                                    INTERCEPTED: Suspicious Likes from {cleanUsername}
+                                    INTERCEPTADO: Likes Sospechosos de {cleanUsername}
                                 </h3>
 
                                 {shuffledLiked.map((imgSrc, i) => (
@@ -578,7 +578,7 @@ export default function Upsell2MZPage() {
                                             </div>
                                             <span className="text-white text-[10px] font-bold">@{cleanUsername}</span>
                                             <span className="text-slate-300 text-[10px] ml-1">
-                                                {['Wow, you look great 🔥', '❤️ ❤️', 'So beautiful 😍', 'You drive me crazy 😈'][i % 4]}
+                                                {['¡Wow, te ves genial! 🔥', '❤️ ❤️', 'Tan hermosa 😍', 'Me vuelves loco 😈'][i % 4]}
                                             </span>
                                         </div>
                                     </div>
@@ -592,8 +592,8 @@ export default function Upsell2MZPage() {
                                         <Lock className="w-6 h-6 text-rose-500" />
                                     </div>
                                 </div>
-                                <h2 className="text-lg font-black text-white mb-2 uppercase tracking-wide">UNLOCK FULL REPORT</h2>
-                                <p className="text-xs text-slate-400 mb-6 px-4">Instant access via Monetizze. 100% Anonymous.</p>
+                                <h2 className="text-lg font-black text-white mb-2 uppercase tracking-wide">DESBLOQUEAR INFORME COMPLETO</h2>
+                                <p className="text-xs text-slate-400 mb-6 px-4">Acceso instantáneo vía Monetizze. 100% Anónimo.</p>
                                 <div className="w-full flex flex-col items-center gap-3 pt-2">
                                     {/* MONETIZZE ONE-CLICK IFRAME */}
                                     <div className="w-full bg-white rounded-xl overflow-hidden p-2">
@@ -603,7 +603,7 @@ export default function Upsell2MZPage() {
                                             style={{ border: 'none' }}
                                         ></iframe>
                                     </div>
-                                    <a href="/downsell-2-mz" className="text-rose-500 text-sm hover:underline">I don&apos;t want access</a>
+                                    <a href="/downsell-2-mz" className="text-rose-500 text-sm hover:underline">No quiero acceso</a>
                                 </div>
                             </div>
 

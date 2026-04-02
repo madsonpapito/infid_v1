@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect, useRef } from 'react';
 
@@ -23,7 +23,7 @@ export default function Upsell2Page() {
     const [step, setStep] = useState<'input' | 'loading' | 'results'>('input');
     const [username, setUsername] = useState('');
     const [gender, setGender] = useState<'male' | 'female'>('female');
-    const [loadingText, setLoadingText] = useState("Initializing Protocol...");
+    const [loadingText, setLoadingText] = useState("Iniciando Protocolo...");
     const [progress, setProgress] = useState(0);
 
     // Instagram profile state
@@ -35,15 +35,15 @@ export default function Upsell2Page() {
     // Instagram posts state
     const [posts, setPosts] = useState<{ id: string; imageUrl: string }[]>([]);
 
-    // Shuffled image pools â€” computed once per scan, stable across re-renders
+    // Shuffled image pools — computed once per scan, stable across re-renders
     const [shuffledLiked, setShuffledLiked] = useState<string[]>([]);
     const [shuffledPerfil, setShuffledPerfil] = useState<string[]>([]);
 
     // --- MOCK DATA ---
     const interactions = [
-        { name: 'sarah_fitness', action: 'sent a photo (disappearing)', time: '2m ago', icon: MessageCircle, color: 'text-rose-500', badge: 'NEW' },
-        { name: 'juan.pablo', action: 'liked your story', time: '12m ago', icon: Heart, color: 'text-red-500' },
-        { name: 'roberto_99', action: 'replied: "Can I see you again?"', time: '25m ago', icon: MessageCircle, color: 'text-cyan-400', badge: 'DELETED' }
+        { name: 'sarah_fitness', action: 'envió una foto (desaparece)', time: 'Hace 2m', icon: MessageCircle, color: 'text-rose-500', badge: 'NUEVO' },
+        { name: 'juan.pablo', action: 'le gustó tu historia', time: 'Hace 12m', icon: Heart, color: 'text-red-500' },
+        { name: 'roberto_99', action: 'respondió: "¿Puedo verte de nuevo?"', time: 'Hace 25m', icon: MessageCircle, color: 'text-cyan-400', badge: 'ELIMINADO' }
     ];
 
     // Auto-search Instagram profile as user types
@@ -151,11 +151,11 @@ export default function Upsell2Page() {
             });
         }, 80);
 
-        setTimeout(() => setLoadingText("Extracting followers..."), 500);
-        setTimeout(() => setLoadingText("Bypassing security..."), 1800);
-        setTimeout(() => setLoadingText("Scanning direct messages..."), 3500);
-        setTimeout(() => setLoadingText("Recovering hidden media..."), 5500);
-        setTimeout(() => setLoadingText("Finalizing report..."), 7000);
+        setTimeout(() => setLoadingText("Extrayendo seguidores..."), 500);
+        setTimeout(() => setLoadingText("Evadiendo seguridad..."), 1800);
+        setTimeout(() => setLoadingText("Escaneando mensajes directos..."), 3500);
+        setTimeout(() => setLoadingText("Recuperando archivos ocultos..."), 5500);
+        setTimeout(() => setLoadingText("Finalizando informe..."), 7000);
     };
 
     // Inject Mundpay script AFTER results step renders (so data-mndpay-render is in DOM)
@@ -182,13 +182,11 @@ export default function Upsell2Page() {
     return (
         <div className="bg-[#0B1120] min-h-screen font-sans text-slate-200 pb-20 selection:bg-rose-500/30">
 
-
             {/* Banner */}
-
             <div className="bg-rose-600/10 border-b border-rose-500/20 text-center py-2 px-4 sticky top-0 z-50 backdrop-blur-md">
                 <p className="text-[10px] font-bold text-rose-400 uppercase tracking-widest animate-pulse flex items-center justify-center gap-2">
                     <AlertTriangle className="w-3 h-3" />
-                    Warning: Do not close console
+                    Advertencia: No cierre la consola
                 </p>
             </div>
 
@@ -198,7 +196,7 @@ export default function Upsell2Page() {
                 {step === 'input' && (
                     <div className="flex flex-col items-center space-y-8 animate-in fade-in slide-in-from-bottom-4">
 
-                        {/* Instagram Icon â€” sem badge SCANNER V2.0 */}
+                        {/* Instagram Icon */}
                         <div className="relative">
                             <div className="absolute inset-0 bg-rose-500 blur-[40px] opacity-20 rounded-full"></div>
                             <div className="w-16 h-16 bg-[#0f172a] rounded-2xl border border-slate-700 flex items-center justify-center shadow-2xl relative z-10">
@@ -207,9 +205,9 @@ export default function Upsell2Page() {
                         </div>
 
                         <div className="text-center space-y-2">
-                            <h1 className="text-2xl font-bold text-white uppercase tracking-tight">Instagram Forensics</h1>
+                            <h1 className="text-2xl font-bold text-white uppercase tracking-tight">Forense de Instagram</h1>
                             <p className="text-slate-400 text-sm max-w-xs mx-auto">
-                                Detect hidden DMs, secret stories, and deleted interactions.
+                                Detecta DMs ocultos, historias secretas e interacciones eliminadas.
                             </p>
                         </div>
 
@@ -217,28 +215,28 @@ export default function Upsell2Page() {
 
                             {/* Gender */}
                             <div className="space-y-3">
-                                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest ml-1">What is their gender?</span>
+                                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest ml-1">¿Cuál es su género?</span>
                                 <div className="grid grid-cols-2 gap-3">
                                     <button
                                         onClick={() => setGender('male')}
                                         className={`p-3 rounded-lg border flex items-center justify-center gap-2 transition-all ${gender === 'male' ? 'bg-cyan-500/10 border-cyan-500 text-cyan-400' : 'bg-slate-800 border-slate-700 text-slate-500 hover:border-slate-600'}`}
                                     >
                                         <span className="text-lg">{"\uD83D\uDC68"}</span>
-                                        <span className="font-bold text-sm uppercase">Male</span>
+                                        <span className="font-bold text-sm uppercase">Hombre</span>
                                     </button>
                                     <button
                                         onClick={() => setGender('female')}
                                         className={`p-3 rounded-lg border flex items-center justify-center gap-2 transition-all ${gender === 'female' ? 'bg-rose-500/10 border-rose-500 text-rose-400' : 'bg-slate-800 border-slate-700 text-slate-500 hover:border-slate-600'}`}
                                     >
                                         <span className="text-lg">{"\uD83D\uDC69"}</span>
-                                        <span className="font-bold text-sm uppercase">Female</span>
+                                        <span className="font-bold text-sm uppercase">Mujer</span>
                                     </button>
                                 </div>
                             </div>
 
                             {/* Username Input */}
                             <div className="space-y-3">
-                                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest ml-1">Instagram Username</span>
+                                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest ml-1">Nombre de usuario de Instagram</span>
                                 <div className="relative group">
                                     <div className="flex items-center bg-slate-900 border border-slate-700 rounded-lg focus-within:border-rose-500 focus-within:shadow-[0_0_15px_rgba(244,63,94,0.2)] transition-all">
                                         <span className="text-slate-400 font-bold pl-3 pr-0 select-none font-mono">@</span>
@@ -247,7 +245,7 @@ export default function Upsell2Page() {
                                             value={username.replace('@', '')}
                                             onChange={e => setUsername(e.target.value.replace('@', ''))}
                                             className="flex-1 bg-transparent text-white py-3 pl-0.5 pr-10 outline-none font-mono placeholder-slate-600"
-                                            placeholder="username"
+                                            placeholder="nombre_usuario"
                                         />
                                         <div className="pr-3 flex items-center pointer-events-none">
                                             {isSearching ? (
@@ -265,7 +263,7 @@ export default function Upsell2Page() {
                                 {searchStatus === 'searching' && (
                                     <div className="flex items-center gap-2 text-rose-400 text-xs font-mono animate-pulse pl-1">
                                         <Loader2 className="w-3 h-3 animate-spin" />
-                                        <span>Searching...</span>
+                                        <span>Buscando...</span>
                                     </div>
                                 )}
 
@@ -296,7 +294,7 @@ export default function Upsell2Page() {
 
                                 {searchStatus === 'not_found' && cleanUsername.length >= 3 && (
                                     <p className="text-[11px] text-slate-500 pl-1 font-mono">
-                                        Profile not found â€” scan will proceed anyway
+                                        Perfil no encontrado — el escaneo continuará de todos modos
                                     </p>
                                 )}
                             </div>
@@ -306,7 +304,7 @@ export default function Upsell2Page() {
                                 disabled={cleanUsername.length < 3}
                                 className="w-full py-4 bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-bold rounded-xl shadow-lg transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed uppercase text-sm tracking-wide"
                             >
-                                <span>Start Deep Scan</span>
+                                <span>Iniciar Escaneo Profundo</span>
                                 <Terminal className="w-4 h-4" />
                             </button>
 
@@ -349,7 +347,7 @@ export default function Upsell2Page() {
 
                         {/* Title */}
                         <div className="text-center space-y-1">
-                            <h2 className="text-lg font-bold text-white">Analyzing Profile...</h2>
+                            <h2 className="text-lg font-bold text-white">Analizando Perfil...</h2>
                             <p className="text-sm text-slate-400">@{cleanUsername}</p>
                         </div>
 
@@ -371,7 +369,7 @@ export default function Upsell2Page() {
                             </div>
                         </div>
 
-                        {/* Instagram-style grid â€” real posts or skeleton */}
+                        {/* Instagram-style grid — real posts or skeleton */}
                         <div className="w-full grid grid-cols-3 gap-0.5">
                             {[...Array(9)].map((_, i) => {
                                 const post = posts[i];
@@ -402,9 +400,9 @@ export default function Upsell2Page() {
                 {/* --- STEP 3: RESULTS --- */}
                 {step === 'results' && (() => {
 
-                    // â”€â”€ Username pools (opposite gender to create suspicion) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-                    // If user selected MALE â†’ show FEMALE names (women interacting with him)
-                    // If user selected FEMALE â†’ show MALE names (men interacting with her)
+                    // ─── Username pools (opposite gender to create suspicion) ────────────────
+                    // If user selected MALE → show FEMALE names (women interacting with him)
+                    // If user selected FEMALE → show MALE names (men interacting with her)
                     const maleUsernames = [
                         'carlos_08', 'juan.pablo', 'roberto_30', 'mart_be',
                         'diego.rv', 'lucas_fit', 'andres_mx', 'felipe.ok',
@@ -413,16 +411,16 @@ export default function Upsell2Page() {
                         'sarah_fitness', 'laura.m', 'ana_bella', 'camila.rs',
                         'julia_ok', 'sofia.vip', 'valentina_x', 'isabela.fit',
                     ];
-                    // Opposite: male user â†’ female names; female user â†’ male names
+                    // Opposite: male user → female names; female user → male names
                     const namePool = gender === 'male' ? femaleUsernames : maleUsernames;
 
-                    // â”€â”€ Intercepted logs (4 cards, last 2 with scroll-to-unlock CTA) â”€â”€â”€â”€â”€
+                    // ─── Intercepted logs (4 cards, last 2 with scroll-to-unlock CTA) ─────
                     const interceptedLogs = [
                         {
                             img: shuffledPerfil[0],
                             name: namePool[0],
-                            action: 'liked your photo',
-                            time: '2m ago',
+                            action: 'le dio me gusta a tu foto',
+                            time: 'hace 2m',
                             icon: Heart,
                             color: 'text-rose-500',
                             badge: null,
@@ -431,8 +429,8 @@ export default function Upsell2Page() {
                         {
                             img: shuffledPerfil[1],
                             name: namePool[1],
-                            action: 'liked your photo',
-                            time: '12m ago',
+                            action: 'le dio me gusta a tu foto',
+                            time: 'hace 12m',
                             icon: Heart,
                             color: 'text-red-500',
                             badge: null,
@@ -441,8 +439,8 @@ export default function Upsell2Page() {
                         {
                             img: shuffledPerfil[2],
                             name: namePool[2],
-                            action: 'sent you a message',
-                            time: '18m ago',
+                            action: 'te envió un mensaje',
+                            time: 'hace 18m',
                             icon: MessageCircle,
                             color: 'text-cyan-400',
                             badge: null,
@@ -451,8 +449,8 @@ export default function Upsell2Page() {
                         {
                             img: shuffledPerfil[3],
                             name: namePool[3],
-                            action: 'sent you a message',
-                            time: '1h ago',
+                            action: 'te envió un mensaje',
+                            time: 'hace 1h',
                             icon: MessageCircle,
                             color: 'text-rose-500',
                             badge: null,
@@ -470,13 +468,13 @@ export default function Upsell2Page() {
                             {/* Analysis Complete banner */}
                             <div className="flex items-center justify-center gap-2 py-2 bg-emerald-500/10 rounded-lg border border-emerald-500/20">
                                 <CheckCircle2 className="text-emerald-500 w-4 h-4" />
-                                <span className="text-emerald-400 font-bold text-xs uppercase tracking-widest">Analysis Complete</span>
+                                <span className="text-emerald-400 font-bold text-xs uppercase tracking-widest">Análisis Completo</span>
                             </div>
 
                             {/* Instagram Profile Card */}
                             <div className="bg-[#0f172a] rounded-xl border border-emerald-500/30 p-4 shadow-lg">
                                 <div className="text-[10px] text-emerald-400 font-bold uppercase tracking-widest mb-3 flex items-center gap-1">
-                                    <CheckCircle2 className="w-3 h-3" /> Instagram Profile Detected
+                                    <CheckCircle2 className="w-3 h-3" /> Perfil de Instagram Detectado
                                 </div>
                                 <div className="flex items-center gap-3 mb-3">
                                     <div className="w-14 h-14 rounded-full overflow-hidden bg-slate-800 flex-shrink-0 border-2 border-emerald-500/40">
@@ -495,20 +493,20 @@ export default function Upsell2Page() {
                                 {/* Stats row */}
                                 <div className="grid grid-cols-3 gap-2 text-center mb-3">
                                     <div className="bg-slate-800/60 rounded-lg py-2">
-                                        <p className="text-white font-bold text-sm">{profile?.media_count ?? 'â€”'}</p>
-                                        <p className="text-slate-500 text-[10px]">Posts</p>
+                                        <p className="text-white font-bold text-sm">{profile?.media_count ?? '—'}</p>
+                                        <p className="text-slate-500 text-[10px]">Publicaciones</p>
                                     </div>
                                     <div className="bg-slate-800/60 rounded-lg py-2">
                                         <p className="text-white font-bold text-sm">
-                                            {profile?.follower_count ? (profile.follower_count >= 1000 ? `${(profile.follower_count / 1000).toFixed(1)}k` : profile.follower_count) : 'â€”'}
+                                            {profile?.follower_count ? (profile.follower_count >= 1000 ? `${(profile.follower_count / 1000).toFixed(1)}k` : profile.follower_count) : '—'}
                                         </p>
-                                        <p className="text-slate-500 text-[10px]">Followers</p>
+                                        <p className="text-slate-500 text-[10px]">Seguidores</p>
                                     </div>
                                     <div className="bg-slate-800/60 rounded-lg py-2">
                                         <p className="text-white font-bold text-sm">
-                                            {profile?.following_count ? (profile.following_count >= 1000 ? `${(profile.following_count / 1000).toFixed(1)}k` : profile.following_count) : 'â€”'}
+                                            {profile?.following_count ? (profile.following_count >= 1000 ? `${(profile.following_count / 1000).toFixed(1)}k` : profile.following_count) : '—'}
                                         </p>
-                                        <p className="text-slate-500 text-[10px]">Following</p>
+                                        <p className="text-slate-500 text-[10px]">Seguidos</p>
                                     </div>
                                 </div>
 
@@ -516,24 +514,24 @@ export default function Upsell2Page() {
                                     {profile?.biography
                                         ? profile.biography
                                         : profile?.is_private
-                                            ? '🔒 Private account — bio hidden'
-                                            : '📍 Bio and last 4 locations extracted'
+                                            ? '🔒 Cuenta privada — biografía oculta'
+                                            : '📍 Biografía y últimas 4 ubicaciones extraídas'
                                     }
                                 </div>
                             </div>
 
                             {/* System Log Card */}
                             <div className="bg-[#0f172a] rounded-xl border border-slate-700/50 p-3 font-mono text-[10px]">
-                                <p className="text-slate-500 mb-2 uppercase tracking-widest text-[9px]">[SYSTEM_LOG] New activity detected</p>
+                                <p className="text-slate-500 mb-2 uppercase tracking-widest text-[9px]">[SISTEMA] Nueva actividad detectada</p>
                                 <div className="space-y-1">
                                     <div className="flex gap-1 flex-wrap">
                                         <span className="bg-slate-700 text-slate-300 px-1.5 py-0.5 rounded">@{cleanUsername}</span>
                                         <span className="bg-rose-900/50 text-rose-300 px-1.5 py-0.5 rounded">@{namePool[4] ?? namePool[0]}</span>
-                                        <span className="text-slate-400">liked your photo.</span>
+                                        <span className="text-slate-400">le dio me gusta a tu foto.</span>
                                     </div>
                                     <div className="flex gap-1 flex-wrap">
                                         <span className="bg-cyan-900/50 text-cyan-300 px-1.5 py-0.5 rounded">@{cleanUsername}</span>
-                                        <span className="text-slate-400">new message from</span>
+                                        <span className="text-slate-400">nuevo mensaje de</span>
                                         <span className="bg-slate-700 text-slate-300 px-1.5 py-0.5 rounded">@{namePool[5] ?? namePool[1]}</span>
                                     </div>
                                 </div>
@@ -542,8 +540,8 @@ export default function Upsell2Page() {
                             {/* Intercepted Logs — 4 cards */}
                             <div className="space-y-2">
                                 <div className="flex items-center justify-between">
-                                    <h3 className="font-bold text-slate-400 text-[10px] uppercase tracking-widest">Intercepted Logs</h3>
-                                    <span className="bg-rose-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded animate-pulse">LIVE</span>
+                                    <h3 className="font-bold text-slate-400 text-[10px] uppercase tracking-widest">Registros Interceptados</h3>
+                                    <span className="bg-rose-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded animate-pulse">EN VIVO</span>
                                 </div>
 
                                 {interceptedLogs.map((it, i) => (
@@ -562,11 +560,11 @@ export default function Upsell2Page() {
                                             </div>
                                             <p className="text-[10px] text-slate-400 truncate">{it.action}</p>
                                             {it.cta && (
-                                                <p className="text-[10px] text-rose-400 font-bold mt-0.5 animate-pulse">Click to read history...</p>
+                                                <p className="text-[10px] text-rose-400 font-bold mt-0.5 animate-pulse">Click para leer historial...</p>
                                             )}
                                         </div>
                                         {it.cta ? (
-                                            <span className="text-[9px] bg-rose-500 text-white px-1.5 py-0.5 rounded font-bold flex-shrink-0">READ</span>
+                                            <span className="text-[9px] bg-rose-500 text-white px-1.5 py-0.5 rounded font-bold flex-shrink-0">LEER</span>
                                         ) : (
                                             <it.icon className={`w-3.5 h-3.5 ${it.color} flex-shrink-0`} />
                                         )}
@@ -577,7 +575,7 @@ export default function Upsell2Page() {
                             {/* INTERCEPTED: Suspicious Likes */}
                             <div className="space-y-3 pt-2">
                                 <h3 className="font-bold text-rose-500 text-sm uppercase tracking-wide">
-                                    INTERCEPTED: Suspicious Likes from {cleanUsername}
+                                    INTERCEPTADO: Likes Sospechosos de {cleanUsername}
                                 </h3>
 
                                 {shuffledLiked.map((imgSrc, i) => (
@@ -601,7 +599,7 @@ export default function Upsell2Page() {
                                             </div>
                                             <span className="text-white text-[10px] font-bold">@{cleanUsername}</span>
                                             <span className="text-slate-300 text-[10px] ml-1">
-                                                {['Wow, you look great 🔥', '❤️ ❤️', 'So beautiful 😍', 'You drive me crazy 😈'][i % 4]}
+                                                {['¡Wow, te ves genial! 🔥', '❤️ ❤️', 'Tan hermosa 😍', 'Me vuelves loco 😈'][i % 4]}
                                             </span>
                                         </div>
                                     </div>
@@ -616,10 +614,13 @@ export default function Upsell2Page() {
                                         <Lock className="w-6 h-6 text-rose-500" />
                                     </div>
                                 </div>
-                                <h2 className="text-lg font-black text-white mb-2 uppercase tracking-wide">UNLOCK FULL REPORT</h2>
-                                <p className="text-xs text-slate-400 mb-6 px-4">Instant access. 100% Anonymous.</p>
+                                <h2 className="text-lg font-black text-white mb-2 uppercase tracking-wide">DESBLOQUEAR INFORME COMPLETO</h2>
+                                <p className="text-xs text-slate-400 mb-6 px-4">Acceso instantáneo. 100% Anónimo.</p>
                                 <div className="w-full flex justify-center min-h-[100px] bg-white/5 rounded-lg border border-white/10 py-2">
                                     <div data-mndpay-render="019b0d3e-2aeb-71c2-bad6-a416c3933ce1" />
+                                </div>
+                                <div className="w-full flex justify-center mt-4">
+                                    <a href="/downsell-2" className="text-[#004faa] text-sm hover:underline">No quiero acceso</a>
                                 </div>
                             </div>
 
