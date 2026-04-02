@@ -59,11 +59,11 @@ function DatingScannerContent() {
   
   // Link para os usuários (dinâmico)
   const checkoutHref = queryString 
-    ? `https://etr.tindercheck.xyz/trk/offer/1?${queryString}` 
-    : "https://etr.tindercheck.xyz/trk/offer/1";
+    ? `https://etr.tindercheck.xyz/trk/offer?${queryString}` 
+    : "https://etr.tindercheck.xyz/trk/offer";
 
   // Link para o Robô do EasyTracker validar (estático)
-  const crawlerLink = "https://etr.tindercheck.xyz/trk/offer/1"
+  const crawlerLink = "https://etr.tindercheck.xyz/trk/offer"
 
   const [step, setStep] = useState(1)
 
