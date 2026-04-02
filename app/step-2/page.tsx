@@ -1107,7 +1107,7 @@ function DatingScannerContent() {
             <div className="w-full h-px bg-slate-800 my-1"></div>
             <div className="flex justify-between w-full items-center">
               <span className="text-xs text-slate-400 line-through">Normal: $149.00</span>
-              <span className="font-black text-emerald-400 text-2xl">Hoy: $37</span>
+              <span className="font-black text-emerald-400 text-2xl">Hoy: $17</span>
             </div>
             <p className="text-[9px] text-slate-500">Incluye descarga completa de pruebas y actualizaciones</p>
           </div>
@@ -1116,7 +1116,7 @@ function DatingScannerContent() {
             href={checkoutHref}
             className="block w-full bg-emerald-500 hover:bg-emerald-400 text-[#0B1120] font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all transform hover:scale-[1.02] active:scale-[0.98] uppercase tracking-widest text-sm relative z-10 easyt-next-page"
           >
-            DESBLOQUEAR INFORME POR $37
+            DESBLOQUEAR INFORME POR $17
           </a>
 
           <div className="flex justify-center items-center gap-4 mt-4 text-[10px] text-slate-500 font-mono">

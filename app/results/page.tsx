@@ -270,8 +270,8 @@ function StandardResultsContent() {
           <div className="inline-flex flex-col items-center gap-3 relative z-10">
             <span className="text-[11px] text-slate-400 font-black uppercase tracking-[0.3em]">Acceso a Dossier Confidencial</span>
             <div className="flex items-center gap-4">
-              <span className="text-slate-500 line-through text-2xl font-black">$37</span>
-              <span className="text-8xl font-black text-white tracking-tighter drop-shadow-2xl">$27</span>
+              <span className="text-slate-500 line-through text-2xl font-black">$17</span>
+              <span className="text-8xl font-black text-white tracking-tighter drop-shadow-2xl">$9</span>
             </div>
             <div className="bg-emerald-500/10 border border-emerald-500/40 px-4 py-1.5 rounded-full flex items-center gap-2">
                <Zap className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400" />
