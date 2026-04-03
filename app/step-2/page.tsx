@@ -179,7 +179,7 @@ function DatingScannerContent() {
       if (easytid) {
         // Use the domain from the checkout URL
         const scriptDomain = "https://etr.tindercheck.xyz"
-        const postbackUrl = `${scriptDomain}/trk/postback?easytid=${easytid}&action=checkout&cb=${Date.now()}`
+        const postbackUrl = `${scriptDomain}/trk/postback?easytid=${easytid}&action=InitiateCheckout&cb=${Date.now()}`
         
         // Fire via Image Pixel (reliable backup)
         const img = new Image()
