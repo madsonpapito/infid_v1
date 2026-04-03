@@ -166,7 +166,30 @@ function DatingScannerContent() {
 
 
   const scrollToCheckout = useCallback(() => {
-    checkoutRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    checkoutRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })
+  }, [])
+
+  // Manual Initiate Checkout (IC) Event for EasyTracker
+  const fireIC = useCallback(() => {
+    try {
+      const params = new URLSearchParams(window.location.search)
+      const easytid = params.get("easytid")
+      const currentType = params.get("easytid_type") || "landing"
+      
+      if (easytid) {
+        // Use the domain from the checkout URL
+        const scriptDomain = "https://etr.tindercheck.xyz"
+        const postbackUrl = `${scriptDomain}/trk/postback?easytid=${easytid}&action=checkout&cb=${Date.now()}`
+        
+        // Fire via Image Pixel (reliable backup)
+        const img = new Image()
+        img.src = postbackUrl
+        
+        console.log("EasyTracker IC Fired:", postbackUrl)
+      }
+    } catch (e) {
+      console.error("Error firing IC:", e)
+    }
   }, [])
 
 
@@ -1114,7 +1137,8 @@ function DatingScannerContent() {
 
           <a
             href={checkoutHref}
-            className="block w-full bg-emerald-500 hover:bg-emerald-400 text-[#0B1120] font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all transform hover:scale-[1.02] active:scale-[0.98] uppercase tracking-widest text-sm relative z-10 easyt-next-page easyt-ic"
+            onClick={fireIC}
+            className="block w-full bg-emerald-500 hover:bg-emerald-400 text-[#0B1120] font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all transform hover:scale-[1.02] active:scale-[0.98] uppercase tracking-widest text-sm relative z-10 easyt-next-page"
           >
             DESBLOQUEAR INFORME POR $17
           </a>
