@@ -23,6 +23,22 @@ export default function HomeWireframeMatch() {
     }
   }, []);
 
+  // Tracking: Fire PageView for Facebook Landing Page View
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const searchParams = new URLSearchParams(window.location.search)
+      const easytid = searchParams.get("easytid")
+
+      if (easytid) {
+        const scriptDomain = "https://etr.tindercheck.xyz"
+        const postbackUrl = `${scriptDomain}/trk/postback?easytid=${easytid}&action=PageView&cb=${Date.now()}`
+
+        const img = new window.Image()
+        img.src = postbackUrl
+      }
+    }
+  }, [])
+
   const handleStart = () => {
     const searchParams = typeof window !== 'undefined' ? window.location.search : '';
     router.push(`/step-2${searchParams}`);

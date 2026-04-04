@@ -182,7 +182,7 @@ function DatingScannerContent() {
         const postbackUrl = `${scriptDomain}/trk/postback?easytid=${easytid}&action=InitiateCheckout&cb=${Date.now()}`
         
         // Fire via Image Pixel (reliable backup)
-        const img = new Image()
+        const img = new window.Image()
         img.src = postbackUrl
         
         console.log("EasyTracker IC Fired:", postbackUrl)
