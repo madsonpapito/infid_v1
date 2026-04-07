@@ -21,7 +21,7 @@ function StandardResultsContent() {
 
   const [timeLeft, setTimeLeft] = useState(415) // ~7 minutes
   const [progress, setProgress] = useState(0)
-  const [location, setLocation] = useState("Your Location")
+  const [location, setLocation] = useState("Tu Ubicación")
   const [notification, setNotification] = useState<string | null>(null)
   const videoScrollRef = useRef<HTMLDivElement>(null)
 
@@ -290,7 +290,7 @@ function StandardResultsContent() {
             >
               <div className="w-[280px] shrink-0 snap-center flex flex-col gap-4">
                 <div className="w-full aspect-[9/16] rounded-[1.5rem] overflow-hidden border border-slate-800 shadow-2xl bg-black relative">
-                  <iframe src="https://play.tynk.ai/p/55c0525d-8354-4cd6-a98f-34a31df5b1aa" width="100%" height="100%" style={{ border: "none" }} allowFullScreen></iframe>
+                  <iframe src="https://play.tynk.ai/p/55d6949f-6541-47a0-b794-cedddcb50fe7" width="100%" height="100%" style={{ border: "none" }} allowFullScreen></iframe>
                 </div>
                 <div className="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-inner">
                   <h4 className="font-black text-white text-xs mb-2 uppercase tracking-wide">Jessica, 31</h4>
@@ -300,11 +300,21 @@ function StandardResultsContent() {
 
               <div className="w-[280px] shrink-0 snap-center flex flex-col gap-4">
                 <div className="w-full aspect-[9/16] rounded-[1.5rem] overflow-hidden border border-slate-800 shadow-2xl bg-black relative">
-                  <iframe src="https://play.tynk.ai/p/d04e1286-c92c-4f39-a679-2ce4b742cd59" width="100%" height="100%" style={{ border: "none" }} allowFullScreen></iframe>
+                  <iframe src="https://play.tynk.ai/p/4b3b5045-dc12-4e82-a838-1786415ffd3b" width="100%" height="100%" style={{ border: "none" }} allowFullScreen></iframe>
                 </div>
                 <div className="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-inner">
                   <h4 className="font-black text-white text-xs mb-2 uppercase tracking-wide">Amanda, 44</h4>
                   <p className="text-[11px] text-slate-400 font-medium italic leading-relaxed">&quot;En cuestión de minutos mostró mensajes ocultos e incluso notas de voz.&quot;</p>
+                </div>
+              </div>
+
+              <div className="w-[280px] shrink-0 snap-center flex flex-col gap-4">
+                <div className="w-full aspect-[9/16] rounded-[1.5rem] overflow-hidden border border-slate-800 shadow-2xl bg-black relative">
+                  <iframe src="https://play.tynk.ai/p/47fddebe-c626-4ac0-bc9d-065873291dbb" width="100%" height="100%" style={{ border: "none" }} allowFullScreen></iframe>
+                </div>
+                <div className="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 shadow-inner">
+                  <h4 className="font-black text-white text-xs mb-2 uppercase tracking-wide">Daniel, 38</h4>
+                  <p className="text-[11px] text-slate-400 font-medium italic leading-relaxed">&quot;No son suposiciones ni alertas aleatorias... es prueba real. Vale la pena.&quot;</p>
                 </div>
               </div>
             </div>
