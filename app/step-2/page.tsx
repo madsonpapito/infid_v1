@@ -153,6 +153,20 @@ function DatingScannerContent() {
 
   const checkoutRef = useRef<HTMLDivElement>(null)
   const videoScrollRef = useRef<HTMLDivElement>(null)
+  
+  // Refs for Auto-Scroll (Conversion Optimization)
+  const ageRef = useRef<HTMLDivElement>(null)
+  const relationshipRef = useRef<HTMLDivElement>(null)
+  const suspicionRef = useRef<HTMLDivElement>(null)
+  const flagsRef = useRef<HTMLDivElement>(null)
+  const idRef = useRef<HTMLDivElement>(null)
+  const submitRef = useRef<HTMLDivElement>(null)
+
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
+    setTimeout(() => {
+      ref.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }, 200)
+  }
 
   const scrollVideos = (direction: 'left' | 'right') => {
     if (videoScrollRef.current) {
@@ -187,6 +201,11 @@ function DatingScannerContent() {
         
         console.log("EasyTracker IC Fired:", postbackUrl)
       }
+
+      // 2. Standard Meta Pixel Event
+      if ((window as any).fbq) {
+        (window as any).fbq('track', 'InitiateCheckout');
+      }
     } catch (e) {
       console.error("Error firing IC:", e)
     }
@@ -209,16 +228,38 @@ function DatingScannerContent() {
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
+      setErrorMessage(null)
+      setIsFetchingProfile(true) // Immediate feedback for Clarity "Dead Clicks"
+      
       const reader = new FileReader()
       reader.onload = (ev) => {
         setImagePreview(ev.target?.result as string)
         setImageUploaded(true)
+        setIsFetchingProfile(false)
+        scrollToSection(submitRef)
       }
       reader.readAsDataURL(e.target.files[0])
     }
   }
 
+
   const startInvestigation = () => {
+    // tracking: CompleteRegistration
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search)
+      const easytid = params.get("easytid")
+      if (easytid) {
+        const scriptDomain = "https://etr.tindercheck.xyz"
+        const postbackUrl = `${scriptDomain}/trk/postback?easytid=${easytid}&action=CompleteRegistration&cb=${Date.now()}`
+        const img = new window.Image()
+        img.src = postbackUrl
+      }
+      
+      if ((window as any).fbq) {
+        (window as any).fbq('track', 'CompleteRegistration');
+      }
+    }
+
     setStep(2)
 
 
@@ -415,9 +456,9 @@ function DatingScannerContent() {
           {['male', 'female'].map(g => (
             <button
               key={g}
-              onClick={() => setSelectedGender(g)}
-              className={`p-3 rounded-lg border transition-all flex flex-col items-center gap-1 ${selectedGender === g
-                ? 'bg-cyan-500/10 border-cyan-500 text-cyan-400 shadow-[0_0_10px_rgba(6,182,212,0.2)]'
+              onClick={() => { setSelectedGender(g); scrollToSection(ageRef); }}
+              className={`p-3 rounded-lg border transition-all duration-300 flex flex-col items-center gap-1 transform active:scale-95 ${selectedGender === g
+                ? 'bg-cyan-500/10 border-cyan-500 text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.3)] scale-105 ring-1 ring-cyan-500/50'
                 : 'bg-slate-800 border-slate-700 text-slate-500 hover:border-slate-600'
                 }`}
             >
@@ -429,7 +470,7 @@ function DatingScannerContent() {
       </div>
 
       {/* 2. Age */}
-      <div className="bg-[#0f172a] rounded-xl border border-slate-700 p-5 space-y-4">
+      <div ref={ageRef} className="bg-[#0f172a] rounded-xl border border-slate-700 p-5 space-y-4 scroll-mt-20">
         <h2 className="text-sm font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
           <Activity className="w-4 h-4" /> Edad del Objetivo
         </h2>
@@ -437,9 +478,9 @@ function DatingScannerContent() {
           {['18-24', '25-34', '35-44', '45+'].map(val => (
             <button
               key={val}
-              onClick={() => setAgeRange(val)}
-              className={`py-2 rounded-lg border text-xs font-bold transition-all ${ageRange === val
-                ? 'bg-cyan-500/10 border-cyan-500 text-cyan-400'
+              onClick={() => { setAgeRange(val); scrollToSection(relationshipRef); }}
+              className={`py-2 rounded-lg border text-xs font-bold transition-all transform active:scale-95 ${ageRange === val
+                ? 'bg-cyan-500/10 border-cyan-500 text-cyan-400 shadow-[0_0_10px_rgba(6,182,212,0.2)]'
                 : 'bg-slate-800 border-slate-700 text-slate-400'
                 }`}
             >
@@ -450,7 +491,7 @@ function DatingScannerContent() {
       </div>
 
       {/* 3. Relationship */}
-      <div className="bg-[#0f172a] rounded-xl border border-slate-700 p-5 space-y-4">
+      <div ref={relationshipRef} className="bg-[#0f172a] rounded-xl border border-slate-700 p-5 space-y-4 scroll-mt-20">
         <h2 className="text-sm font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
           <HeartCrack className="w-4 h-4" /> Estado
         </h2>
@@ -461,9 +502,9 @@ function DatingScannerContent() {
           ].map(o => (
             <button
               key={o.v}
-              onClick={() => setRelationshipStatus(o.v)}
-              className={`p-3 text-left rounded-lg border text-xs font-bold transition-all ${relationshipStatus === o.v
-                ? 'bg-cyan-500/10 border-cyan-500 text-cyan-400'
+              onClick={() => { setRelationshipStatus(o.v); scrollToSection(suspicionRef); }}
+              className={`p-3 text-left rounded-lg border text-xs font-bold transition-all transform active:scale-95 ${relationshipStatus === o.v
+                ? 'bg-cyan-500/10 border-cyan-500 text-cyan-400 shadow-[0_0_10px_rgba(6,182,212,0.2)]'
                 : 'bg-slate-800 border-slate-700 text-slate-400'
                 }`}
             >
@@ -474,7 +515,7 @@ function DatingScannerContent() {
       </div>
 
       {/* 4. Suspicion */}
-      <div className="bg-[#0f172a] rounded-xl border border-slate-700 p-5 space-y-4">
+      <div ref={suspicionRef} className="bg-[#0f172a] rounded-xl border border-slate-700 p-5 space-y-4 scroll-mt-20">
         <h2 className="text-sm font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
           <AlertTriangle className="w-4 h-4" /> Nivel de Sospecha
         </h2>
@@ -486,9 +527,9 @@ function DatingScannerContent() {
           ].map(o => (
             <button
               key={o.v}
-              onClick={() => setSuspicionLevel(o.v)}
-              className={`w-full p-3 text-left rounded-lg border text-xs font-medium transition-all ${suspicionLevel === o.v
-                ? 'bg-rose-500/10 border-rose-500 text-rose-400'
+              onClick={() => { setSuspicionLevel(o.v); scrollToSection(flagsRef); }}
+              className={`w-full p-3 text-left rounded-lg border text-xs font-medium transition-all transform active:scale-[0.98] ${suspicionLevel === o.v
+                ? 'bg-rose-500/10 border-rose-500 text-rose-400 shadow-[0_0_10px_rgba(244,63,94,0.2)]'
                 : 'bg-slate-800 border-slate-700 text-slate-400'
                 }`}
             >
@@ -499,7 +540,7 @@ function DatingScannerContent() {
       </div>
 
       {/* 5. Red Flags */}
-      <div className="bg-[#0f172a] rounded-xl border border-slate-700 p-5 space-y-4">
+      <div ref={flagsRef} className="bg-[#0f172a] rounded-xl border border-slate-700 p-5 space-y-4 scroll-mt-20">
         <h2 className="text-sm font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
           <ShieldCheck className="w-4 h-4" /> Señales Detectadas
         </h2>
@@ -512,8 +553,8 @@ function DatingScannerContent() {
             <button
               key={o.v}
               onClick={() => toggleRedFlag(o.v)}
-              className={`p-2 text-center rounded border text-[10px] uppercase font-bold transition-all ${redFlags.includes(o.v)
-                ? 'bg-rose-500/10 border-rose-500 text-rose-400'
+              className={`p-2 text-center rounded border text-[10px] uppercase font-bold transition-all transition-all transform active:scale-95 ${redFlags.includes(o.v)
+                ? 'bg-rose-500/10 border-rose-500 text-rose-400 shadow-[0_0_10px_rgba(244,63,94,0.2)]'
                 : 'bg-slate-800 border-slate-700 text-slate-500'
                 }`}
             >
@@ -521,10 +562,18 @@ function DatingScannerContent() {
             </button>
           ))}
         </div>
+        {redFlags.length > 0 && (
+          <button 
+            onClick={() => scrollToSection(idRef)}
+            className="w-full py-2 text-xs text-cyan-500 font-bold flex items-center justify-center gap-2 animate-pulse mt-2"
+          >
+            Continuar <ChevronRight className="w-3 h-3" />
+          </button>
+        )}
       </div>
 
       {/* 6. Identification Method (Required) */}
-      <div className="bg-[#0f172a] rounded-xl border border-slate-700 p-5 space-y-4">
+      <div ref={idRef} className="bg-[#0f172a] rounded-xl border border-slate-700 p-5 space-y-4 scroll-mt-20">
         <label className="text-sm font-bold text-slate-400 flex items-center gap-2 uppercase tracking-wide">
           <ScanFace className="w-4 h-4 text-cyan-500" /> Identificar Sujeto (Obligatorio)
         </label>
@@ -537,42 +586,60 @@ function DatingScannerContent() {
           <button 
             type="button"
             onClick={() => { setActiveInputTab('instagram'); setErrorMessage(null); }} 
-            className={`flex-1 py-3 text-xs font-bold uppercase rounded-lg transition-all ${activeInputTab === 'instagram' ? 'bg-slate-700 text-white shadow-lg' : 'text-slate-500 hover:text-slate-300'}`}
+            className={`flex-1 py-4 text-xs font-bold uppercase rounded-lg transition-all active:scale-95 touch-manipulation flex items-center justify-center ${activeInputTab === 'instagram' ? 'bg-slate-700 text-white shadow-lg ring-1 ring-slate-500' : 'text-slate-500 hover:text-slate-300'}`}
           >
             Instagram
           </button>
           <button 
             type="button"
             onClick={() => { setActiveInputTab('photo'); setErrorMessage(null); }} 
-            className={`flex-1 py-3 text-xs font-bold uppercase rounded-lg transition-all ${activeInputTab === 'photo' ? 'bg-slate-700 text-white shadow-lg' : 'text-slate-500 hover:text-slate-300'}`}
+            className={`flex-1 py-4 text-xs font-bold uppercase rounded-lg transition-all active:scale-95 touch-manipulation flex items-center justify-center ${activeInputTab === 'photo' ? 'bg-slate-700 text-white shadow-lg ring-1 ring-slate-500' : 'text-slate-500 hover:text-slate-300'}`}
           >
             Foto
           </button>
           <button 
             type="button"
             onClick={() => { setActiveInputTab('whatsapp'); setErrorMessage(null); }} 
-            className={`flex-1 py-3 text-xs font-bold uppercase rounded-lg transition-all ${activeInputTab === 'whatsapp' ? 'bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 shadow-lg' : 'text-slate-500 hover:text-slate-300'}`}
+            className={`flex-1 py-4 text-xs font-bold uppercase rounded-lg transition-all active:scale-95 touch-manipulation flex items-center justify-center ${activeInputTab === 'whatsapp' ? 'bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 shadow-lg ring-1 ring-emerald-500' : 'text-slate-500 hover:text-slate-300'}`}
           >
             WhatsApp
           </button>
         </div>
 
         {/* Content Area */}
-        <div className="min-h-[120px] flex flex-col justify-center">
+        <div className="min-h-[140px] flex flex-col justify-center">
 
-          {/* PHOTO UPLOAD */}
+          {/* PHOTO UPLOAD - Optimized for Clarity (No dead clicks) */}
           {activeInputTab === 'photo' && (
-            <label className="block w-full h-40 border-2 border-dashed border-slate-600 rounded-2xl hover:border-cyan-500 hover:bg-cyan-500/5 transition-all cursor-pointer relative flex flex-col items-center justify-center gap-3 group overflow-hidden">
-              <input type="file" accept="image/*" className="sr-only" onChange={handleImageChange} />
-              {imagePreview && activeInputTab === 'photo' ? (
-                <img src={imagePreview} className="absolute inset-0 w-full h-full object-cover rounded-xl opacity-50" />
-              ) : (
-                <ScanFace className="w-8 h-8 text-slate-500 group-hover:text-cyan-400 transition-colors" />
-              )}
-              <span className="text-xs text-slate-400 font-mono relative z-10 bg-slate-900/50 px-2 py-1 rounded">
-                {imageUploaded ? "FOTO SUBIDA" : "SUBIR FOTO DEL OBJETIVO"}
-              </span>
-            </label>
+            <div className="relative">
+              <label 
+                className={`block w-full h-40 border-2 border-dashed rounded-2xl transition-all cursor-pointer relative flex flex-col items-center justify-center gap-3 group overflow-hidden active:scale-[0.98] transition-all transform ${imageUploaded ? 'border-emerald-500 bg-emerald-500/5' : 'border-slate-600 hover:border-cyan-500 hover:bg-cyan-500/5'}`}
+              >
+                <input 
+                  type="file" 
+                  accept="image/*" 
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20" 
+                  onChange={handleImageChange} 
+                />
+                
+                {imagePreview && activeInputTab === 'photo' ? (
+                  <img src={imagePreview} className="absolute inset-0 w-full h-full object-cover rounded-xl opacity-60" />
+                ) : (
+                  <ScanFace className={`w-8 h-8 transition-colors ${imageUploaded ? 'text-emerald-500' : 'text-slate-500 group-hover:text-cyan-400'}`} />
+                )}
+                
+                <div className="relative z-10 text-center space-y-1">
+                  <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full border ${imageUploaded ? 'bg-emerald-500 text-white border-emerald-400' : 'bg-slate-900 border-slate-700 text-slate-300'}`}>
+                    {imageUploaded ? "FOTO SUBIDA CON ÉXITO" : "SUBIR FOTO DEL OBJETIVO"}
+                  </span>
+                  {!imageUploaded && (
+                    <p className="text-[10px] text-slate-500 group-hover:text-cyan-400/70 transition-colors">
+                      (Toque para abrir la cámara o galería)
+                    </p>
+                  )}
+                </div>
+              </label>
+            </div>
           )}
 
           {/* INSTAGRAM INPUT */}
@@ -681,23 +748,26 @@ function DatingScannerContent() {
 
         {/* PROFILE RESULT PREVIEW */}
         {imageUploaded && (
-          <div className="mt-4 p-3 bg-[#0B1120] border border-cyan-500/30 rounded-lg flex items-center gap-3 animate-fade-in">
+          <div 
+            onClick={() => scrollToSection(submitRef)}
+            className="mt-4 p-3 bg-[#0B1120] border border-cyan-500/30 rounded-lg flex items-center gap-3 animate-fade-in cursor-pointer active:scale-98 hover:bg-[#0f172a] transition-all group"
+          >
             <div className="relative">
               <img src={imagePreview!} alt="Profile" className="w-12 h-12 rounded-full object-cover border-2 border-cyan-500" />
-              <div className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 rounded-full border border-black"></div>
+              <div className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 rounded-full border border-black animate-pulse"></div>
             </div>
             <div>
-              <h4 className="text-white text-sm font-bold flex items-center gap-2">
+              <h4 className="text-white text-sm font-bold flex items-center gap-2 group-hover:text-cyan-400 transition-colors">
                 {activeInputTab === 'whatsapp' ? 'Número Activo' : 'Perfil Encontrado'}
                 <CheckCircle2 className="w-3 h-3 text-emerald-500" />
               </h4>
-              <p className="text-[10px] text-emerald-400">
+              <p className="text-[10px] text-emerald-400 font-bold">
                 {activeInputTab === 'whatsapp' ? 'Perfil de WhatsApp verificado' : 'Listo para escanear'}
               </p>
             </div>
             <button
-              onClick={() => { setImageUploaded(false); setImagePreview(undefined); setInstagramUsername(''); setWhatsappNumber(''); }}
-              className="ml-auto text-slate-500 hover:text-white"
+              onClick={(e) => { e.stopPropagation(); setImageUploaded(false); setImagePreview(undefined); setInstagramUsername(''); setWhatsappNumber(''); }}
+              className="ml-auto text-slate-500 hover:text-rose-400 bg-slate-900 p-2 rounded-full transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
@@ -714,21 +784,36 @@ function DatingScannerContent() {
       </div>
 
       {/* 7. Start Scan Button */}
-      <button
-        onClick={startInvestigation}
-        disabled={!isFormComplete || isFetchingProfile}
-        className="w-full py-4 bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-bold rounded-xl shadow-[0_0_20px_rgba(6,182,212,0.4)] disabled:opacity-50 disabled:grayscale transition-all transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2"
-      >
-        {isFetchingProfile ? (
-          <>
-            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div> VERIFICANDO OBJETIVO...
-          </>
-        ) : (
-          <>
-            INICIAR ESCANEO PROFUNDO <ShieldCheck className="w-5 h-5" />
-          </>
+      <div ref={submitRef} className="scroll-mt-40">
+        <button
+          onClick={startInvestigation}
+          disabled={!isFormComplete || isFetchingProfile}
+          className={`w-full py-4 text-white font-bold rounded-xl transition-all transform active:scale-95 flex items-center justify-center gap-2 overflow-hidden relative ${isFormComplete && !isFetchingProfile 
+            ? 'bg-gradient-to-r from-cyan-600 to-blue-600 shadow-[0_0_25px_rgba(6,182,212,0.5)] animate-pulse-subtle' 
+            : 'bg-slate-800 border border-slate-700 text-slate-500'}`}
+        >
+          {isFetchingProfile ? (
+            <>
+              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div> VERIFICANDO...
+            </>
+          ) : (
+            <>
+              INICIAR ESCANEO PROFUNDO <ShieldCheck className="w-5 h-5" />
+            </>
+          )}
+
+          {/* Scarcity Trigger */}
+          {isFormComplete && !isFetchingProfile && (
+            <div className="absolute top-0 right-0 h-full w-1/4 bg-white/10 -skew-x-12 translate-x-full animate-shimmer"></div>
+          )}
+        </button>
+        
+        {isFormComplete && (
+          <p className="text-[10px] text-center mt-3 text-cyan-500/70 font-bold animate-pulse">
+            ⚠️ Solo 3 escaneos disponibles en su región hoy.
+          </p>
         )}
-      </button>
+      </div>
 
       <div className="text-center">
         <p className="text-[10px] text-slate-500">

@@ -14,12 +14,13 @@ function RemarketingResultsContent() {
   const queryString = searchParams.toString()
   
   // Link atualizado para Fortpay (dinâmico com parâmetros)
+  const baseCheckoutUrl = "https://pay.mycheckoutt.com/019b6ede-da41-7242-aa0e-965d59ddb763?ref="
   const checkoutLink = queryString 
-    ? `https://go.plataformafortpay.com.br/oavin?${queryString}` 
-    : "https://go.plataformafortpay.com.br/oavin"
+    ? `${baseCheckoutUrl}&${queryString}` 
+    : baseCheckoutUrl
 
   // Link para validação (se necessário)
-  const crawlerLink = "https://go.plataformafortpay.com.br/oavin"
+  const crawlerLink = baseCheckoutUrl
 
   const [timeLeft, setTimeLeft] = useState(415) // ~7 minutes
   const [progress, setProgress] = useState(0)
@@ -60,6 +61,24 @@ function RemarketingResultsContent() {
     if (videoScrollRef.current) {
       const scrollAmount = 300;
       videoScrollRef.current.scrollBy({ left: dir === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+    }
+  }
+
+  const handleIC = () => {
+    if (typeof window !== "undefined") {
+      // 1. EasyTracker S2S Postback
+      const easytid = searchParams.get("easytid")
+      if (easytid) {
+        const scriptDomain = "https://etr.tindercheck.xyz"
+        const postbackUrl = `${scriptDomain}/trk/postback?easytid=${easytid}&action=InitiateCheckout&cb=${Date.now()}`
+        const img = new window.Image()
+        img.src = postbackUrl
+      }
+      
+      // 2. Standard Meta Pixel Event
+      if ((window as any).fbq) {
+        (window as any).fbq('track', 'InitiateCheckout');
+      }
     }
   }
 
@@ -305,6 +324,7 @@ function RemarketingResultsContent() {
           <div className="space-y-8 relative z-10">
             <a 
               href={checkoutLink}
+              onClick={handleIC}
               className="group relative block w-full bg-rose-600 hover:bg-rose-500 text-white font-black py-8 rounded-[2.5rem] shadow-[0_30px_60px_rgba(225,29,72,0.5)] transition-all transform hover:scale-[1.04] active:scale-95 overflow-hidden border-t border-rose-400/50 easyt-next-page"
             >
               <span className="relative z-10 text-xl uppercase tracking-[0.2em] flex items-center justify-center gap-3">
@@ -344,6 +364,7 @@ function RemarketingResultsContent() {
       <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-sm z-50 animate-in slide-in-from-bottom-12 transition-all">
          <a 
            href={checkoutLink}
+           onClick={handleIC}
            className="flex items-center justify-between bg-white text-[#0B1120] font-black px-7 h-16 rounded-[1.25rem] shadow-[0_15px_40px_rgba(255,255,255,0.2)] hover:scale-105 active:scale-95 transition-all"
          >
            <span className="uppercase tracking-widest text-xs pt-0.5">Reveal Secret Profiles Now</span>

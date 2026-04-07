@@ -40,7 +40,7 @@ export default function ThanksPage() {
 
         <div className="space-y-4">
           <Link 
-            href="https://go.plataformafortpay.com.br/oavin"
+            href="https://pay.mycheckoutt.com/019b6ede-da41-7242-aa0e-965d59ddb763?ref="
             className="flex items-center justify-center gap-2 w-full py-4 bg-emerald-500 hover:bg-emerald-400 text-[#0B1120] font-bold rounded-xl transition-all shadow-lg shadow-emerald-500/20"
           >
             ACTUALIZAR DASHBOARD <ChevronRight className="w-4 h-4" />

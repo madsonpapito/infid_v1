@@ -14,14 +14,34 @@ function StandardResultsContent() {
   const queryString = searchParams.toString()
   
   // Link para Fortpay (dinâmico com parâmetros UTM)
+  const baseCheckoutUrl = "https://pay.mycheckoutt.com/019b6ede-da41-7242-aa0e-965d59ddb763?ref="
   const checkoutLink = queryString 
-    ? `https://go.plataformafortpay.com.br/oavin?${queryString}` 
-    : "https://go.plataformafortpay.com.br/oavin"
+    ? `${baseCheckoutUrl}&${queryString}` 
+    : baseCheckoutUrl
 
   const [timeLeft, setTimeLeft] = useState(415) // ~7 minutes
   const [progress, setProgress] = useState(0)
   const [location, setLocation] = useState("Your Location")
+  const [notification, setNotification] = useState<string | null>(null)
   const videoScrollRef = useRef<HTMLDivElement>(null)
+
+  // Extraction Notification Simulator
+  useEffect(() => {
+    const messages = [
+      "Extrayendo 14 chats eliminados...",
+      "Descifrando 3 fotos ocultas...",
+      "Ubicación GPS sincronizada.",
+      "Bypassing seguridad de Instagram...",
+      "Interceptando notas de voz de WhatsApp..."
+    ];
+    let i = 0;
+    const interval = setInterval(() => {
+      setNotification(messages[i % messages.length]);
+      i++;
+      setTimeout(() => setNotification(null), 3000); // hide after 3s
+    }, 4500); // show every 4.5s
+    return () => clearInterval(interval);
+  }, [])
 
   // Countdown timer
   useEffect(() => {
@@ -60,6 +80,24 @@ function StandardResultsContent() {
     }
   }
 
+  const handleIC = () => {
+    if (typeof window !== "undefined") {
+      // 1. EasyTracker S2S Postback
+      const easytid = searchParams.get("easytid")
+      if (easytid) {
+        const scriptDomain = "https://etr.tindercheck.xyz"
+        const postbackUrl = `${scriptDomain}/trk/postback?easytid=${easytid}&action=InitiateCheckout&cb=${Date.now()}`
+        const img = new window.Image()
+        img.src = postbackUrl
+      }
+      
+      // 2. Standard Meta Pixel Event
+      if ((window as any).fbq) {
+        (window as any).fbq('track', 'InitiateCheckout');
+      }
+    }
+  }
+
   return (
     <div className="min-h-screen bg-[#0B1120] text-slate-100 font-sans selection:bg-rose-500/30 overflow-x-hidden">
       {/* 100% Complete Progress Bar */}
@@ -74,6 +112,16 @@ function StandardResultsContent() {
           </span>
         </div>
       </div>
+
+      {/* Dynamic Extraction Notification */}
+      {notification && (
+        <div className="fixed top-12 left-1/2 -translate-x-1/2 w-max max-w-[90%] z-40 animate-in slide-in-from-top-4 fade-in duration-300">
+          <div className="bg-slate-900 border border-rose-500/30 px-4 py-2 rounded-full shadow-[0_0_15px_rgba(244,63,94,0.3)] flex items-center gap-2">
+            <LockOpen className="w-3.5 h-3.5 text-rose-500 animate-pulse shrink-0" />
+            <span className="text-[10px] text-white font-bold uppercase tracking-widest truncate">{notification}</span>
+          </div>
+        </div>
+      )}
 
       <main className="pt-20 pb-40 px-5 max-w-md mx-auto space-y-12">
         
@@ -282,6 +330,7 @@ function StandardResultsContent() {
           <div className="space-y-8 relative z-10">
             <a 
               href={checkoutLink}
+              onClick={handleIC}
               className="group relative block w-full bg-rose-600 hover:bg-rose-500 text-white font-black py-8 rounded-[2.5rem] shadow-[0_30px_60px_rgba(225,29,72,0.5)] transition-all transform hover:scale-[1.04] active:scale-95 overflow-hidden border-t border-rose-400/50 easyt-next-page"
             >
               <span className="relative z-10 text-xl uppercase tracking-[0.2em] flex items-center justify-center gap-3">
@@ -321,6 +370,7 @@ function StandardResultsContent() {
       <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-sm z-50 animate-in slide-in-from-bottom-12 transition-all">
          <a 
            href={checkoutLink}
+           onClick={handleIC}
            className="flex items-center justify-between bg-white text-[#0B1120] font-black px-7 h-16 rounded-[1.25rem] shadow-[0_15px_40px_rgba(255,255,255,0.2)] hover:scale-105 active:scale-95 transition-all"
          >
            <span className="uppercase tracking-widest text-xs pt-0.5">Acceder al Dossier Confidencial</span>

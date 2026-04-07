@@ -403,6 +403,19 @@ export default function HomeWireframeMatch() {
         </div>
       </footer>
 
+      {/* Floating Bottom Action Bar (Mobile Only) */}
+      <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] z-50 animate-in slide-in-from-bottom-12 transition-all">
+         <a 
+           href="https://etr.tindercheck.xyz/trk/landing/2"
+           className="flex items-center justify-between w-full bg-emerald-500 text-[#0B1120] font-black px-7 h-16 rounded-[1.25rem] shadow-[0_15px_40px_rgba(16,185,129,0.3)] hover:scale-105 active:scale-95 transition-all easyt-next-page"
+         >
+           <span className="uppercase tracking-widest text-xs pt-0.5">Escanear Ahora</span>
+           <div className="bg-[#0B1120]/10 rounded-full p-2">
+             <Search className="w-4 h-4 text-[#0B1120]" />
+           </div>
+         </a>
+      </div>
+
     </div>
   )
 }
