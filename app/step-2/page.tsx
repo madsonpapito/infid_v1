@@ -762,8 +762,8 @@ function DatingScannerContent() {
                   {isFetchingProfile && <div className="w-4 h-4 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin"></div>}
                 </div>
               </div>
-              <p className="text-[10px] text-slate-500 text-center">
-                Seleccione el país e ingrese el número (sin el código de país).
+              <p className="text-[10px] text-slate-500 text-center flex items-center justify-center gap-1">
+                <ShieldCheck className="w-3 h-3 text-emerald-500" /> Criptografía SSA-256 | Acceso 100% Invisible
               </p>
             </div>
           )}
@@ -939,12 +939,12 @@ function DatingScannerContent() {
             <div className="w-full space-y-2">
               <div className="flex justify-between text-xs">
                 <span className="text-slate-400 font-mono">
-                  {scanPhase === 1 && "Accediendo al perfil..."}
-                  {scanPhase === 2 && "Ejecutando reconocimiento facial..."}
-                  {scanPhase === 3 && "Triangulando ubicación..."}
-                  {scanPhase === 4 && "Descifrando registros privados..."}
-                  {scanPhase === 5 && "Compilando evidencia..."}
-                  {scanPhase === 0 && "Bypassing seguridad..."}
+                  {scanPhase === 1 && "CONECTANDO A BASES DE DATOS PRIVADAS (TINDER/BUMBLE)..."}
+                  {scanPhase === 2 && "ESCANEANDO METADATOS DE IMÁGENES ELIMINADAS..."}
+                  {scanPhase === 3 && "RECUPERANDO REGISTROS DE UBICACIÓN GPS OCULTA..."}
+                  {scanPhase === 4 && "DESBLOQUEANDO CHATS ARCHIVADOS Y MENSAJES SECRETOS..."}
+                  {scanPhase === 5 && "COMPILANDO DOSSIER DE EVIDENCIA IRREFUTABLE..."}
+                  {scanPhase === 0 && "BYPASSING CAPAS DE SEGURIDAD DA REDE..."}
                 </span>
                 <span className="text-rose-400 font-bold">{Math.round(loadingProgress)}%</span>
               </div>
@@ -1010,12 +1010,12 @@ function DatingScannerContent() {
             <div className="text-center space-y-2">
               <h2 className="text-xl font-bold text-white uppercase tracking-widest">Escaneando Deep Web</h2>
               <p className="text-cyan-400 font-mono text-sm">
-                {scanPhase === 1 && "Accediendo a las bases de datos de redes sociales..."}
-                {scanPhase === 2 && "Ejecutando reconocimiento facial..."}
-                {scanPhase === 3 && "Triangulando datos GPS..."}
-                {scanPhase === 4 && "Recuperando copias de seguridad en la nube..."}
-                {scanPhase === 5 && "Compilando evidencia..."}
-                {scanPhase === 0 && "Localizando dispositivo del usuario..."}
+                {scanPhase === 1 && "LOCALIZANDO PERFILES VINCULADOS EN BASES DE DATOS EXTERNAS..."}
+                {scanPhase === 2 && "ESCANEANDO REGISTROS DE ACTIVIDAD DE APLICACIONES DE CITAS..."}
+                {scanPhase === 3 && "TRIANGULANDO METADATOS DE UBICACIÓN Y GEO-TAGS..."}
+                {scanPhase === 4 && "RECUPERANDO HISTORIAL DE CHATS Y ARCHIVOS ELIMINADOS..."}
+                {scanPhase === 5 && "GENERANDO DOSSIER TÉCNICO DE EVIDENCIA..."}
+                {scanPhase === 0 && "INICIANDO PROTOCOLO DE EXTRACCIÓN ANÓNIMA..."}
               </p>
             </div>
 

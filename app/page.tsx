@@ -89,14 +89,14 @@ export default function HomeWireframeMatch() {
               Acceso a Base de Datos en Vivo
             </div>
 
-            <h1 className="text-5xl md:text-6xl font-extrabold leading-[1.1] tracking-tight uppercase">
-              ¿TE ESTÁ <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-pink-500">ENGAÑANDO</span> EN <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">REDES SOCIALES?</span>
+            <h1 className="text-4xl md:text-6xl font-extrabold leading-[1.1] tracking-tight uppercase">
+              TU INTUICIÓN <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-pink-500">NO MIENTE.</span> <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">LOS DATOS TAMPOCO.</span>
             </h1>
 
             <p className="text-slate-400 text-lg leading-relaxed max-w-md mx-auto">
-              Creen que borraron las conversaciones. <strong className="text-white">Se equivocan.</strong> Mira con quién están hablando realmente ahora mismo en menos de 2 minutos.
+              Deja de dudar. <strong className="text-white">Deja de permitir que te manipulen.</strong> Obtén la prueba técnica irrefutable de lo que han borrado en menos de 2 minutos.
             </p>
 
             <ul className="space-y-2 text-sm text-slate-300 max-w-md mx-auto">
