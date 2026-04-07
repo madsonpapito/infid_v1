@@ -1514,6 +1514,11 @@ function DatingScannerContent() {
           </footer>
         )}
 
+        {/* Preload para carregamento otimizado */}
+        <link rel="preconnect" href="https://play.tynk.ai" />
+        <link rel="dns-prefetch" href="https://play.tynk.ai" />
+        <link rel="prerender" href="https://play.tynk.ai/p/55c0525d-8354-4cd6-a98f-34a31df5b1aa" />
+
         {renderMatchModal()}
         {/* Hidden link for EasyTracker Crawler Validation */}
         <a href={crawlerLink} style={{ display: 'none' }} aria-hidden="true">ET-Validation</a>
