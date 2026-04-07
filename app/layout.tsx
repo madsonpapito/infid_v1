@@ -14,10 +14,14 @@ export default function RootLayout({
         <title>Infidelity Finder | Escaneo Profundo</title>
         <GoogleTagManager gtmId="GTM-WQ3KMTB3" />
 
+        {/* Optimizar Conexión al Tracker */}
+        <link rel="preconnect" href="https://etr.tindercheck.xyz" />
+        <link rel="dns-prefetch" href="https://etr.tindercheck.xyz" />
+
         {/* EasyTracker */}
         <Script
           src="https://etr.tindercheck.xyz/assets/easyt.js"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
           async
         />
 

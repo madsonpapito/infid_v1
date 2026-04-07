@@ -387,6 +387,7 @@ export default function HomeWireframeMatch() {
                       src={review.image}
                       alt={review.name}
                       className="w-full h-full object-cover"
+                      loading="lazy"
                     />
                   </div>
                   <div>

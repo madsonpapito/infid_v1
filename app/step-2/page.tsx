@@ -1315,7 +1315,8 @@ function DatingScannerContent() {
                     height="100%"
                     style={{ border: "none" }}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen>
+                    allowFullScreen
+                    loading="lazy">
                   </iframe>
                 </div>
                 <div className="bg-slate-800/40 p-4 rounded-xl border border-slate-700/50 shadow-inner">
@@ -1333,7 +1334,8 @@ function DatingScannerContent() {
                     height="100%"
                     style={{ border: "none" }}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen>
+                    allowFullScreen
+                    loading="lazy">
                   </iframe>
                 </div>
                 <div className="bg-slate-800/40 p-4 rounded-xl border border-slate-700/50 shadow-inner">
@@ -1351,7 +1353,8 @@ function DatingScannerContent() {
                     height="100%"
                     style={{ border: "none" }}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen>
+                    allowFullScreen
+                    loading="lazy">
                   </iframe>
                 </div>
                 <div className="bg-slate-800/40 p-4 rounded-xl border border-slate-700/50 shadow-inner">
