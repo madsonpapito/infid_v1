@@ -71,5 +71,5 @@ Ao analisar as sessões (Dead Clicks e Rage Clicks) e as quedas na home e na pá
 - [ ] Embeber o novo componente de subida de fotos, traduzindo para o inglês.
 - [ ] Ampliar os alvos de toque nas abas e opções (`Instagram/WhatsApp`).
 - [ ] Adicionar suporte a scroll via clique no container `Profile Found`.
-- [ ] Copiar a lógica de notificação virtual flutuante para a página `results`.
-- [ ] Adicionar a barra Flutuante CTA na home (`app/page.tsx`).
+- [ ] Copiar a lógica de notificação virtual flutuante (Pills) para a visualização de Resultados, **tanto** em `app/results/page.tsx` quanto embarcado em `app/step-2/page.tsx`.
+- [ ] Adicionar a barra Flutuante CTA na home (`app/page.tsx`) e na página de Resultados (`app/step-2/page.tsx` e `app/results/page.tsx`).

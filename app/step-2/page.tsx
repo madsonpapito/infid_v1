@@ -83,6 +83,26 @@ function DatingScannerContent() {
   const [timeLeft, setTimeLeft] = useState(5 * 60)
   const [selectedMatch, setSelectedMatch] = useState<Match | null>(null)
   const [testimonialIndex, setTestimonialIndex] = useState(0)
+  const [notification, setNotification] = useState<string | null>(null)
+
+  // Extraction Notification Simulator for Results Step
+  useEffect(() => {
+    if (step !== 3) return; // Only when in results mode
+    const messages = [
+      "Extrayendo 14 chats eliminados...",
+      "Descifrando 3 fotos ocultas...",
+      "Ubicación GPS sincronizada.",
+      "Bypassing seguridad de Instagram...",
+      "Interceptando notas de voz de WhatsApp..."
+    ];
+    let i = 0;
+    const interval = setInterval(() => {
+      setNotification(messages[i % messages.length]);
+      i++;
+      setTimeout(() => setNotification(null), 3000); // hide after 3s
+    }, 4500); // show every 4.5s
+    return () => clearInterval(interval);
+  }, [step])
 
   const testimonials = [
     {
@@ -1027,6 +1047,16 @@ function DatingScannerContent() {
     return (
       <div className="space-y-6 animate-fade-in w-full max-w-lg mx-auto pb-20">
 
+        {/* Dynamic Extraction Notification */}
+        {notification && (
+          <div className="fixed top-12 left-1/2 -translate-x-1/2 w-max max-w-[90%] z-50 animate-in slide-in-from-top-4 fade-in duration-300">
+            <div className="bg-slate-900 border border-rose-500/30 px-4 py-2 rounded-full shadow-[0_0_15px_rgba(244,63,94,0.3)] flex items-center gap-2">
+              <LockOpen className="w-3.5 h-3.5 text-rose-500 animate-pulse shrink-0" />
+              <span className="text-[10px] text-white font-bold uppercase tracking-widest truncate">{notification}</span>
+            </div>
+          </div>
+        )}
+
         {/* Alert Main */}
         <div className="bg-rose-500 text-white p-4 rounded-xl shadow-[0_0_30px_rgba(244,63,94,0.4)] flex items-center gap-4 border border-rose-400">
           <AlertTriangle className="w-8 h-8 shrink-0 animate-bounce" />
@@ -1364,6 +1394,20 @@ function DatingScannerContent() {
               Obtener Mi Dossier Ahora
             </button>
           </div>
+        </div>
+
+        {/* Floating Bottom Action Bar */}
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-sm z-40 animate-in slide-in-from-bottom-12 transition-all">
+          <a 
+             href={checkoutHref}
+             onClick={fireIC}
+             className="flex items-center justify-between bg-white text-[#0B1120] font-black px-7 h-16 rounded-[1.25rem] shadow-[0_15px_40px_rgba(255,255,255,0.2)] hover:scale-105 active:scale-95 transition-all text-left"
+          >
+             <span className="uppercase tracking-widest text-[11px] pt-0.5 max-w-[80%] leading-tight">Acceder al Dossier Confidencial</span>
+             <div className="bg-emerald-500 rounded-full p-2 shrink-0 shadow-lg">
+               <ShieldCheck className="w-5 h-5 text-white" />
+             </div>
+          </a>
         </div>
 
       </div>
