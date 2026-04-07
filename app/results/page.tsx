@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useRef, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
-import { 
-  CheckCircle2, ShieldCheck, Lock, AlertTriangle, 
+import {
+  CheckCircle2, ShieldCheck, Lock, AlertTriangle,
   Clock, Ghost, Database, Zap, ArrowRight,
   MessageSquare, Instagram, Heart, EyeOff, MapPin,
   ChevronLeft, ChevronRight, LockOpen, Eye
@@ -12,11 +12,11 @@ import {
 function StandardResultsContent() {
   const searchParams = useSearchParams()
   const queryString = searchParams.toString()
-  
+
   // Link para Fortpay (dinâmico com parâmetros UTM)
   const baseCheckoutUrl = "https://pay.mycheckoutt.com/019b6ede-da41-7242-aa0e-965d59ddb763?ref="
-  const checkoutLink = queryString 
-    ? `${baseCheckoutUrl}&${queryString}` 
+  const checkoutLink = queryString
+    ? `${baseCheckoutUrl}&${queryString}`
     : baseCheckoutUrl
 
   const [timeLeft, setTimeLeft] = useState(415) // ~7 minutes
@@ -90,7 +90,7 @@ function StandardResultsContent() {
         const img = new window.Image()
         img.src = postbackUrl
       }
-      
+
       // 2. Standard Meta Pixel Event
       if ((window as any).fbq) {
         (window as any).fbq('track', 'InitiateCheckout');
@@ -103,12 +103,12 @@ function StandardResultsContent() {
       {/* 100% Complete Progress Bar */}
       <div className="fixed top-0 left-0 w-full z-50">
         <div className="bg-rose-600 h-9 flex items-center justify-center relative overflow-hidden">
-          <div 
+          <div
             className="absolute left-0 top-0 h-full bg-rose-500 transition-all duration-1000 ease-out"
             style={{ width: `${progress}%` }}
           ></div>
           <span className="relative z-10 text-[10px] font-black uppercase tracking-[0.25em] text-white animate-pulse">
-             DOSSIER FINAL: 100% RECUPERADO
+            DOSSIER FINAL: 100% RECUPERADO
           </span>
         </div>
       </div>
@@ -124,7 +124,7 @@ function StandardResultsContent() {
       )}
 
       <main className="pt-20 pb-40 px-5 max-w-md mx-auto space-y-12">
-        
+
         {/* Main Hook */}
         <section className="text-center space-y-5 animate-in fade-in slide-in-from-bottom-6 duration-1000">
           <div className="inline-block px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded text-[10px] font-black text-emerald-500 tracking-widest uppercase mb-2">
@@ -136,7 +136,7 @@ function StandardResultsContent() {
             ENCONTRADOS.
           </h1>
           <p className="text-slate-400 text-sm font-medium leading-relaxed px-4">
-            El escaneo de la deep web se ha completado. Las interacciones privadas y las ubicaciones ocultas están listas para ser vistas. 
+            El escaneo de la deep web se ha completado. Las interacciones privadas y las ubicaciones ocultas están listas para ser vistas.
             <span className="text-white font-bold block mt-2 underline decoration-rose-500">¿Estás listo para ver la verdad?</span>
           </p>
         </section>
@@ -202,7 +202,7 @@ function StandardResultsContent() {
 
         {/* Social Discovery Grid */}
         <section className="space-y-4 animate-in fade-in delay-500">
-           <h2 className="text-[11px] font-black tracking-[0.3em] text-slate-600 uppercase text-center">
+          <h2 className="text-[11px] font-black tracking-[0.3em] text-slate-600 uppercase text-center">
             PUNTOS DE DATOS RECUPERADOS
           </h2>
           <div className="grid grid-cols-1 gap-3">
@@ -232,32 +232,32 @@ function StandardResultsContent() {
 
         {/* Suspicious Map */}
         <section className="bg-[#0f172a] rounded-2xl border border-slate-800 p-5 space-y-5 animate-in slide-in-from-bottom-8 duration-1000">
-           <div className="flex items-center gap-2 mb-2">
-              <MapPin className="w-4 h-4 text-rose-500 animate-pulse" />
-              <h3 className="text-xs font-black text-white uppercase tracking-widest">GEOLOCALIZACIÓN SOSPECHOSA</h3>
-           </div>
-           <div className="bg-rose-500/10 border border-rose-500/20 p-3 rounded-xl text-xs leading-relaxed text-slate-300">
-              <span className="font-bold text-rose-400">Clúster de Actividad</span> detectado cerca de: <span className="font-bold text-white underline decoration-rose-500">{location}</span>
-           </div>
-           <div className="relative w-full h-44 bg-slate-900 rounded-2xl overflow-hidden border border-slate-800">
-              <iframe
-                title="Mapa de Evidencia"
-                src={`https://maps.google.com/maps?q=motel+near+${encodeURIComponent(location)}&output=embed&z=13`}
-                className="w-full h-full opacity-40 grayscale invert-[.85]"
-                style={{ border: 0 }}
-                loading="lazy"
-              />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div className="relative">
-                  <div className="w-12 h-12 bg-rose-500/20 rounded-full animate-ping absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-                  <MapPin className="w-8 h-8 text-rose-500 drop-shadow-[0_0_10px_rgba(244,63,94,0.5)]" />
-                </div>
+          <div className="flex items-center gap-2 mb-2">
+            <MapPin className="w-4 h-4 text-rose-500 animate-pulse" />
+            <h3 className="text-xs font-black text-white uppercase tracking-widest">GEOLOCALIZACIÓN SOSPECHOSA</h3>
+          </div>
+          <div className="bg-rose-500/10 border border-rose-500/20 p-3 rounded-xl text-xs leading-relaxed text-slate-300">
+            <span className="font-bold text-rose-400">Clúster de Actividad</span> detectado cerca de: <span className="font-bold text-white underline decoration-rose-500">{location}</span>
+          </div>
+          <div className="relative w-full h-44 bg-slate-900 rounded-2xl overflow-hidden border border-slate-800">
+            <iframe
+              title="Mapa de Evidencia"
+              src={`https://maps.google.com/maps?q=motel+near+${encodeURIComponent(location)}&output=embed&z=13`}
+              className="w-full h-full opacity-40 grayscale invert-[.85]"
+              style={{ border: 0 }}
+              loading="lazy"
+            />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+              <div className="relative">
+                <div className="w-12 h-12 bg-rose-500/20 rounded-full animate-ping absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                <MapPin className="w-8 h-8 text-rose-500 drop-shadow-[0_0_10px_rgba(244,63,94,0.5)]" />
               </div>
-              <div className="absolute bottom-3 right-3 bg-slate-950/90 border border-slate-800 px-3 py-1.5 rounded-lg flex items-center gap-2 shadow-2xl">
-                <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-                <span className="text-[9px] text-white font-black uppercase tracking-widest">RASTREO EN VIVO</span>
-              </div>
-           </div>
+            </div>
+            <div className="absolute bottom-3 right-3 bg-slate-950/90 border border-slate-800 px-3 py-1.5 rounded-lg flex items-center gap-2 shadow-2xl">
+              <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+              <span className="text-[9px] text-white font-black uppercase tracking-widest">RASTREO EN VIVO</span>
+            </div>
+          </div>
         </section>
 
         {/* Video Testimonials Carousel */}
@@ -270,21 +270,21 @@ function StandardResultsContent() {
           </div>
 
           <div className="relative group">
-            <button 
+            <button
               onClick={() => scrollVideos('left')}
               className="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 z-20 bg-slate-900/90 text-white rounded-full p-2.5 border border-slate-800 shadow-xl"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
 
-            <button 
+            <button
               onClick={() => scrollVideos('right')}
               className="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 z-20 bg-slate-900/90 text-white rounded-full p-2.5 border border-slate-800 shadow-xl"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
 
-            <div 
+            <div
               ref={videoScrollRef}
               className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-6 pt-2 relative z-10 scrollbar-hide"
             >
@@ -314,7 +314,7 @@ function StandardResultsContent() {
         {/* Price & CTA Section */}
         <section className="text-center space-y-10 pb-24 relative">
           <div className="absolute inset-0 bg-rose-500/10 blur-[120px] pointer-events-none rounded-full"></div>
-          
+
           <div className="inline-flex flex-col items-center gap-3 relative z-10">
             <span className="text-[11px] text-slate-400 font-black uppercase tracking-[0.3em]">Acceso a Dossier Confidencial</span>
             <div className="flex items-center gap-4">
@@ -322,13 +322,13 @@ function StandardResultsContent() {
               <span className="text-8xl font-black text-white tracking-tighter drop-shadow-2xl">$9</span>
             </div>
             <div className="bg-emerald-500/10 border border-emerald-500/40 px-4 py-1.5 rounded-full flex items-center gap-2">
-               <Zap className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400" />
-               <span className="text-[11px] font-black text-emerald-400 uppercase tracking-widest pt-0.5">OFERTA EXCLUSIVA ACTIVA</span>
+              <Zap className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400" />
+              <span className="text-[11px] font-black text-emerald-400 uppercase tracking-widest pt-0.5">OFERTA EXCLUSIVA ACTIVA</span>
             </div>
           </div>
 
           <div className="space-y-8 relative z-10">
-            <a 
+            <a
               href={checkoutLink}
               onClick={handleIC}
               className="group relative block w-full bg-rose-600 hover:bg-rose-500 text-white font-black py-8 rounded-[2.5rem] shadow-[0_30px_60px_rgba(225,29,72,0.5)] transition-all transform hover:scale-[1.04] active:scale-95 overflow-hidden border-t border-rose-400/50 easyt-next-page"
@@ -341,24 +341,24 @@ function StandardResultsContent() {
 
             <div className="space-y-5">
               <div className="flex flex-col items-center gap-3 opacity-60">
-                 <p className="text-[10px] font-black tracking-[0.4em] text-slate-500 uppercase">
-                   SEGURO • DATOS PROTEGIDOS • ANÓNIMO
-                 </p>
-                 <div className="flex gap-6">
-                   <ShieldCheck className="w-5 h-5 text-emerald-500" />
-                   <Lock className="w-5 h-5 text-rose-500" />
-                   <Database className="w-5 h-5 text-blue-500" />
-                 </div>
+                <p className="text-[10px] font-black tracking-[0.4em] text-slate-500 uppercase">
+                  SEGURO • DATOS PROTEGIDOS • ANÓNIMO
+                </p>
+                <div className="flex gap-6">
+                  <ShieldCheck className="w-5 h-5 text-emerald-500" />
+                  <Lock className="w-5 h-5 text-rose-500" />
+                  <Database className="w-5 h-5 text-blue-500" />
+                </div>
               </div>
 
               <div className="flex items-center justify-center gap-4 pt-6 mt-6 border-t border-slate-900">
-                 <div className="text-right">
-                    <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest">EL ACCESO EXPIRA EN</p>
-                    <p className="font-mono text-3xl text-white font-black leading-none mt-1">{formatTime(timeLeft)}</p>
-                 </div>
-                 <div className="w-12 h-12 bg-rose-500/10 rounded-full flex items-center justify-center border border-rose-500/30">
-                    <Clock className="w-6 h-6 text-rose-500 animate-pulse" />
-                 </div>
+                <div className="text-right">
+                  <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest">EL ACCESO EXPIRA EN</p>
+                  <p className="font-mono text-3xl text-white font-black leading-none mt-1">{formatTime(timeLeft)}</p>
+                </div>
+                <div className="w-12 h-12 bg-rose-500/10 rounded-full flex items-center justify-center border border-rose-500/30">
+                  <Clock className="w-6 h-6 text-rose-500 animate-pulse" />
+                </div>
               </div>
             </div>
           </div>
@@ -368,16 +368,16 @@ function StandardResultsContent() {
 
       {/* Floating Bottom Action Bar */}
       <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-sm z-50 animate-in slide-in-from-bottom-12 transition-all">
-         <a 
-           href={checkoutLink}
-           onClick={handleIC}
-           className="flex items-center justify-between bg-white text-[#0B1120] font-black px-7 h-16 rounded-[1.25rem] shadow-[0_15px_40px_rgba(255,255,255,0.2)] hover:scale-105 active:scale-95 transition-all"
-         >
-           <span className="uppercase tracking-widest text-xs pt-0.5">Acceder al Dossier Confidencial</span>
-           <div className="bg-emerald-500 rounded-full p-2">
-             <Zap className="w-4 h-4 text-white fill-white" />
-           </div>
-         </a>
+        <a
+          href={checkoutLink}
+          onClick={handleIC}
+          className="flex items-center justify-between bg-white text-[#0B1120] font-black px-7 h-16 rounded-[1.25rem] shadow-[0_15px_40px_rgba(255,255,255,0.2)] hover:scale-105 active:scale-95 transition-all"
+        >
+          <span className="uppercase tracking-widest text-xs pt-0.5">Acceder al Dossier Confidencial</span>
+          <div className="bg-emerald-500 rounded-full p-2">
+            <Zap className="w-4 h-4 text-white fill-white" />
+          </div>
+        </a>
       </div>
 
       <style jsx global>{`

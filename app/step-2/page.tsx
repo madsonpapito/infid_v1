@@ -56,8 +56,8 @@ function DatingScannerContent() {
   const searchQuery = searchParams.get('q')
 
   const queryString = searchParams.toString();
-  
-  // Link para os usuários (dinâmico)
+
+  // Link para os usuários (dinâmico com EasyTracker)
   const checkoutHref = queryString 
     ? `https://etr.tindercheck.xyz/trk/offer?${queryString}` 
     : "https://etr.tindercheck.xyz/trk/offer";
@@ -173,7 +173,7 @@ function DatingScannerContent() {
 
   const checkoutRef = useRef<HTMLDivElement>(null)
   const videoScrollRef = useRef<HTMLDivElement>(null)
-  
+
   // Refs for Auto-Scroll (Conversion Optimization)
   const ageRef = useRef<HTMLDivElement>(null)
   const relationshipRef = useRef<HTMLDivElement>(null)
@@ -209,16 +209,16 @@ function DatingScannerContent() {
       const params = new URLSearchParams(window.location.search)
       const easytid = params.get("easytid")
       const currentType = params.get("easytid_type") || "landing"
-      
+
       if (easytid) {
         // Use the domain from the checkout URL
         const scriptDomain = "https://etr.tindercheck.xyz"
         const postbackUrl = `${scriptDomain}/trk/postback?easytid=${easytid}&action=InitiateCheckout&cb=${Date.now()}`
-        
+
         // Fire via Image Pixel (reliable backup)
         const img = new window.Image()
         img.src = postbackUrl
-        
+
         console.log("EasyTracker IC Fired:", postbackUrl)
       }
 
@@ -250,7 +250,7 @@ function DatingScannerContent() {
     if (e.target.files && e.target.files[0]) {
       setErrorMessage(null)
       setIsFetchingProfile(true) // Immediate feedback for Clarity "Dead Clicks"
-      
+
       const reader = new FileReader()
       reader.onload = (ev) => {
         setImagePreview(ev.target?.result as string)
@@ -274,7 +274,7 @@ function DatingScannerContent() {
         const img = new window.Image()
         img.src = postbackUrl
       }
-      
+
       if ((window as any).fbq) {
         (window as any).fbq('track', 'CompleteRegistration');
       }
@@ -311,7 +311,7 @@ function DatingScannerContent() {
       // Mark as scanned to prevent future free attempts
       document.cookie = "has_scanned=true; path=/; max-age=2592000"; // 30 days
       localStorage.setItem("has_scanned", "true");
-      
+
       setStep(3)
       setScanPhase(0)
     }, 10000)
@@ -583,7 +583,7 @@ function DatingScannerContent() {
           ))}
         </div>
         {redFlags.length > 0 && (
-          <button 
+          <button
             onClick={() => scrollToSection(idRef)}
             className="w-full py-2 text-xs text-cyan-500 font-bold flex items-center justify-center gap-2 animate-pulse mt-2"
           >
@@ -603,23 +603,23 @@ function DatingScannerContent() {
 
         {/* Tabs */}
         <div className="flex bg-slate-900 p-1.5 rounded-xl border border-slate-800 shadow-inner">
-          <button 
+          <button
             type="button"
-            onClick={() => { setActiveInputTab('instagram'); setErrorMessage(null); }} 
+            onClick={() => { setActiveInputTab('instagram'); setErrorMessage(null); }}
             className={`flex-1 py-4 text-xs font-bold uppercase rounded-lg transition-all active:scale-95 touch-manipulation flex items-center justify-center ${activeInputTab === 'instagram' ? 'bg-slate-700 text-white shadow-lg ring-1 ring-slate-500' : 'text-slate-500 hover:text-slate-300'}`}
           >
             Instagram
           </button>
-          <button 
+          <button
             type="button"
-            onClick={() => { setActiveInputTab('photo'); setErrorMessage(null); }} 
+            onClick={() => { setActiveInputTab('photo'); setErrorMessage(null); }}
             className={`flex-1 py-4 text-xs font-bold uppercase rounded-lg transition-all active:scale-95 touch-manipulation flex items-center justify-center ${activeInputTab === 'photo' ? 'bg-slate-700 text-white shadow-lg ring-1 ring-slate-500' : 'text-slate-500 hover:text-slate-300'}`}
           >
             Foto
           </button>
-          <button 
+          <button
             type="button"
-            onClick={() => { setActiveInputTab('whatsapp'); setErrorMessage(null); }} 
+            onClick={() => { setActiveInputTab('whatsapp'); setErrorMessage(null); }}
             className={`flex-1 py-4 text-xs font-bold uppercase rounded-lg transition-all active:scale-95 touch-manipulation flex items-center justify-center ${activeInputTab === 'whatsapp' ? 'bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 shadow-lg ring-1 ring-emerald-500' : 'text-slate-500 hover:text-slate-300'}`}
           >
             WhatsApp
@@ -632,22 +632,22 @@ function DatingScannerContent() {
           {/* PHOTO UPLOAD - Optimized for Clarity (No dead clicks) */}
           {activeInputTab === 'photo' && (
             <div className="relative">
-              <label 
+              <label
                 className={`block w-full h-40 border-2 border-dashed rounded-2xl transition-all cursor-pointer relative flex flex-col items-center justify-center gap-3 group overflow-hidden active:scale-[0.98] transition-all transform ${imageUploaded ? 'border-emerald-500 bg-emerald-500/5' : 'border-slate-600 hover:border-cyan-500 hover:bg-cyan-500/5'}`}
               >
-                <input 
-                  type="file" 
-                  accept="image/*" 
-                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20" 
-                  onChange={handleImageChange} 
+                <input
+                  type="file"
+                  accept="image/*"
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20"
+                  onChange={handleImageChange}
                 />
-                
+
                 {imagePreview && activeInputTab === 'photo' ? (
                   <img src={imagePreview} className="absolute inset-0 w-full h-full object-cover rounded-xl opacity-60" />
                 ) : (
                   <ScanFace className={`w-8 h-8 transition-colors ${imageUploaded ? 'text-emerald-500' : 'text-slate-500 group-hover:text-cyan-400'}`} />
                 )}
-                
+
                 <div className="relative z-10 text-center space-y-1">
                   <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full border ${imageUploaded ? 'bg-emerald-500 text-white border-emerald-400' : 'bg-slate-900 border-slate-700 text-slate-300'}`}>
                     {imageUploaded ? "FOTO SUBIDA CON ÉXITO" : "SUBIR FOTO DEL OBJETIVO"}
@@ -768,7 +768,7 @@ function DatingScannerContent() {
 
         {/* PROFILE RESULT PREVIEW */}
         {imageUploaded && (
-          <div 
+          <div
             onClick={() => scrollToSection(submitRef)}
             className="mt-4 p-3 bg-[#0B1120] border border-cyan-500/30 rounded-lg flex items-center gap-3 animate-fade-in cursor-pointer active:scale-98 hover:bg-[#0f172a] transition-all group"
           >
@@ -808,8 +808,8 @@ function DatingScannerContent() {
         <button
           onClick={startInvestigation}
           disabled={!isFormComplete || isFetchingProfile}
-          className={`w-full py-4 text-white font-bold rounded-xl transition-all transform active:scale-95 flex items-center justify-center gap-2 overflow-hidden relative ${isFormComplete && !isFetchingProfile 
-            ? 'bg-gradient-to-r from-cyan-600 to-blue-600 shadow-[0_0_25px_rgba(6,182,212,0.5)] animate-pulse-subtle' 
+          className={`w-full py-4 text-white font-bold rounded-xl transition-all transform active:scale-95 flex items-center justify-center gap-2 overflow-hidden relative ${isFormComplete && !isFetchingProfile
+            ? 'bg-gradient-to-r from-cyan-600 to-blue-600 shadow-[0_0_25px_rgba(6,182,212,0.5)] animate-pulse-subtle'
             : 'bg-slate-800 border border-slate-700 text-slate-500'}`}
         >
           {isFetchingProfile ? (
@@ -827,7 +827,7 @@ function DatingScannerContent() {
             <div className="absolute top-0 right-0 h-full w-1/4 bg-white/10 -skew-x-12 translate-x-full animate-shimmer"></div>
           )}
         </button>
-        
+
         {isFormComplete && (
           <p className="text-[10px] text-center mt-3 text-cyan-500/70 font-bold animate-pulse">
             ⚠️ Solo 3 escaneos disponibles en su región hoy.
@@ -965,11 +965,11 @@ function DatingScannerContent() {
                   style={{ animationDelay: `${i * 0.15}s` }}
                 >
                   {instagramFeed[i] ? (
-                    <img 
-                      src={instagramFeed[i].imageUrl} 
-                      alt={`Feed ${i}`} 
+                    <img
+                      src={instagramFeed[i].imageUrl}
+                      alt={`Feed ${i}`}
                       className="w-full h-full object-cover animate-fade-in"
-                      style={{ 
+                      style={{
                         opacity: scanPhase >= Math.ceil((i + 1) / 3) ? 1 : 0.3,
                         filter: scanPhase >= Math.ceil((i + 1) / 3) ? 'none' : 'blur(2px)'
                       }}
@@ -1259,8 +1259,8 @@ function DatingScannerContent() {
           </a>
 
           <div className="flex justify-center items-center gap-4 mt-4 text-[10px] text-slate-500 font-mono">
-            <span className="flex items-center gap-1"><ShieldCheck className="w-3 h-3 text-emerald-500"/> 256-bit SSL</span>
-            <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3 text-emerald-500"/> Garantía de 7 días</span>
+            <span className="flex items-center gap-1"><ShieldCheck className="w-3 h-3 text-emerald-500" /> 256-bit SSL</span>
+            <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3 text-emerald-500" /> Garantía de 7 días</span>
           </div>
         </div>
 
@@ -1274,21 +1274,21 @@ function DatingScannerContent() {
           </div>
 
           <div className="relative group">
-            <button 
+            <button
               onClick={() => scrollVideos('left')}
               className="absolute left-0 top-1/2 -translate-y-1/2 -ml-3 z-20 bg-[#0B1120] hover:bg-slate-800 text-white rounded-full p-2 border border-slate-700 transition shadow-[0_0_10px_rgba(0,0,0,0.5)]"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
 
-            <button 
+            <button
               onClick={() => scrollVideos('right')}
               className="absolute right-0 top-1/2 -translate-y-1/2 -mr-3 z-20 bg-[#0B1120] hover:bg-slate-800 text-white rounded-full p-2 border border-slate-700 transition shadow-[0_0_10px_rgba(0,0,0,0.5)]"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
 
-            <div 
+            <div
               ref={videoScrollRef}
               className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 pt-2 relative z-10"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
@@ -1347,7 +1347,7 @@ function DatingScannerContent() {
                 </div>
               </div>
             </div>
-            
+
             <div className="w-full flex justify-center mt-2 gap-1.5 opacity-50">
               <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
               <div className="w-2 h-2 rounded-full bg-slate-600"></div>
@@ -1361,7 +1361,7 @@ function DatingScannerContent() {
           <h2 className="text-xl font-bold text-white text-center mb-6 flex items-center justify-center gap-2">
             <CheckCircle2 className="w-5 h-5 text-emerald-500" /> Preguntas Frecuentes
           </h2>
-          
+
           <div className="space-y-4">
             <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50 flex flex-col items-start text-left">
               <h4 className="font-bold text-sm text-white flex items-center gap-2 mb-2">
@@ -1369,7 +1369,7 @@ function DatingScannerContent() {
               </h4>
               <p className="text-xs text-slate-400">Absolutamente. No hay rastro de que hayas accedido a estos datos. No les notificamos ni necesitamos ningún acceso a su dispositivo.</p>
             </div>
-            
+
             <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700/50 flex flex-col items-start text-left">
               <h4 className="font-bold text-sm text-white flex items-center gap-2 mb-2">
                 <Search className="w-4 h-4 text-emerald-400" /> ¿Qué hay exactamente en el informe?
@@ -1384,12 +1384,12 @@ function DatingScannerContent() {
               <p className="text-xs text-slate-400">Si nuestro escaneo regresa completamente limpio, tendrás la tranquilidad que te mereces. Estás cubierto por nuestra Garantía de 7 días.</p>
             </div>
           </div>
-          
+
           {/* Secondary CTA */}
           <div className="mt-8 pt-6 border-t border-slate-800/50 text-center">
             <button
-               onClick={scrollToCheckout}
-               className="w-full bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-bold py-4 px-8 rounded-xl transition-all text-sm uppercase tracking-widest"
+              onClick={scrollToCheckout}
+              className="w-full bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-bold py-4 px-8 rounded-xl transition-all text-sm uppercase tracking-widest"
             >
               Obtener Mi Dossier Ahora
             </button>
@@ -1398,15 +1398,15 @@ function DatingScannerContent() {
 
         {/* Floating Bottom Action Bar */}
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-sm z-40 animate-in slide-in-from-bottom-12 transition-all">
-          <a 
-             href={checkoutHref}
-             onClick={fireIC}
-             className="flex items-center justify-between bg-white text-[#0B1120] font-black px-7 h-16 rounded-[1.25rem] shadow-[0_15px_40px_rgba(255,255,255,0.2)] hover:scale-105 active:scale-95 transition-all text-left"
+          <a
+            href={checkoutHref}
+            onClick={fireIC}
+            className="flex items-center justify-between bg-white text-[#0B1120] font-black px-7 h-16 rounded-[1.25rem] shadow-[0_15px_40px_rgba(255,255,255,0.2)] hover:scale-105 active:scale-95 transition-all text-left"
           >
-             <span className="uppercase tracking-widest text-[11px] pt-0.5 max-w-[80%] leading-tight">Acceder al Dossier Confidencial</span>
-             <div className="bg-emerald-500 rounded-full p-2 shrink-0 shadow-lg">
-               <ShieldCheck className="w-5 h-5 text-white" />
-             </div>
+            <span className="uppercase tracking-widest text-[11px] pt-0.5 max-w-[80%] leading-tight">Acceder al Dossier Confidencial</span>
+            <div className="bg-emerald-500 rounded-full p-2 shrink-0 shadow-lg">
+              <ShieldCheck className="w-5 h-5 text-white" />
+            </div>
           </a>
         </div>
 
@@ -1485,22 +1485,22 @@ function DatingScannerContent() {
       <link rel="prerender" href="https://play.tynk.ai/p/55c0525d-8354-4cd6-a98f-34a31df5b1aa" />
 
       <div className="min-h-[100dvh] flex flex-col items-center bg-[#0B1120] font-sans selection:bg-cyan-500/30">
-      
-      <main className="w-full h-full flex-grow">
-        {step === 1 && renderInputStep()}
-        {step === 2 && renderLoadingStep()}
-        {step === 3 && renderResultsStep()}
-      </main>
 
-      {step !== 2 && (
-        <footer className="py-6 text-center border-t border-slate-800 w-full mt-auto">
-          <p className="text-[10px] text-slate-600 uppercase tracking-widest">© 2026 Infidelity Finder. Todos los derechos reservados.</p>
-        </footer>
-      )}
+        <main className="w-full h-full flex-grow">
+          {step === 1 && renderInputStep()}
+          {step === 2 && renderLoadingStep()}
+          {step === 3 && renderResultsStep()}
+        </main>
 
-      {renderMatchModal()}
-      {/* Hidden link for EasyTracker Crawler Validation */}
-      <a href={crawlerLink} style={{ display: 'none' }} aria-hidden="true">ET-Validation</a>
+        {step !== 2 && (
+          <footer className="py-6 text-center border-t border-slate-800 w-full mt-auto">
+            <p className="text-[10px] text-slate-600 uppercase tracking-widest">© 2026 Infidelity Finder. Todos los derechos reservados.</p>
+          </footer>
+        )}
+
+        {renderMatchModal()}
+        {/* Hidden link for EasyTracker Crawler Validation */}
+        <a href={crawlerLink} style={{ display: 'none' }} aria-hidden="true">ET-Validation</a>
       </div>
     </>
   )
