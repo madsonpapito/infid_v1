@@ -109,19 +109,19 @@ function DatingScannerContent() {
       name: "Jessica, 31",
       location: "Orlando, FL",
       text: "Sinceramente, no pensé que funcionaría, pero el informe mostró chats eliminados que lo explicaban todo. Fue como la pieza que faltaba.",
-      video: "https://play.tynk.ai/p/55c0525d-8354-4cd6-a98f-34a31df5b1aa"
+      video: "https://play.tynk.ai/p/55d6949f-6541-47a0-b794-cedddcb50fe7"
     },
     {
       name: "Amanda, 44",
       location: "Dallas, TX",
       text: "Estaba nerviosa, pero en pocos minutos mostró mensajes ocultos e incluso notas de voz. Esa fue la confirmación que necesitaba.",
-      video: "https://play.tynk.ai/p/d04e1286-c92c-4f39-a679-2ce4b742cd59"
+      video: "https://play.tynk.ai/p/4b3b5045-dc12-4e82-a838-1786415ffd3b"
     },
     {
       name: "Daniel, 38",
       location: "Fresno, CA",
       text: "No son suposiciones ni alertas al azar… es prueba real. Vi las capturas de pantalla yo mismo. Vale la pena.",
-      video: "https://play.tynk.ai/p/ac310c50-c224-4c0f-bdc0-ebf311ef7afa"
+      video: "https://play.tynk.ai/p/47fddebe-c626-4ac0-bc9d-065873291dbb"
     }
   ]
 
