@@ -11,6 +11,23 @@ import {
 import Image from "next/image"
 import { useRouter } from 'next/navigation'
 
+const LiveCounter = () => {
+  const [count, setCount] = useState(674);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCount(prev => {
+        const change = Math.floor(Math.random() * 5) - 2; // -2 to +2
+        const next = prev + change;
+        return next > 695 ? 695 : next < 660 ? 660 : next;
+      });
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return <span>{count}</span>;
+};
+
 export default function HomeWireframeMatch() {
   const router = useRouter();
 
@@ -91,13 +108,26 @@ export default function HomeWireframeMatch() {
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <a
                 href="https://etr.tindercheck.xyz/trk/landing/2"
-                className="bg-emerald-500 hover:bg-emerald-400 text-[#060b19] font-bold py-4 px-8 rounded-lg shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all transform hover:scale-105 flex items-center justify-center gap-2 text-lg uppercase mx-auto easyt-next-page"
+                className="bg-emerald-500 hover:bg-emerald-400 text-[#060b19] font-bold py-5 px-8 rounded-lg shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all transform hover:scale-105 flex items-center justify-center gap-2 text-lg uppercase mx-auto easyt-next-page"
               >
                 <Search className="w-5 h-5 flex-shrink-0" /> ESCANEAR REDES SOCIALES AHORA
               </a>
-              <p className="text-xs text-slate-500 mt-2 sm:hidden text-center">No se requiere tarjeta para el escaneo.</p>
             </div>
-            <p className="text-xs text-slate-500 italic">100% anónimo. Nunca sabrán que revisaste.</p>
+
+            {/* Live Counter Widget */}
+            <div className="flex items-center justify-center gap-3 pt-2">
+              <div className="flex items-center gap-1.5 bg-emerald-500/10 px-3 py-1.5 rounded-full border border-emerald-500/20">
+                <span className="relative flex h-2 w-2">
+                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span className="text-[10px] sm:text-xs font-black text-emerald-400 uppercase tracking-widest">
+                  <LiveCounter /> USUARIOS ESCANEANDO AHORA
+                </span>
+              </div>
+            </div>
+
+            <p className="text-xs text-slate-500 italic pt-2">100% anónimo. Nunca sabrán que revisaste.</p>
           </div>
 
           {/* Hero Image / Graphic */}
@@ -145,17 +175,30 @@ export default function HomeWireframeMatch() {
         </div>
       </section>
 
-      {/* TRUST BAR */}
+      {/* TRUST BAR & AS SEEN IN */}
       <div className="bg-[#0f172a]/50 border-y border-slate-800/50 backdrop-blur-sm">
-        <div className="container mx-auto px-4 py-6 flex flex-wrap justify-center gap-8 md:gap-16 text-slate-400 text-sm font-medium">
-          <div className="flex items-center gap-2">
-            <Lock className="w-4 h-4 text-emerald-500" /> SSL Seguro
+        <div className="container mx-auto px-4 py-8 space-y-8">
+          {/* Main Trust Badges */}
+          <div className="flex flex-wrap justify-center gap-8 md:gap-16 text-slate-400 text-sm font-bold uppercase tracking-widest">
+            <div className="flex items-center gap-2">
+              <Lock className="w-4 h-4 text-emerald-500" /> SSL Seguro
+            </div>
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4 text-emerald-500" /> 100% Anónimo
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-500" /> Informe Verificado
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-emerald-500" /> 100% Anónimo
-          </div>
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-emerald-500" /> Informe Verificado
+
+          {/* Authority Logos ("As Seen In") */}
+          <div className="pt-6 border-t border-slate-800/30">
+            <p className="text-center text-[10px] font-black text-slate-600 uppercase tracking-[0.3em] mb-6">Mencionado en las principales redes de noticias</p>
+            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-30 grayscale hover:opacity-50 transition-opacity duration-700">
+              {['EL MUNDO', 'ABC', 'LA RAZÓN', 'EL PAÍS', 'TELEVISIÓN ESPAÑOLA'].map((logo) => (
+                <span key={logo} className="text-sm md:text-base font-black tracking-tighter text-slate-400 font-serif italic">{logo}</span>
+              ))}
+            </div>
           </div>
         </div>
       </div>

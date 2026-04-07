@@ -19,11 +19,13 @@ function StandardResultsContent() {
     ? `${baseCheckoutUrl}&${queryString}`
     : baseCheckoutUrl
 
-  const [timeLeft, setTimeLeft] = useState(415) // ~7 minutes
+  const [timeLeft, setTimeLeft] = useState(600) // 10 minutes countdown
   const [progress, setProgress] = useState(0)
   const [location, setLocation] = useState("Tu Ubicación")
   const [notification, setNotification] = useState<string | null>(null)
   const videoScrollRef = useRef<HTMLDivElement>(null)
+
+  // ... (keeping other effects)
 
   // Extraction Notification Simulator
   useEffect(() => {
@@ -100,16 +102,27 @@ function StandardResultsContent() {
 
   return (
     <div className="min-h-screen bg-[#0B1120] text-slate-100 font-sans selection:bg-rose-500/30 overflow-x-hidden">
-      {/* 100% Complete Progress Bar */}
-      <div className="fixed top-0 left-0 w-full z-50">
-        <div className="bg-rose-600 h-9 flex items-center justify-center relative overflow-hidden">
-          <div
-            className="absolute left-0 top-0 h-full bg-rose-500 transition-all duration-1000 ease-out"
-            style={{ width: `${progress}%` }}
-          ></div>
-          <span className="relative z-10 text-[10px] font-black uppercase tracking-[0.25em] text-white animate-pulse">
-            DOSSIER FINAL: 100% RECUPERADO
-          </span>
+      {/* TOP SCARCITY BAR */}
+      <div className="fixed top-0 left-0 w-full z-50 shadow-2xl">
+        <div className={`h-11 flex items-center justify-center relative overflow-hidden transition-colors duration-500 ${progress < 100 ? 'bg-slate-900 border-b border-slate-800' : 'bg-rose-600 shadow-[0_0_20px_rgba(225,29,72,0.4)]'}`}>
+          {progress < 100 ? (
+            <>
+              <div
+                className="absolute left-0 top-0 h-full bg-emerald-500/20 transition-all duration-1000 ease-out"
+                style={{ width: `${progress}%` }}
+              ></div>
+              <span className="relative z-10 text-[10px] font-black uppercase tracking-[0.25em] text-emerald-500 animate-pulse">
+                GENERANDO DOSSIER FINAL: {progress}%
+              </span>
+            </>
+          ) : (
+            <div className="flex items-center gap-3 relative z-10">
+               <span className="text-white text-lg animate-bounce mt-1">🚩</span>
+               <span className="text-[12px] md:text-sm font-black uppercase tracking-widest text-white">
+                 TU INFORME PRIVADO EXPIRARÁ EN: <span className="underline decoration-white/50">{formatTime(timeLeft)}</span>
+               </span>
+            </div>
+          )}
         </div>
       </div>
 
