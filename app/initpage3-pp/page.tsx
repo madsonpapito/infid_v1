@@ -32,7 +32,7 @@ export default function InitPage3PP() {
 
                     <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-8">
                         <Link
-                            href="https://go.centerpag.com/PPU38CQ9Q5C"
+                            href="https://go.centerpag.com/PPU38CQAH4R"
                             className="w-full md:w-auto bg-rose-600 hover:bg-rose-700 text-white text-lg font-bold py-4 px-10 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
                         >
                             Obtener la Guía de los 5 Pilares
@@ -153,7 +153,7 @@ export default function InitPage3PP() {
                     </p>
                     <div className="flex flex-col items-center gap-4">
                         <Link
-                            href="https://go.centerpag.com/PPU38CQ9Q5C"
+                            href="https://go.centerpag.com/PPU38CQAH4R"
                             className="bg-white text-rose-700 hover:bg-slate-100 text-lg font-bold py-4 px-10 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 w-full md:w-auto"
                         >
                             ¡Sí! Quiero una Relación Más Fuerte

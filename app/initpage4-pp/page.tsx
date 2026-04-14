@@ -31,7 +31,7 @@ export default function InitPage4PP() {
 
                     <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-8">
                         <Link
-                            href="https://go.centerpag.com/PPU38CQ9Q5C"
+                            href="https://go.centerpag.com/PPU38CQAH52"
                             className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold py-4 px-10 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
                         >
                             Desbloquea la Comunicación Efectiva
@@ -129,7 +129,7 @@ export default function InitPage4PP() {
                     </p>
                     <div className="flex flex-col items-center gap-4">
                         <Link
-                            href="https://go.centerpag.com/PPU38CQ9Q5C"
+                            href="https://go.centerpag.com/PPU38CQAH52"
                             className="bg-white text-blue-700 hover:bg-slate-100 text-lg font-bold py-4 px-10 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 w-full md:w-auto"
                         >
                             ¡Sí! Dame una Mejor Comunicación

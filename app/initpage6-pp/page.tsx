@@ -32,7 +32,7 @@ export default function InitPage6PP() {
 
                     <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-8">
                         <Link
-                            href="https://go.centerpag.com/PPU38CQ9Q5C"
+                            href="https://go.centerpag.com/PPU38CQAH6C"
                             className="w-full md:w-auto bg-emerald-600 hover:bg-emerald-700 text-white text-lg font-bold py-4 px-10 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
                         >
                             Comienza a Resolver Conflictos Hoy
@@ -130,7 +130,7 @@ export default function InitPage6PP() {
                     </p>
                     <div className="space-y-6">
                         <Link
-                            href="https://go.centerpag.com/PPU38CQ9Q5C"
+                            href="https://go.centerpag.com/PPU38CQAH6C"
                             className="inline-block w-full md:w-auto bg-white text-emerald-700 hover:bg-emerald-50 text-xl font-bold py-5 px-12 rounded-2xl shadow-2xl transition-all transform hover:-translate-y-1"
                         >
                             ¡Sí! Dame el Programa de Resolución de Conflictos

@@ -32,7 +32,7 @@ export default function InitPage7PP() {
 
                     <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-8">
                         <Link
-                            href="https://go.centerpag.com/PPU38CQ9Q5C"
+                            href="https://go.centerpag.com/PPU38CQAH6I"
                             className="w-full md:w-auto bg-amber-600 hover:bg-amber-700 text-white text-lg font-bold py-4 px-10 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
                         >
                             Construye Confianza Inquebrantable
@@ -125,7 +125,7 @@ export default function InitPage7PP() {
                                 Una herramienta exclusiva de autoevaluación para medir y mejorar la salud de su confianza en tiempo real.
                             </p>
                             <Link
-                                href="https://go.centerpag.com/PPU38CQ9Q5C"
+                                href="https://go.centerpag.com/PPU38CQAH6I"
                                 className="block w-full bg-amber-600 hover:bg-amber-700 text-white text-center font-bold py-4 rounded-xl transition-all shadow-lg"
                             >
                                 Inicia la Construcción Ahora
@@ -144,7 +144,7 @@ export default function InitPage7PP() {
                     </p>
                     <div className="flex flex-col items-center gap-4">
                         <Link
-                            href="https://go.centerpag.com/PPU38CQ9Q5C"
+                            href="https://go.centerpag.com/PPU38CQAH6I"
                             className="bg-amber-600 hover:bg-amber-700 text-white text-lg md:text-xl font-bold py-5 px-12 rounded-2xl shadow-xl transition-all transform hover:-translate-y-1 w-full md:w-auto"
                         >
                             ¡Obtén la Guía de Confianza Inquebrantable!

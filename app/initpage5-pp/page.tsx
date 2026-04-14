@@ -31,7 +31,7 @@ export default function InitPage5PP() {
 
                     <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-8">
                         <Link
-                            href="https://go.centerpag.com/PPU38CQ9Q5C"
+                            href="https://go.centerpag.com/PPU38CQAH56"
                             className="w-full md:w-auto bg-purple-600 hover:bg-purple-700 text-white text-lg font-bold py-4 px-10 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
                         >
                             Reconecta sus Corazones
@@ -120,7 +120,7 @@ export default function InitPage5PP() {
                             </div>
                         </div>
                         <Link
-                            href="https://go.centerpag.com/PPU38CQ9Q5C"
+                            href="https://go.centerpag.com/PPU38CQAH56"
                             className="inline-block bg-white text-purple-900 hover:bg-slate-100 text-lg font-bold py-4 px-12 rounded-2xl shadow-xl transition-all transform hover:-translate-y-1"
                         >
                             ¡Sí! Quiero una Conexión Más Profunda
@@ -161,7 +161,7 @@ export default function InitPage5PP() {
                     </p>
                     <div className="flex flex-col items-center gap-4">
                         <Link
-                            href="https://go.centerpag.com/PPU38CQ9Q5C"
+                            href="https://go.centerpag.com/PPU38CQAH56"
                             className="bg-purple-600 hover:bg-purple-700 text-white text-lg font-bold py-4 px-10 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 w-full md:w-auto"
                         >
                             ¡Obtén Acceso Inmediato al Plano de Intimidad!
